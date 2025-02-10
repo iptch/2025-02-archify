@@ -1,0 +1,163 @@
+{
+  "configuration" : {
+    "scope" : "SoftwareSystem"
+  },
+  "description" : "Software system diagram",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-02-10T20:50:45Z",
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Certification Candidate",
+      "properties" : {
+        "structurizr.dsl.identifier" : "u"
+      },
+      "relationships" : [ {
+        "description" : "Takes Exam",
+        "destinationId" : "3",
+        "id" : "5",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Takes Exam",
+        "destinationId" : "2",
+        "id" : "6",
+        "linkedRelationshipId" : "5",
+        "sourceId" : "1"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "documentation" : { },
+        "id" : "3",
+        "name" : "Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.wa"
+        },
+        "relationships" : [ {
+          "description" : "Reads from and writes to",
+          "destinationId" : "4",
+          "id" : "7",
+          "sourceId" : "3",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Database Schema",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.db"
+        },
+        "tags" : "Element,Container,Database"
+      } ],
+      "documentation" : { },
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "ARCHIFY Aptitute Test System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ss"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "Archify",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJBcmNoaWZ5IiAiU29mdHdhcmUgc3lzdGVtIGRpYWdyYW0iIHsKCiAgICAhaWRlbnRpZmllcnMgaGllcmFyY2hpY2FsCgogICAgbW9kZWwgewogICAgICAgIHUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIgogICAgICAgIHNzID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgQXB0aXR1dGUgVGVzdCBTeXN0ZW0iIHsKICAgICAgICAgICAgd2EgPSBjb250YWluZXIgIldlYiBBcHBsaWNhdGlvbiIKICAgICAgICAgICAgZGIgPSBjb250YWluZXIgIkRhdGFiYXNlIFNjaGVtYSIgewogICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHUgLT4gc3Mud2EgIlRha2VzIEV4YW0iCiAgICAgICAgc3Mud2EgLT4gc3MuZGIgIlJlYWRzIGZyb20gYW5kIHdyaXRlcyB0byIKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBzcyAiRGlhZ3JhbTEiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBzcyAiRGlhZ3JhbTIiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiIHsKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2U3MDA0YwogICAgICAgICAgICAgICAgc2hhcGUgcGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDY1YTEKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2FlY2VlMQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBjeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIGNvbmZpZ3VyYXRpb24gewogICAgICAgIHNjb3BlIHNvZnR3YXJlc3lzdGVtCiAgICB9Cgp9"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "Diagram1",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "color" : "#ffffff",
+          "tag" : "Element"
+        }, {
+          "background" : "#e7004c",
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "background" : "#0065a1",
+          "tag" : "Software System"
+        }, {
+          "background" : "#aecee1",
+          "tag" : "Container"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Diagram2",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "5"
+      }, {
+        "id" : "7"
+      } ],
+      "softwareSystemId" : "2"
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 800,
+        "width" : 1550
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 199,
+        "y" : 165
+      }, {
+        "id" : "2",
+        "x" : 899,
+        "y" : 215
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Diagram1",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "6"
+      } ],
+      "softwareSystemId" : "2"
+    } ]
+  }
+}
