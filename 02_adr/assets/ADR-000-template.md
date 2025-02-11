@@ -1,7 +1,7 @@
 # <your-adr-title>
 
 ## Date:
-2024-xx-xx
+2025-xx-xx
 
 ## Status:
 Accepted / Proposed / Superseded
