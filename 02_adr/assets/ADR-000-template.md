@@ -12,5 +12,7 @@ Why is a decision needed?
 ## Decision:
 What is a decision?
 
+### Why did we take this decision?
+
 ## Consequences:
 What are the consequences?
