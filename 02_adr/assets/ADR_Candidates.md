@@ -5,7 +5,7 @@ In our second Workshop we refined use cases and identified/discussed architectur
 * (JVI) Which use cases to solve with AI 
 * (MKC) API or Self Hosting (consider cost)
 * (JVI) Grading: Fully autmated or with Human in the loop
-* (IDE) Leverage existing data to improve LLM output (RAG vs. Fine Tunig) 
+* (IDE) Leverage existing data to improve LLM output (RAG vs. Fine Tunig) -> done (aptitude, architecture)
 * How to evaluate Aptitude Exam (Via promt engineering & vector DB)
 * Vector DB (Why & How)
 * Identify Questions to be reviewed by a human (Aptitude grading)

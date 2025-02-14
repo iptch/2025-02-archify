@@ -39,6 +39,6 @@ Having these factors in mind, the following points led us to chose RAG:
 
 ## Consequences:
 
-* Implementation Complexity: We will maintain and scale a retrieval layer (e.g., vector database) so the model can search relevant data efficiently. This adds infrastructure overhead compared to simple prompt engineering. Additionally there may be other components as part of RAG that bring complexity to the system. This will be adressed in other ADRs (todo).
+* Implementation Complexity: We will maintain and scale a retrieval layer (e.g., vector database or similar "todo" -> link to adr) so the model can search relevant data efficiently. This adds infrastructure overhead compared to simple prompt engineering. Additionally there may be other components as part of RAG that bring complexity to the system. This will be adressed in other ADRs (todo).
 * Lower Latency: Retrieval steps can introduce some overhead. We accept this consequence, because we have a relatively long time until the exam needs to be graded. There is no requirement for near real-time grading
 * Continuous Maintenance: The RAG approach demands ongoing curation and updates to the knowledge base. This process, however, is less taxing than frequent model fine-tuning or re-training.
