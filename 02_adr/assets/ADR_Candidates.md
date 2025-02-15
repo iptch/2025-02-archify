@@ -8,10 +8,10 @@ In our second Workshop we refined use cases and identified/discussed architectur
 * (IDE) Leverage existing data to improve LLM output (RAG vs. Fine Tunig) -> done (aptitude, architecture)
 * How to evaluate Aptitude Exam (Via promt engineering & vector DB)
 * Vector DB (Why & How)
-* Identify Questions to be reviewed by a human (Aptitude grading)
+* (IDE) Identify Questions to be reviewed by a human (Aptitude grading)
 * How to promt (Aptitude Testing) (per question)
-* Prevent Promt Injection Guard Rails (Aptitude)
-* Structure Output (Aptitude Test)
+* (IDE) Prevent Promt Injection Guard Rails (Aptitude)
+* (IDE) Structure Output (Aptitude Test)
 * Integration into existing system (Adapter component, Scheduling/Queues, Write back Results (DBs), Changes to existing comonents)
 * How to evaluate Architectural Exams (Use evaluation criteria and technical context)
 * Enrich Contect for Architectural Exam
