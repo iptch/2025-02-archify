@@ -4,7 +4,7 @@
 2025-xx-xx
 
 ## Status:
-Accepted / Proposed / Superseded
+Accepted / Proposed / Superseded / Draft
 
 ## Context:
 Why is a decision needed?
