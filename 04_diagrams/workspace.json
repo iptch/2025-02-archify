@@ -1,132 +1,403 @@
 {
-  "configuration" : {
-    "scope" : "SoftwareSystem"
-  },
-  "description" : "Software system diagram",
+  "configuration" : { },
+  "description" : "Description",
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2025-02-10T20:50:45Z",
+  "lastModifiedDate" : "2025-02-15T08:51:36Z",
   "model" : {
     "people" : [ {
+      "description" : "A candidate that is aiming to get professionally certified.",
       "id" : "1",
       "location" : "Unspecified",
       "name" : "Certification Candidate",
       "properties" : {
-        "structurizr.dsl.identifier" : "u"
+        "structurizr.dsl.identifier" : "candidate"
       },
       "relationships" : [ {
-        "description" : "Takes Exam",
-        "destinationId" : "3",
-        "id" : "5",
+        "description" : "Solves certification exams",
+        "destinationId" : "4",
+        "id" : "14",
         "sourceId" : "1",
         "tags" : "Relationship"
-      }, {
-        "description" : "Takes Exam",
-        "destinationId" : "2",
-        "id" : "6",
-        "linkedRelationshipId" : "5",
-        "sourceId" : "1"
       } ],
-      "tags" : "Element,Person"
+      "tags" : "Element,Person,Candidate"
+    }, {
+      "description" : "IT Expert Grader, hired by Certifiable Inc.",
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "IT Expert",
+      "properties" : {
+        "structurizr.dsl.identifier" : "expert"
+      },
+      "relationships" : [ {
+        "description" : "Grades Exams, Analyses the question and case study catalog",
+        "destinationId" : "4",
+        "id" : "15",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person,Expert"
+    }, {
+      "description" : "AI Engineer, hired by Certifiable Inc.",
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "ML Engineer",
+      "properties" : {
+        "structurizr.dsl.identifier" : "engineer"
+      },
+      "relationships" : [ {
+        "description" : "Monitors, Parameter Tuning, Change Models etc.",
+        "destinationId" : "7",
+        "id" : "16",
+        "sourceId" : "3",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person,ML Engineer"
     } ],
     "softwareSystems" : [ {
       "containers" : [ {
+        "description" : "Archify Adapter, parses exams from ungraded exams database",
         "documentation" : { },
-        "id" : "3",
-        "name" : "Web Application",
+        "id" : "5",
+        "name" : "Adapter",
         "properties" : {
-          "structurizr.dsl.identifier" : "ss.wa"
+          "structurizr.dsl.identifier" : "test"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Adapter"
+      }, {
+        "description" : "Ungraded exams database",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "database"
         },
         "relationships" : [ {
-          "description" : "Reads from and writes to",
-          "destinationId" : "4",
-          "id" : "7",
-          "sourceId" : "3",
+          "description" : "reads ungraded aptitude test exams",
+          "destinationId" : "8",
+          "id" : "18",
+          "sourceId" : "6",
           "tags" : "Relationship"
+        }, {
+          "description" : "reads ungraded aptitude test exams",
+          "destinationId" : "7",
+          "id" : "19",
+          "linkedRelationshipId" : "18",
+          "sourceId" : "6"
         } ],
-        "tags" : "Element,Container"
-      }, {
-        "documentation" : { },
-        "id" : "4",
-        "name" : "Database Schema",
-        "properties" : {
-          "structurizr.dsl.identifier" : "ss.db"
-        },
-        "tags" : "Element,Container,Database"
+        "tags" : "Element,Container,database",
+        "technology" : "TODO database Schema"
       } ],
       "documentation" : { },
-      "id" : "2",
+      "id" : "4",
       "location" : "Unspecified",
-      "name" : "ARCHIFY Aptitute Test System",
+      "name" : "Certifiable Inc. Existing Software System",
       "properties" : {
-        "structurizr.dsl.identifier" : "ss"
+        "structurizr.dsl.identifier" : "certifiablesystem"
       },
+      "relationships" : [ {
+        "description" : "reads ungraded aptitude test exams",
+        "destinationId" : "8",
+        "id" : "20",
+        "linkedRelationshipId" : "18",
+        "sourceId" : "4"
+      }, {
+        "description" : "reads ungraded aptitude test exams",
+        "destinationId" : "7",
+        "id" : "21",
+        "linkedRelationshipId" : "18",
+        "sourceId" : "4"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Archify Adapter, parses exams from ungraded exams database",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Adapter",
+        "properties" : {
+          "structurizr.dsl.identifier" : "adapter"
+        },
+        "relationships" : [ {
+          "description" : "Provides Q&A tuple",
+          "destinationId" : "9",
+          "id" : "22",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Adapter"
+      }, {
+        "description" : "Archify Prompt Orchestrator",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "Prompt Orchestrator",
+        "properties" : {
+          "structurizr.dsl.identifier" : "orchestrator"
+        },
+        "relationships" : [ {
+          "description" : "Returns LLM grading",
+          "destinationId" : "8",
+          "id" : "23",
+          "sourceId" : "9",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Checks for injection attacks",
+          "destinationId" : "12",
+          "id" : "24",
+          "sourceId" : "9",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Checks for injection attacks",
+          "destinationId" : "11",
+          "id" : "25",
+          "linkedRelationshipId" : "24",
+          "sourceId" : "9"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Prompt Orchestrator"
+      }, {
+        "description" : "TODO",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Vector Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "vectordatabase"
+        },
+        "relationships" : [ {
+          "description" : "Enriches prompt by providing most similar Q&A tuples",
+          "destinationId" : "9",
+          "id" : "32",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "database"
+      } ],
+      "documentation" : { },
+      "id" : "7",
+      "location" : "Unspecified",
+      "name" : "ARCHIFY Certification System Adapter",
+      "properties" : {
+        "structurizr.dsl.identifier" : "archifyadaptersystem"
+      },
+      "relationships" : [ {
+        "description" : "Provides ungraded exams and exam database",
+        "destinationId" : "4",
+        "id" : "17",
+        "sourceId" : "7",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Checks for injection attacks",
+        "destinationId" : "12",
+        "id" : "26",
+        "linkedRelationshipId" : "24",
+        "sourceId" : "7"
+      }, {
+        "description" : "Checks for injection attacks",
+        "destinationId" : "11",
+        "id" : "27",
+        "linkedRelationshipId" : "24",
+        "sourceId" : "7"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "TODO",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Guardrails Component",
+        "properties" : {
+          "structurizr.dsl.identifier" : "guardrails"
+        },
+        "relationships" : [ {
+          "description" : "Checks for database schema compatibility",
+          "destinationId" : "9",
+          "id" : "28",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Checks for database schema compatibility",
+          "destinationId" : "7",
+          "id" : "29",
+          "linkedRelationshipId" : "28",
+          "sourceId" : "12"
+        }, {
+          "destinationId" : "13",
+          "id" : "34",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Guardrails"
+      }, {
+        "description" : "TODO",
+        "documentation" : { },
+        "id" : "13",
+        "name" : "Model",
+        "properties" : {
+          "structurizr.dsl.identifier" : "llmodel"
+        },
+        "relationships" : [ {
+          "description" : "Forwards",
+          "destinationId" : "12",
+          "id" : "33",
+          "sourceId" : "13",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Model"
+      } ],
+      "documentation" : { },
+      "id" : "11",
+      "location" : "Unspecified",
+      "name" : "LLM Model",
+      "properties" : {
+        "structurizr.dsl.identifier" : "llm"
+      },
+      "relationships" : [ {
+        "description" : "Checks for database schema compatibility",
+        "destinationId" : "9",
+        "id" : "30",
+        "linkedRelationshipId" : "28",
+        "sourceId" : "11"
+      }, {
+        "description" : "Checks for database schema compatibility",
+        "destinationId" : "7",
+        "id" : "31",
+        "linkedRelationshipId" : "28",
+        "sourceId" : "11"
+      } ],
       "tags" : "Element,Software System"
     } ]
   },
-  "name" : "Archify",
+  "name" : "Name",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlICJBcmNoaWZ5IiAiU29mdHdhcmUgc3lzdGVtIGRpYWdyYW0iIHsKCiAgICAhaWRlbnRpZmllcnMgaGllcmFyY2hpY2FsCgogICAgbW9kZWwgewogICAgICAgIHUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIgogICAgICAgIHNzID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgQXB0aXR1dGUgVGVzdCBTeXN0ZW0iIHsKICAgICAgICAgICAgd2EgPSBjb250YWluZXIgIldlYiBBcHBsaWNhdGlvbiIKICAgICAgICAgICAgZGIgPSBjb250YWluZXIgIkRhdGFiYXNlIFNjaGVtYSIgewogICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHUgLT4gc3Mud2EgIlRha2VzIEV4YW0iCiAgICAgICAgc3Mud2EgLT4gc3MuZGIgIlJlYWRzIGZyb20gYW5kIHdyaXRlcyB0byIKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBzcyAiRGlhZ3JhbTEiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBzcyAiRGlhZ3JhbTIiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiIHsKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2U3MDA0YwogICAgICAgICAgICAgICAgc2hhcGUgcGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDY1YTEKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2FlY2VlMQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBjeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQoKICAgIGNvbmZpZ3VyYXRpb24gewogICAgICAgIHNjb3BlIHNvZnR3YXJlc3lzdGVtCiAgICB9Cgp9"
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICBjYW5kaWRhdGUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIiAiQSBjYW5kaWRhdGUgdGhhdCBpcyBhaW1pbmcgdG8gZ2V0IHByb2Zlc3Npb25hbGx5IGNlcnRpZmllZC4iICJDYW5kaWRhdGUiCiAgICAgICAgZXhwZXJ0ID0gcGVyc29uICJJVCBFeHBlcnQiICJJVCBFeHBlcnQgR3JhZGVyLCBoaXJlZCBieSBDZXJ0aWZpYWJsZSBJbmMuIiAiRXhwZXJ0IgoJCWVuZ2luZWVyID0gcGVyc29uICJNTCBFbmdpbmVlciIgIkFJIEVuZ2luZWVyLCBoaXJlZCBieSBDZXJ0aWZpYWJsZSBJbmMuIiAiTUwgRW5naW5lZXIiCgkJCgkJY2VydGlmaWFibGVTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQ2VydGlmaWFibGUgSW5jLiBFeGlzdGluZyBTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgdGVzdCA9IGNvbnRhaW5lciAiQWRhcHRlciIgIkFyY2hpZnkgQWRhcHRlciwgcGFyc2VzIGV4YW1zIGZyb20gdW5ncmFkZWQgZXhhbXMgZGF0YWJhc2UiICJBZGFwdGVyIgogICAgICAgICAgICBkYXRhYmFzZSA9IGNvbnRhaW5lciAiZGF0YWJhc2UiICJVbmdyYWRlZCBleGFtcyBkYXRhYmFzZSIgIlRPRE8gZGF0YWJhc2UgU2NoZW1hIiAiZGF0YWJhc2UiCgkJfQoJCWFyY2hpZnlBZGFwdGVyU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgQ2VydGlmaWNhdGlvbiBTeXN0ZW0gQWRhcHRlciIgewogICAgICAgICAgICBhZGFwdGVyID0gY29udGFpbmVyICJBZGFwdGVyIiAiQXJjaGlmeSBBZGFwdGVyLCBwYXJzZXMgZXhhbXMgZnJvbSB1bmdyYWRlZCBleGFtcyBkYXRhYmFzZSIgIkFkYXB0ZXIiCiAgICAgICAgICAgIG9yY2hlc3RyYXRvciA9IGNvbnRhaW5lciAiUHJvbXB0IE9yY2hlc3RyYXRvciIgIkFyY2hpZnkgUHJvbXB0IE9yY2hlc3RyYXRvciIgIlByb21wdCBPcmNoZXN0cmF0b3IiCiAgICAgICAgICAgIHZlY3RvcmRhdGFiYXNlID0gY29udGFpbmVyICJWZWN0b3IgRGF0YWJhc2UiICJUT0RPIiAiZGF0YWJhc2UiCgkJfQoKCQlsbG0gPSBzb2Z0d2FyZVN5c3RlbSAiTExNIE1vZGVsIiB7CiAgICAgICAgICAgIGd1YXJkcmFpbHMgPSBjb250YWluZXIgIkd1YXJkcmFpbHMgQ29tcG9uZW50IiAiVE9ETyIgIkd1YXJkcmFpbHMiCgkJCWxsbW9kZWwgPSBjb250YWluZXIgIk1vZGVsIiAiVE9ETyIgIk1vZGVsIgoJCX0KCi8qCgkJZ3JvdXAgIlNvZnR3YXJlIFN5c3RlbSIgewoJCQlzcyA9IHNvZnR3YXJlU3lzdGVtICJDZXJ0aWZpYWJsZSBJbmMuIFNvZnR3YXJlIFN5c3RlbSIgCgkJCWFyY2hpZnkgPSBzb2Z0d2FyZVN5c3RlbSAiQVJDSElGWSBBdXRvIEdyYWRpbmcgU3lzdGVtIiB7CgkJCQlhdXRvZ3JhZGVyID0gY29udGFpbmVyICJDb250YWluZXIiIHsKCQkJCQl2ZWN0b3JkYXRhYmFzZSA9IGNvbXBvbmVudCAiZGF0YWJhc2UiICJVbmdyYWRlZCBleGFtcyIgImRhdGFiYXNlIgoJCQkJCXByb21wdDJPcmNoZXN0cmF0b3IgPSBjb21wb25lbnQgIlByb21wdCBPcmNoZXN0cmF0b3IiCgkJCQkJbGxtID0gY29tcG9uZW50ICJMTE0gTW9kZWwiCgkJCQl9CgkJCQl1bmdyYWRlZGRhdGFiYXNlID0gY29udGFpbmVyICJkYXRhYmFzZSIgIlVuZ3JhZGVkIGV4YW1zIiAiZGF0YWJhc2UiCgkJCX0KCQkJYXB0aXR1dGVNYW51YWxHcmFkZXIgPSBzb2Z0d2FyZVN5c3RlbSAiQXB0aXR1ZGUgTWFudWVsIEdyYWRlciIKCQl9CiovCQkKCQkvLyBQZW9wbGUgYW5kIFNvZnR3YXJlIFN5c3RlbXMKCQljYW5kaWRhdGUgLT4gY2VydGlmaWFibGVTeXN0ZW0gIlNvbHZlcyBjZXJ0aWZpY2F0aW9uIGV4YW1zIgogICAgICAgIGV4cGVydCAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiR3JhZGVzIEV4YW1zLCBBbmFseXNlcyB0aGUgcXVlc3Rpb24gYW5kIGNhc2Ugc3R1ZHkgY2F0YWxvZyIKCQllbmdpbmVlciAtPiBhcmNoaWZ5QWRhcHRlclN5c3RlbSAiTW9uaXRvcnMsIFBhcmFtZXRlciBUdW5pbmcsIENoYW5nZSBNb2RlbHMgZXRjLiIKCQlhcmNoaWZ5QWRhcHRlclN5c3RlbSAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiUHJvdmlkZXMgdW5ncmFkZWQgZXhhbXMgYW5kIGV4YW0gZGF0YWJhc2UiCgoJCS8vIENvbnRhaW5lcnMKCQlkYXRhYmFzZSAtPiBhZGFwdGVyICJyZWFkcyB1bmdyYWRlZCBhcHRpdHVkZSB0ZXN0IGV4YW1zIgoJCWFkYXB0ZXIgLT4gb3JjaGVzdHJhdG9yICJQcm92aWRlcyBRJkEgdHVwbGUiCgkJb3JjaGVzdHJhdG9yIC0+IGFkYXB0ZXIgIlJldHVybnMgTExNIGdyYWRpbmciCgkJb3JjaGVzdHJhdG9yIC0+IGd1YXJkcmFpbHMgIkNoZWNrcyBmb3IgaW5qZWN0aW9uIGF0dGFja3MiCgkJZ3VhcmRyYWlscyAtPiBvcmNoZXN0cmF0b3IgIkNoZWNrcyBmb3IgZGF0YWJhc2Ugc2NoZW1hIGNvbXBhdGliaWxpdHkiCgkJdmVjdG9yZGF0YWJhc2UgLT4gb3JjaGVzdHJhdG9yICJFbnJpY2hlcyBwcm9tcHQgYnkgcHJvdmlkaW5nIG1vc3Qgc2ltaWxhciBRJkEgdHVwbGVzIgoJCWxsbW9kZWwgLT4gZ3VhcmRyYWlscyAiRm9yd2FyZHMiCgkJZ3VhcmRyYWlscyAtPiBsbG1vZGVsCiAgICB9CgogICAgdmlld3MgewogICAgICAgIHN5c3RlbUNvbnRleHQgY2VydGlmaWFibGVTeXN0ZW0gewogICAgICAgICAgICBpbmNsdWRlICogZW5naW5lZXIKICAgICAgICAgICAgYXV0b2xheW91dAogICAgICAgIH0KCQljb250YWluZXIgYXJjaGlmeUFkYXB0ZXJTeXN0ZW0gIkNvbnRhaW5lcnMiIHsKICAgICAgICAgICAgaW5jbHVkZSBkYXRhYmFzZSBhZGFwdGVyIG9yY2hlc3RyYXRvciB2ZWN0b3JkYXRhYmFzZSBndWFyZHJhaWxzIGxsbW9kZWwKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVE9ETyIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICAgICAgZm9udFNpemUgMjIKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNhbmRpZGF0ZSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjZTcwMDRjCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRXhwZXJ0IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNlNzAwNGMKCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDY1YTEKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJkYXRhYmFzZSIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNDM4ZGQ1CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgfQogICAgCn0="
   },
   "views" : {
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Diagram1",
+      "lastSavedView" : "Containers",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
-          "tag" : "Element"
-        }, {
-          "background" : "#e7004c",
+          "fontSize" : 22,
           "shape" : "Person",
           "tag" : "Person"
         }, {
+          "background" : "#e7004c",
+          "tag" : "Candidate"
+        }, {
+          "background" : "#e7004c",
+          "tag" : "Expert"
+        }, {
           "background" : "#0065a1",
+          "color" : "#ffffff",
           "tag" : "Software System"
         }, {
-          "background" : "#aecee1",
-          "tag" : "Container"
-        }, {
           "shape" : "Cylinder",
-          "tag" : "Database"
+          "tag" : "database"
+        }, {
+          "background" : "#85bbf0",
+          "color" : "#000000",
+          "tag" : "Component"
+        }, {
+          "background" : "#438dd5",
+          "color" : "#ffffff",
+          "tag" : "Container"
         } ]
       },
       "terminology" : { }
     },
     "containerViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
+        "rankDirection" : "TopBottom",
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "description" : "TODO",
+      "dimensions" : {
+        "height" : 2611,
+        "width" : 2390
+      },
       "elements" : [ {
-        "id" : "1",
-        "x" : 0,
-        "y" : 0
+        "id" : "6",
+        "x" : 220,
+        "y" : 772
       }, {
-        "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "id" : "8",
+        "x" : 970,
+        "y" : 1372
       }, {
-        "id" : "4",
-        "x" : 0,
-        "y" : 0
+        "id" : "9",
+        "x" : 970,
+        "y" : 772
+      }, {
+        "id" : "10",
+        "x" : 970,
+        "y" : 172
+      }, {
+        "id" : "12",
+        "x" : 1720,
+        "y" : 1372
+      }, {
+        "id" : "13",
+        "x" : 1720,
+        "y" : 1972
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
-      "key" : "Diagram2",
+      "key" : "Containers",
       "order" : 2,
       "relationships" : [ {
-        "id" : "5"
+        "id" : "18"
       }, {
-        "id" : "7"
+        "id" : "22",
+        "vertices" : [ {
+          "x" : 1345,
+          "y" : 1222
+        } ]
+      }, {
+        "id" : "23",
+        "vertices" : [ {
+          "x" : 1045,
+          "y" : 1222
+        } ]
+      }, {
+        "id" : "24",
+        "vertices" : [ {
+          "x" : 1476,
+          "y" : 1339
+        } ]
+      }, {
+        "id" : "28",
+        "vertices" : [ {
+          "x" : 1663,
+          "y" : 1104
+        } ]
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33",
+        "vertices" : [ {
+          "x" : 2095,
+          "y" : 1822
+        } ]
+      }, {
+        "id" : "34",
+        "vertices" : [ {
+          "x" : 1795,
+          "y" : 1822
+        } ]
       } ],
-      "softwareSystemId" : "2"
+      "softwareSystemId" : "7"
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
@@ -134,30 +405,59 @@
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
-        "rankDirection" : "LeftRight",
+        "rankDirection" : "TopBottom",
         "rankSeparation" : 300,
         "vertices" : false
       },
       "dimensions" : {
-        "height" : 800,
-        "width" : 1550
+        "height" : 2100,
+        "width" : 1875
       },
       "elements" : [ {
         "id" : "1",
-        "x" : 199,
+        "x" : 200,
         "y" : 165
       }, {
         "id" : "2",
-        "x" : 899,
-        "y" : 215
+        "x" : 900,
+        "y" : 165
+      }, {
+        "id" : "3",
+        "x" : 1275,
+        "y" : 865
+      }, {
+        "id" : "4",
+        "x" : 525,
+        "y" : 915
+      }, {
+        "id" : "7",
+        "x" : 525,
+        "y" : 1565
       } ],
       "enterpriseBoundaryVisible" : true,
-      "key" : "Diagram1",
+      "generatedKey" : true,
+      "key" : "SystemContext-001",
       "order" : 1,
       "relationships" : [ {
-        "id" : "6"
+        "id" : "14"
+      }, {
+        "id" : "15"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "17",
+        "vertices" : [ {
+          "x" : 900,
+          "y" : 1390
+        } ]
+      }, {
+        "id" : "21",
+        "vertices" : [ {
+          "x" : 600,
+          "y" : 1390
+        } ]
       } ],
-      "softwareSystemId" : "2"
+      "softwareSystemId" : "4"
     } ]
   }
 }
