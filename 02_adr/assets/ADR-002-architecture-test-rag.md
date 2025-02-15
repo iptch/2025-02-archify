@@ -19,6 +19,11 @@ We already decided in a previous ADR (ADR-001)[todo:link] to leverage Retrieval-
 ## Decision:
 
 Adopt a RAG-based system to automate the preliminary grading of architecture case studies, augmented with a human-in-the-loop review.
+The promting of the LLM will be augmented with the following relevant information: 
+
+* Set of evaluation criteria for the given case study. 
+* Set of past submitted exams for the same case study. 
+* Factual technical information rlevant to the case study.
 
 ### Why did we take this decision?
 

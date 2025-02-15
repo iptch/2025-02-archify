@@ -1,4 +1,4 @@
-# Input Guardrails for Aptitude Test
+# Input Guardrails for Aptitude & Architecture Test
 
 ## Date:
 2025-02-15
