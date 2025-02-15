@@ -4,10 +4,10 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2025-02-15T08:51:36Z",
+  "lastModifiedDate" : "2025-02-15T10:39:05Z",
   "model" : {
     "people" : [ {
-      "description" : "A candidate that is aiming to get professionally certified.",
+      "description" : "A candidate that is aiming to get professionally certified by Cerfifiable Inc..",
       "id" : "1",
       "location" : "Unspecified",
       "name" : "Certification Candidate",
@@ -15,15 +15,15 @@
         "structurizr.dsl.identifier" : "candidate"
       },
       "relationships" : [ {
-        "description" : "Solves certification exams",
+        "description" : "Takes aptitude certification exam, consisting of multiple-choice and short-answer tests",
         "destinationId" : "4",
-        "id" : "14",
+        "id" : "19",
         "sourceId" : "1",
         "tags" : "Relationship"
       } ],
       "tags" : "Element,Person,Candidate"
     }, {
-      "description" : "IT Expert Grader, hired by Certifiable Inc.",
+      "description" : "IT Expert Grader, working for Certifiable Inc.",
       "id" : "2",
       "location" : "Unspecified",
       "name" : "IT Expert",
@@ -31,15 +31,15 @@
         "structurizr.dsl.identifier" : "expert"
       },
       "relationships" : [ {
-        "description" : "Grades Exams, Analyses the question and case study catalog",
+        "description" : "Grades short-answer tests, provides feedback. Analyses question catalog.",
         "destinationId" : "4",
-        "id" : "15",
+        "id" : "20",
         "sourceId" : "2",
         "tags" : "Relationship"
       } ],
       "tags" : "Element,Person,Expert"
     }, {
-      "description" : "AI Engineer, hired by Certifiable Inc.",
+      "description" : "AI Engineer, working for Certifiable Inc.",
       "id" : "3",
       "location" : "Unspecified",
       "name" : "ML Engineer",
@@ -47,9 +47,9 @@
         "structurizr.dsl.identifier" : "engineer"
       },
       "relationships" : [ {
-        "description" : "Monitors, Parameter Tuning, Change Models etc.",
-        "destinationId" : "7",
-        "id" : "16",
+        "description" : "Maintains LLM components used for auto-grading, including monitoring, parameter and threshold tuning, updating models etc.",
+        "destinationId" : "10",
+        "id" : "21",
         "sourceId" : "3",
         "tags" : "Relationship"
       } ],
@@ -57,38 +57,106 @@
     } ],
     "softwareSystems" : [ {
       "containers" : [ {
-        "description" : "Archify Adapter, parses exams from ungraded exams database",
+        "description" : "Interface handling test loading, question sending, answer capturing and test timing",
         "documentation" : { },
         "id" : "5",
-        "name" : "Adapter",
+        "name" : "Aptitude Test Taker",
         "properties" : {
-          "structurizr.dsl.identifier" : "test"
+          "structurizr.dsl.identifier" : "aptitudetesttaker"
         },
+        "relationships" : [ {
+          "description" : "Passes short-answer questions",
+          "destinationId" : "7",
+          "id" : "23",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Passes multiple-choice questions to auto-grader",
+          "destinationId" : "6",
+          "id" : "24",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        } ],
         "tags" : "Element,Container",
-        "technology" : "Adapter"
+        "technology" : "Aptitude Test Taker"
       }, {
-        "description" : "Ungraded exams database",
+        "description" : "Auto-grading component for multiple-choice questions",
         "documentation" : { },
         "id" : "6",
-        "name" : "database",
+        "name" : "Aptitude Auto Grader",
+        "properties" : {
+          "structurizr.dsl.identifier" : "aptitudeautograder"
+        },
+        "relationships" : [ {
+          "description" : "Writes multiple-choice question answers and results",
+          "destinationId" : "9",
+          "id" : "25",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Auto Grader"
+      }, {
+        "description" : "Manual capture component for short-answer questions",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "Aptitude Manuel Capture",
+        "properties" : {
+          "structurizr.dsl.identifier" : "aptitudemanualcapture"
+        },
+        "relationships" : [ {
+          "description" : "Forwards ungraded Q&A tuples",
+          "destinationId" : "8",
+          "id" : "26",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Manual Capture"
+      }, {
+        "description" : "Contains the ungraded short-answer Q&A tuples",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Ungraded Database",
         "properties" : {
           "structurizr.dsl.identifier" : "database"
         },
         "relationships" : [ {
           "description" : "reads ungraded aptitude test exams",
-          "destinationId" : "8",
-          "id" : "18",
-          "sourceId" : "6",
+          "destinationId" : "11",
+          "id" : "35",
+          "sourceId" : "8",
           "tags" : "Relationship"
         }, {
           "description" : "reads ungraded aptitude test exams",
-          "destinationId" : "7",
-          "id" : "19",
-          "linkedRelationshipId" : "18",
-          "sourceId" : "6"
+          "destinationId" : "10",
+          "id" : "36",
+          "linkedRelationshipId" : "35",
+          "sourceId" : "8"
         } ],
-        "tags" : "Element,Container,database",
-        "technology" : "TODO database Schema"
+        "tags" : "Element,Container,Database"
+      }, {
+        "description" : "Graded Exams Database, contains the aptitutde tests from previous 120k exams.",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "Graded Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gradeddatabase"
+        },
+        "relationships" : [ {
+          "description" : "Reads new graded Q&A tuples from the database via high watermark (timestamp column)",
+          "destinationId" : "18",
+          "id" : "27",
+          "sourceId" : "9",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Reads new graded Q&A tuples from the database via high watermark (timestamp column)",
+          "destinationId" : "17",
+          "id" : "28",
+          "linkedRelationshipId" : "27",
+          "sourceId" : "9"
+        } ],
+        "tags" : "Element,Container,Database"
       } ],
       "documentation" : { },
       "id" : "4",
@@ -98,16 +166,28 @@
         "structurizr.dsl.identifier" : "certifiablesystem"
       },
       "relationships" : [ {
-        "description" : "reads ungraded aptitude test exams",
-        "destinationId" : "8",
-        "id" : "20",
-        "linkedRelationshipId" : "18",
+        "description" : "Reads new graded Q&A tuples from the database via high watermark (timestamp column)",
+        "destinationId" : "18",
+        "id" : "29",
+        "linkedRelationshipId" : "27",
+        "sourceId" : "4"
+      }, {
+        "description" : "Reads new graded Q&A tuples from the database via high watermark (timestamp column)",
+        "destinationId" : "17",
+        "id" : "30",
+        "linkedRelationshipId" : "27",
         "sourceId" : "4"
       }, {
         "description" : "reads ungraded aptitude test exams",
-        "destinationId" : "7",
-        "id" : "21",
-        "linkedRelationshipId" : "18",
+        "destinationId" : "11",
+        "id" : "37",
+        "linkedRelationshipId" : "35",
+        "sourceId" : "4"
+      }, {
+        "description" : "reads ungraded aptitude test exams",
+        "destinationId" : "10",
+        "id" : "38",
+        "linkedRelationshipId" : "35",
         "sourceId" : "4"
       } ],
       "tags" : "Element,Software System"
@@ -115,167 +195,231 @@
       "containers" : [ {
         "description" : "Archify Adapter, parses exams from ungraded exams database",
         "documentation" : { },
-        "id" : "8",
+        "id" : "11",
         "name" : "Adapter",
         "properties" : {
           "structurizr.dsl.identifier" : "adapter"
         },
         "relationships" : [ {
           "description" : "Provides Q&A tuple",
-          "destinationId" : "9",
-          "id" : "22",
-          "sourceId" : "8",
+          "destinationId" : "12",
+          "id" : "39",
+          "sourceId" : "11",
           "tags" : "Relationship"
+        }, {
+          "description" : "Returns graded Q&A tuples with feedback",
+          "destinationId" : "9",
+          "id" : "40",
+          "sourceId" : "11",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Returns graded Q&A tuples with feedback",
+          "destinationId" : "4",
+          "id" : "41",
+          "linkedRelationshipId" : "40",
+          "sourceId" : "11"
         } ],
         "tags" : "Element,Container",
         "technology" : "Adapter"
       }, {
         "description" : "Archify Prompt Orchestrator",
         "documentation" : { },
-        "id" : "9",
+        "id" : "12",
         "name" : "Prompt Orchestrator",
         "properties" : {
           "structurizr.dsl.identifier" : "orchestrator"
         },
         "relationships" : [ {
           "description" : "Returns LLM grading",
-          "destinationId" : "8",
-          "id" : "23",
-          "sourceId" : "9",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Checks for injection attacks",
-          "destinationId" : "12",
-          "id" : "24",
-          "sourceId" : "9",
-          "tags" : "Relationship"
-        }, {
-          "description" : "Checks for injection attacks",
           "destinationId" : "11",
-          "id" : "25",
-          "linkedRelationshipId" : "24",
-          "sourceId" : "9"
+          "id" : "43",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Forwards prompt to be checked",
+          "destinationId" : "15",
+          "id" : "44",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Forwards prompt to be checked",
+          "destinationId" : "14",
+          "id" : "45",
+          "linkedRelationshipId" : "44",
+          "sourceId" : "12"
         } ],
         "tags" : "Element,Container",
         "technology" : "Prompt Orchestrator"
       }, {
-        "description" : "TODO",
+        "description" : "Vector Database with Q&A tuples",
         "documentation" : { },
-        "id" : "10",
+        "id" : "13",
         "name" : "Vector Database",
         "properties" : {
           "structurizr.dsl.identifier" : "vectordatabase"
         },
         "relationships" : [ {
           "description" : "Enriches prompt by providing most similar Q&A tuples",
-          "destinationId" : "9",
-          "id" : "32",
-          "sourceId" : "10",
+          "destinationId" : "12",
+          "id" : "52",
+          "sourceId" : "13",
           "tags" : "Relationship"
         } ],
-        "tags" : "Element,Container",
-        "technology" : "database"
+        "tags" : "Element,Container,Vector Database"
       } ],
       "documentation" : { },
-      "id" : "7",
+      "id" : "10",
       "location" : "Unspecified",
       "name" : "ARCHIFY Certification System Adapter",
       "properties" : {
         "structurizr.dsl.identifier" : "archifyadaptersystem"
       },
       "relationships" : [ {
-        "description" : "Provides ungraded exams and exam database",
+        "description" : "Provides databases with ungraded exam questions and graded exam database",
         "destinationId" : "4",
-        "id" : "17",
-        "sourceId" : "7",
+        "id" : "22",
+        "sourceId" : "10",
         "tags" : "Relationship"
       }, {
-        "description" : "Checks for injection attacks",
-        "destinationId" : "12",
-        "id" : "26",
-        "linkedRelationshipId" : "24",
-        "sourceId" : "7"
+        "description" : "Returns graded Q&A tuples with feedback",
+        "destinationId" : "9",
+        "id" : "42",
+        "linkedRelationshipId" : "40",
+        "sourceId" : "10"
       }, {
-        "description" : "Checks for injection attacks",
-        "destinationId" : "11",
-        "id" : "27",
-        "linkedRelationshipId" : "24",
-        "sourceId" : "7"
+        "description" : "Forwards prompt to be checked",
+        "destinationId" : "15",
+        "id" : "46",
+        "linkedRelationshipId" : "44",
+        "sourceId" : "10"
+      }, {
+        "description" : "Forwards prompt to be checked",
+        "destinationId" : "14",
+        "id" : "47",
+        "linkedRelationshipId" : "44",
+        "sourceId" : "10"
       } ],
       "tags" : "Element,Software System"
     }, {
       "containers" : [ {
-        "description" : "TODO",
+        "description" : "Guardrails to prevet jailbreaks and increase output consistency",
         "documentation" : { },
-        "id" : "12",
+        "id" : "15",
         "name" : "Guardrails Component",
         "properties" : {
           "structurizr.dsl.identifier" : "guardrails"
         },
         "relationships" : [ {
-          "description" : "Checks for database schema compatibility",
-          "destinationId" : "9",
-          "id" : "28",
-          "sourceId" : "12",
+          "description" : "Compares against expected output format and checks for schema compatibility",
+          "destinationId" : "12",
+          "id" : "48",
+          "sourceId" : "15",
           "tags" : "Relationship"
         }, {
-          "description" : "Checks for database schema compatibility",
-          "destinationId" : "7",
-          "id" : "29",
-          "linkedRelationshipId" : "28",
-          "sourceId" : "12"
+          "description" : "Compares against expected output format and checks for schema compatibility",
+          "destinationId" : "10",
+          "id" : "49",
+          "linkedRelationshipId" : "48",
+          "sourceId" : "15"
         }, {
-          "destinationId" : "13",
-          "id" : "34",
-          "sourceId" : "12",
+          "description" : "Analyses for input injection attacks",
+          "destinationId" : "16",
+          "id" : "54",
+          "sourceId" : "15",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container",
         "technology" : "Guardrails"
       }, {
-        "description" : "TODO",
+        "description" : "External LLM API",
         "documentation" : { },
-        "id" : "13",
+        "id" : "16",
         "name" : "Model",
         "properties" : {
           "structurizr.dsl.identifier" : "llmodel"
         },
         "relationships" : [ {
-          "description" : "Forwards",
-          "destinationId" : "12",
-          "id" : "33",
-          "sourceId" : "13",
+          "description" : "Returns generated output by LLM",
+          "destinationId" : "15",
+          "id" : "53",
+          "sourceId" : "16",
           "tags" : "Relationship"
         } ],
         "tags" : "Element,Container",
         "technology" : "Model"
       } ],
       "documentation" : { },
-      "id" : "11",
+      "id" : "14",
       "location" : "Unspecified",
       "name" : "LLM Model",
       "properties" : {
         "structurizr.dsl.identifier" : "llm"
       },
       "relationships" : [ {
-        "description" : "Checks for database schema compatibility",
-        "destinationId" : "9",
-        "id" : "30",
-        "linkedRelationshipId" : "28",
-        "sourceId" : "11"
+        "description" : "Compares against expected output format and checks for schema compatibility",
+        "destinationId" : "12",
+        "id" : "50",
+        "linkedRelationshipId" : "48",
+        "sourceId" : "14"
       }, {
-        "description" : "Checks for database schema compatibility",
-        "destinationId" : "7",
-        "id" : "31",
-        "linkedRelationshipId" : "28",
-        "sourceId" : "11"
+        "description" : "Compares against expected output format and checks for schema compatibility",
+        "destinationId" : "10",
+        "id" : "51",
+        "linkedRelationshipId" : "48",
+        "sourceId" : "14"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "containers" : [ {
+        "description" : "Updates the Vector DB periodically with new Q&A tuples",
+        "documentation" : { },
+        "id" : "18",
+        "name" : "Update Job",
+        "properties" : {
+          "structurizr.dsl.identifier" : "updater"
+        },
+        "relationships" : [ {
+          "description" : "Embedds the new Q&A tuples into vector space and writes them to Vector Database",
+          "destinationId" : "13",
+          "id" : "31",
+          "sourceId" : "18",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Embedds the new Q&A tuples into vector space and writes them to Vector Database",
+          "destinationId" : "10",
+          "id" : "32",
+          "linkedRelationshipId" : "31",
+          "sourceId" : "18"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Update Job"
+      } ],
+      "documentation" : { },
+      "id" : "17",
+      "location" : "Unspecified",
+      "name" : "Update Job for Vector DB",
+      "properties" : {
+        "structurizr.dsl.identifier" : "updatevectordb"
+      },
+      "relationships" : [ {
+        "description" : "Embedds the new Q&A tuples into vector space and writes them to Vector Database",
+        "destinationId" : "13",
+        "id" : "33",
+        "linkedRelationshipId" : "31",
+        "sourceId" : "17"
+      }, {
+        "description" : "Embedds the new Q&A tuples into vector space and writes them to Vector Database",
+        "destinationId" : "10",
+        "id" : "34",
+        "linkedRelationshipId" : "31",
+        "sourceId" : "17"
       } ],
       "tags" : "Element,Software System"
     } ]
   },
   "name" : "Name",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICBjYW5kaWRhdGUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIiAiQSBjYW5kaWRhdGUgdGhhdCBpcyBhaW1pbmcgdG8gZ2V0IHByb2Zlc3Npb25hbGx5IGNlcnRpZmllZC4iICJDYW5kaWRhdGUiCiAgICAgICAgZXhwZXJ0ID0gcGVyc29uICJJVCBFeHBlcnQiICJJVCBFeHBlcnQgR3JhZGVyLCBoaXJlZCBieSBDZXJ0aWZpYWJsZSBJbmMuIiAiRXhwZXJ0IgoJCWVuZ2luZWVyID0gcGVyc29uICJNTCBFbmdpbmVlciIgIkFJIEVuZ2luZWVyLCBoaXJlZCBieSBDZXJ0aWZpYWJsZSBJbmMuIiAiTUwgRW5naW5lZXIiCgkJCgkJY2VydGlmaWFibGVTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQ2VydGlmaWFibGUgSW5jLiBFeGlzdGluZyBTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgdGVzdCA9IGNvbnRhaW5lciAiQWRhcHRlciIgIkFyY2hpZnkgQWRhcHRlciwgcGFyc2VzIGV4YW1zIGZyb20gdW5ncmFkZWQgZXhhbXMgZGF0YWJhc2UiICJBZGFwdGVyIgogICAgICAgICAgICBkYXRhYmFzZSA9IGNvbnRhaW5lciAiZGF0YWJhc2UiICJVbmdyYWRlZCBleGFtcyBkYXRhYmFzZSIgIlRPRE8gZGF0YWJhc2UgU2NoZW1hIiAiZGF0YWJhc2UiCgkJfQoJCWFyY2hpZnlBZGFwdGVyU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgQ2VydGlmaWNhdGlvbiBTeXN0ZW0gQWRhcHRlciIgewogICAgICAgICAgICBhZGFwdGVyID0gY29udGFpbmVyICJBZGFwdGVyIiAiQXJjaGlmeSBBZGFwdGVyLCBwYXJzZXMgZXhhbXMgZnJvbSB1bmdyYWRlZCBleGFtcyBkYXRhYmFzZSIgIkFkYXB0ZXIiCiAgICAgICAgICAgIG9yY2hlc3RyYXRvciA9IGNvbnRhaW5lciAiUHJvbXB0IE9yY2hlc3RyYXRvciIgIkFyY2hpZnkgUHJvbXB0IE9yY2hlc3RyYXRvciIgIlByb21wdCBPcmNoZXN0cmF0b3IiCiAgICAgICAgICAgIHZlY3RvcmRhdGFiYXNlID0gY29udGFpbmVyICJWZWN0b3IgRGF0YWJhc2UiICJUT0RPIiAiZGF0YWJhc2UiCgkJfQoKCQlsbG0gPSBzb2Z0d2FyZVN5c3RlbSAiTExNIE1vZGVsIiB7CiAgICAgICAgICAgIGd1YXJkcmFpbHMgPSBjb250YWluZXIgIkd1YXJkcmFpbHMgQ29tcG9uZW50IiAiVE9ETyIgIkd1YXJkcmFpbHMiCgkJCWxsbW9kZWwgPSBjb250YWluZXIgIk1vZGVsIiAiVE9ETyIgIk1vZGVsIgoJCX0KCi8qCgkJZ3JvdXAgIlNvZnR3YXJlIFN5c3RlbSIgewoJCQlzcyA9IHNvZnR3YXJlU3lzdGVtICJDZXJ0aWZpYWJsZSBJbmMuIFNvZnR3YXJlIFN5c3RlbSIgCgkJCWFyY2hpZnkgPSBzb2Z0d2FyZVN5c3RlbSAiQVJDSElGWSBBdXRvIEdyYWRpbmcgU3lzdGVtIiB7CgkJCQlhdXRvZ3JhZGVyID0gY29udGFpbmVyICJDb250YWluZXIiIHsKCQkJCQl2ZWN0b3JkYXRhYmFzZSA9IGNvbXBvbmVudCAiZGF0YWJhc2UiICJVbmdyYWRlZCBleGFtcyIgImRhdGFiYXNlIgoJCQkJCXByb21wdDJPcmNoZXN0cmF0b3IgPSBjb21wb25lbnQgIlByb21wdCBPcmNoZXN0cmF0b3IiCgkJCQkJbGxtID0gY29tcG9uZW50ICJMTE0gTW9kZWwiCgkJCQl9CgkJCQl1bmdyYWRlZGRhdGFiYXNlID0gY29udGFpbmVyICJkYXRhYmFzZSIgIlVuZ3JhZGVkIGV4YW1zIiAiZGF0YWJhc2UiCgkJCX0KCQkJYXB0aXR1dGVNYW51YWxHcmFkZXIgPSBzb2Z0d2FyZVN5c3RlbSAiQXB0aXR1ZGUgTWFudWVsIEdyYWRlciIKCQl9CiovCQkKCQkvLyBQZW9wbGUgYW5kIFNvZnR3YXJlIFN5c3RlbXMKCQljYW5kaWRhdGUgLT4gY2VydGlmaWFibGVTeXN0ZW0gIlNvbHZlcyBjZXJ0aWZpY2F0aW9uIGV4YW1zIgogICAgICAgIGV4cGVydCAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiR3JhZGVzIEV4YW1zLCBBbmFseXNlcyB0aGUgcXVlc3Rpb24gYW5kIGNhc2Ugc3R1ZHkgY2F0YWxvZyIKCQllbmdpbmVlciAtPiBhcmNoaWZ5QWRhcHRlclN5c3RlbSAiTW9uaXRvcnMsIFBhcmFtZXRlciBUdW5pbmcsIENoYW5nZSBNb2RlbHMgZXRjLiIKCQlhcmNoaWZ5QWRhcHRlclN5c3RlbSAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiUHJvdmlkZXMgdW5ncmFkZWQgZXhhbXMgYW5kIGV4YW0gZGF0YWJhc2UiCgoJCS8vIENvbnRhaW5lcnMKCQlkYXRhYmFzZSAtPiBhZGFwdGVyICJyZWFkcyB1bmdyYWRlZCBhcHRpdHVkZSB0ZXN0IGV4YW1zIgoJCWFkYXB0ZXIgLT4gb3JjaGVzdHJhdG9yICJQcm92aWRlcyBRJkEgdHVwbGUiCgkJb3JjaGVzdHJhdG9yIC0+IGFkYXB0ZXIgIlJldHVybnMgTExNIGdyYWRpbmciCgkJb3JjaGVzdHJhdG9yIC0+IGd1YXJkcmFpbHMgIkNoZWNrcyBmb3IgaW5qZWN0aW9uIGF0dGFja3MiCgkJZ3VhcmRyYWlscyAtPiBvcmNoZXN0cmF0b3IgIkNoZWNrcyBmb3IgZGF0YWJhc2Ugc2NoZW1hIGNvbXBhdGliaWxpdHkiCgkJdmVjdG9yZGF0YWJhc2UgLT4gb3JjaGVzdHJhdG9yICJFbnJpY2hlcyBwcm9tcHQgYnkgcHJvdmlkaW5nIG1vc3Qgc2ltaWxhciBRJkEgdHVwbGVzIgoJCWxsbW9kZWwgLT4gZ3VhcmRyYWlscyAiRm9yd2FyZHMiCgkJZ3VhcmRyYWlscyAtPiBsbG1vZGVsCiAgICB9CgogICAgdmlld3MgewogICAgICAgIHN5c3RlbUNvbnRleHQgY2VydGlmaWFibGVTeXN0ZW0gewogICAgICAgICAgICBpbmNsdWRlICogZW5naW5lZXIKICAgICAgICAgICAgYXV0b2xheW91dAogICAgICAgIH0KCQljb250YWluZXIgYXJjaGlmeUFkYXB0ZXJTeXN0ZW0gIkNvbnRhaW5lcnMiIHsKICAgICAgICAgICAgaW5jbHVkZSBkYXRhYmFzZSBhZGFwdGVyIG9yY2hlc3RyYXRvciB2ZWN0b3JkYXRhYmFzZSBndWFyZHJhaWxzIGxsbW9kZWwKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVE9ETyIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICAgICAgZm9udFNpemUgMjIKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNhbmRpZGF0ZSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjZTcwMDRjCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRXhwZXJ0IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNlNzAwNGMKCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDY1YTEKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJkYXRhYmFzZSIgewogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNDM4ZGQ1CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgfQogICAgCn0="
+    "structurizr.dsl" : "Ly9UT0RPOiBDb2xvciB0aGUgbGVnYWN5L2V4aXN0aW5nIGNvbXBvbmVudHMgdGhhdCBhcmUgaW50ZWdyYXRlZCAxOjEgaW4gZ3JheQp3b3Jrc3BhY2UgewogICAgbW9kZWwgewogICAgICAgIGNhbmRpZGF0ZSA9IHBlcnNvbiAiQ2VydGlmaWNhdGlvbiBDYW5kaWRhdGUiICJBIGNhbmRpZGF0ZSB0aGF0IGlzIGFpbWluZyB0byBnZXQgcHJvZmVzc2lvbmFsbHkgY2VydGlmaWVkIGJ5IENlcmZpZmlhYmxlIEluYy4uIiAiQ2FuZGlkYXRlIgogICAgICAgIGV4cGVydCA9IHBlcnNvbiAiSVQgRXhwZXJ0IiAiSVQgRXhwZXJ0IEdyYWRlciwgd29ya2luZyBmb3IgQ2VydGlmaWFibGUgSW5jLiIgIkV4cGVydCIKCQllbmdpbmVlciA9IHBlcnNvbiAiTUwgRW5naW5lZXIiICJBSSBFbmdpbmVlciwgd29ya2luZyBmb3IgQ2VydGlmaWFibGUgSW5jLiIgIk1MIEVuZ2luZWVyIgoJCQoJCWNlcnRpZmlhYmxlU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkNlcnRpZmlhYmxlIEluYy4gRXhpc3RpbmcgU29mdHdhcmUgU3lzdGVtIiB7CgkJCWFwdGl0dWRlVGVzdFRha2VyID0gY29udGFpbmVyICJBcHRpdHVkZSBUZXN0IFRha2VyIiAiSW50ZXJmYWNlIGhhbmRsaW5nIHRlc3QgbG9hZGluZywgcXVlc3Rpb24gc2VuZGluZywgYW5zd2VyIGNhcHR1cmluZyBhbmQgdGVzdCB0aW1pbmciICJBcHRpdHVkZSBUZXN0IFRha2VyIgogICAgICAgICAgICBhcHRpdHVkZUF1dG9HcmFkZXIgPSBjb250YWluZXIgIkFwdGl0dWRlIEF1dG8gR3JhZGVyIiAiQXV0by1ncmFkaW5nIGNvbXBvbmVudCBmb3IgbXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIgIkF1dG8gR3JhZGVyIgogICAgICAgICAgICBhcHRpdHVkZU1hbnVhbENhcHR1cmUgPSBjb250YWluZXIgIkFwdGl0dWRlIE1hbnVlbCBDYXB0dXJlIiAiTWFudWFsIGNhcHR1cmUgY29tcG9uZW50IGZvciBzaG9ydC1hbnN3ZXIgcXVlc3Rpb25zIiAiTWFudWFsIENhcHR1cmUiCiAgICAgICAgICAgIGRhdGFiYXNlID0gY29udGFpbmVyICJVbmdyYWRlZCBEYXRhYmFzZSIgIkNvbnRhaW5zIHRoZSB1bmdyYWRlZCBzaG9ydC1hbnN3ZXIgUSZBIHR1cGxlcyIgIiIgIkRhdGFiYXNlIgogICAgICAgICAgICBncmFkZWRkYXRhYmFzZSA9IGNvbnRhaW5lciAiR3JhZGVkIERhdGFiYXNlIiAiR3JhZGVkIEV4YW1zIERhdGFiYXNlLCBjb250YWlucyB0aGUgYXB0aXR1dGRlIHRlc3RzIGZyb20gcHJldmlvdXMgMTIwayBleGFtcy4iICIiICJEYXRhYmFzZSIKCQl9CgkJYXJjaGlmeUFkYXB0ZXJTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQVJDSElGWSBDZXJ0aWZpY2F0aW9uIFN5c3RlbSBBZGFwdGVyIiB7CiAgICAgICAgICAgIGFkYXB0ZXIgPSBjb250YWluZXIgIkFkYXB0ZXIiICJBcmNoaWZ5IEFkYXB0ZXIsIHBhcnNlcyBleGFtcyBmcm9tIHVuZ3JhZGVkIGV4YW1zIGRhdGFiYXNlIiAiQWRhcHRlciIKICAgICAgICAgICAgb3JjaGVzdHJhdG9yID0gY29udGFpbmVyICJQcm9tcHQgT3JjaGVzdHJhdG9yIiAiQXJjaGlmeSBQcm9tcHQgT3JjaGVzdHJhdG9yIiAiUHJvbXB0IE9yY2hlc3RyYXRvciIKICAgICAgICAgICAgdmVjdG9yZGF0YWJhc2UgPSBjb250YWluZXIgIlZlY3RvciBEYXRhYmFzZSIgIlZlY3RvciBEYXRhYmFzZSB3aXRoIFEmQSB0dXBsZXMiICIiICJWZWN0b3IgRGF0YWJhc2UiCgkJfQoKCQlsbG0gPSBzb2Z0d2FyZVN5c3RlbSAiTExNIE1vZGVsIiB7CiAgICAgICAgICAgIGd1YXJkcmFpbHMgPSBjb250YWluZXIgIkd1YXJkcmFpbHMgQ29tcG9uZW50IiAiR3VhcmRyYWlscyB0byBwcmV2ZXQgamFpbGJyZWFrcyBhbmQgaW5jcmVhc2Ugb3V0cHV0IGNvbnNpc3RlbmN5IiAiR3VhcmRyYWlscyIKCQkJbGxtb2RlbCA9IGNvbnRhaW5lciAiTW9kZWwiICJFeHRlcm5hbCBMTE0gQVBJIiAiTW9kZWwiCgkJfQoKCQl1cGRhdGVWZWN0b3JEQiA9IHNvZnR3YXJlU3lzdGVtICJVcGRhdGUgSm9iIGZvciBWZWN0b3IgREIiIHsKCQkJdXBkYXRlciA9IGNvbnRhaW5lciAiVXBkYXRlIEpvYiIgIlVwZGF0ZXMgdGhlIFZlY3RvciBEQiBwZXJpb2RpY2FsbHkgd2l0aCBuZXcgUSZBIHR1cGxlcyIgIlVwZGF0ZSBKb2IiCgkJfQoKLyoKCQlncm91cCAiU29mdHdhcmUgU3lzdGVtIiB7CgkJCXNzID0gc29mdHdhcmVTeXN0ZW0gIkNlcnRpZmlhYmxlIEluYy4gU29mdHdhcmUgU3lzdGVtIiAKCQkJYXJjaGlmeSA9IHNvZnR3YXJlU3lzdGVtICJBUkNISUZZIEF1dG8gR3JhZGluZyBTeXN0ZW0iIHsKCQkJCWF1dG9ncmFkZXIgPSBjb250YWluZXIgIkNvbnRhaW5lciIgewoJCQkJCXZlY3RvcmRhdGFiYXNlID0gY29tcG9uZW50ICJkYXRhYmFzZSIgIlVuZ3JhZGVkIGV4YW1zIiAiZGF0YWJhc2UiCgkJCQkJcHJvbXB0Mk9yY2hlc3RyYXRvciA9IGNvbXBvbmVudCAiUHJvbXB0IE9yY2hlc3RyYXRvciIKCQkJCQlsbG0gPSBjb21wb25lbnQgIkxMTSBNb2RlbCIKCQkJCX0KCQkJCXVuZ3JhZGVkZGF0YWJhc2UgPSBjb250YWluZXIgImRhdGFiYXNlIiAiVW5ncmFkZWQgZXhhbXMiICJkYXRhYmFzZSIKCQkJfQoJCQlhcHRpdHV0ZU1hbnVhbEdyYWRlciA9IHNvZnR3YXJlU3lzdGVtICJBcHRpdHVkZSBNYW51ZWwgR3JhZGVyIgoJCX0KKi8JCQoJCS8vIFBlb3BsZSBhbmQgU29mdHdhcmUgU3lzdGVtcwoJCWNhbmRpZGF0ZSAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiVGFrZXMgYXB0aXR1ZGUgY2VydGlmaWNhdGlvbiBleGFtLCBjb25zaXN0aW5nIG9mIG11bHRpcGxlLWNob2ljZSBhbmQgc2hvcnQtYW5zd2VyIHRlc3RzIgogICAgICAgIGV4cGVydCAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiR3JhZGVzIHNob3J0LWFuc3dlciB0ZXN0cywgcHJvdmlkZXMgZmVlZGJhY2suIEFuYWx5c2VzIHF1ZXN0aW9uIGNhdGFsb2cuIgoJCWVuZ2luZWVyIC0+IGFyY2hpZnlBZGFwdGVyU3lzdGVtICJNYWludGFpbnMgTExNIGNvbXBvbmVudHMgdXNlZCBmb3IgYXV0by1ncmFkaW5nLCBpbmNsdWRpbmcgbW9uaXRvcmluZywgcGFyYW1ldGVyIGFuZCB0aHJlc2hvbGQgdHVuaW5nLCB1cGRhdGluZyBtb2RlbHMgZXRjLiIKCQlhcmNoaWZ5QWRhcHRlclN5c3RlbSAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiUHJvdmlkZXMgZGF0YWJhc2VzIHdpdGggdW5ncmFkZWQgZXhhbSBxdWVzdGlvbnMgYW5kIGdyYWRlZCBleGFtIGRhdGFiYXNlIgoKCQkvLyBDb250YWluZXJzIAoJCS8vIEV4aXN0aW5nIFN5c3RlbQoJCWFwdGl0dWRlVGVzdFRha2VyIC0+IGFwdGl0dWRlTWFudWFsQ2FwdHVyZSAiUGFzc2VzIHNob3J0LWFuc3dlciBxdWVzdGlvbnMiCgkJYXB0aXR1ZGVUZXN0VGFrZXIgLT4gYXB0aXR1ZGVBdXRvR3JhZGVyICJQYXNzZXMgbXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyB0byBhdXRvLWdyYWRlciIKCQlhcHRpdHVkZUF1dG9HcmFkZXIgLT4gZ3JhZGVkZGF0YWJhc2UgIldyaXRlcyBtdWx0aXBsZS1jaG9pY2UgcXVlc3Rpb24gYW5zd2VycyBhbmQgcmVzdWx0cyIKCQlhcHRpdHVkZU1hbnVhbENhcHR1cmUgLT4gZGF0YWJhc2UgIkZvcndhcmRzIHVuZ3JhZGVkIFEmQSB0dXBsZXMiCgoJCS8vIFVwZGF0ZSBKb2IKCQlncmFkZWRkYXRhYmFzZSAtPiB1cGRhdGVyICJSZWFkcyBuZXcgZ3JhZGVkIFEmQSB0dXBsZXMgZnJvbSB0aGUgZGF0YWJhc2UgdmlhIGhpZ2ggd2F0ZXJtYXJrICh0aW1lc3RhbXAgY29sdW1uKSIKCQl1cGRhdGVyIC0+IHZlY3RvcmRhdGFiYXNlICJFbWJlZGRzIHRoZSBuZXcgUSZBIHR1cGxlcyBpbnRvIHZlY3RvciBzcGFjZSBhbmQgd3JpdGVzIHRoZW0gdG8gVmVjdG9yIERhdGFiYXNlIgoKCQkvLyBOZXcgTExNIGdyYWRpbmcgU3lzdGVtCgkJZGF0YWJhc2UgLT4gYWRhcHRlciAicmVhZHMgdW5ncmFkZWQgYXB0aXR1ZGUgdGVzdCBleGFtcyIKCQlhZGFwdGVyIC0+IG9yY2hlc3RyYXRvciAiUHJvdmlkZXMgUSZBIHR1cGxlIgoJCWFkYXB0ZXIgLT4gZ3JhZGVkZGF0YWJhc2UgIlJldHVybnMgZ3JhZGVkIFEmQSB0dXBsZXMgd2l0aCBmZWVkYmFjayIKCQlvcmNoZXN0cmF0b3IgLT4gYWRhcHRlciAiUmV0dXJucyBMTE0gZ3JhZGluZyIKCQlvcmNoZXN0cmF0b3IgLT4gZ3VhcmRyYWlscyAiRm9yd2FyZHMgcHJvbXB0IHRvIGJlIGNoZWNrZWQiCgkJZ3VhcmRyYWlscyAtPiBvcmNoZXN0cmF0b3IgIkNvbXBhcmVzIGFnYWluc3QgZXhwZWN0ZWQgb3V0cHV0IGZvcm1hdCBhbmQgY2hlY2tzIGZvciBzY2hlbWEgY29tcGF0aWJpbGl0eSIKCQl2ZWN0b3JkYXRhYmFzZSAtPiBvcmNoZXN0cmF0b3IgIkVucmljaGVzIHByb21wdCBieSBwcm92aWRpbmcgbW9zdCBzaW1pbGFyIFEmQSB0dXBsZXMiCgkJbGxtb2RlbCAtPiBndWFyZHJhaWxzICJSZXR1cm5zIGdlbmVyYXRlZCBvdXRwdXQgYnkgTExNIgoJCWd1YXJkcmFpbHMgLT4gbGxtb2RlbCAiQW5hbHlzZXMgZm9yIGlucHV0IGluamVjdGlvbiBhdHRhY2tzIgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICBzeXN0ZW1Db250ZXh0IGNlcnRpZmlhYmxlU3lzdGVtIHsKICAgICAgICAgICAgaW5jbHVkZSAqIGVuZ2luZWVyCgkJCWF1dG9MYXlvdXQKICAgICAgICB9CgkJY29udGFpbmVyIGFyY2hpZnlBZGFwdGVyU3lzdGVtICJDb250YWluZXJzIiB7CiAgICAgICAgICAgIGluY2x1ZGUgdXBkYXRlciBhcHRpdHVkZVRlc3RUYWtlciBhcHRpdHVkZU1hbnVhbENhcHR1cmUgYXB0aXR1ZGVBdXRvR3JhZGVyIGRhdGFiYXNlIGdyYWRlZGRhdGFiYXNlIGFkYXB0ZXIgb3JjaGVzdHJhdG9yIHZlY3RvcmRhdGFiYXNlIGd1YXJkcmFpbHMgbGxtb2RlbAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29udGFpbmVyIGRpYWdyYW0gZm9yIHRoZSBleGlzdGluZyBjb21wb25lbnRzIGludGVyYWN0aW5nIHdpdGggdGhlIEFSQ0hJRlkgZXh0ZW5zaW9ucyIKCQkJYXV0b0xheW91dAogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgICAgICBmb250U2l6ZSAyMgogICAgICAgICAgICAgICAgc2hhcGUgUGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ2FuZGlkYXRlIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNhOTQwNjQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJFeHBlcnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2U3MDA0YwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIk1MIEVuZ2luZWVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNlNzAwNGMKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzAwNjVhMQogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiVmVjdG9yIERhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29tcG9uZW50IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIGNvbG9yICMwMDAwMDAKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzQzOGRkNQogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgIH0KICAgIAp9"
   },
   "views" : {
     "configuration" : {
@@ -289,18 +433,26 @@
           "shape" : "Person",
           "tag" : "Person"
         }, {
-          "background" : "#e7004c",
+          "background" : "#a94064",
           "tag" : "Candidate"
         }, {
           "background" : "#e7004c",
           "tag" : "Expert"
         }, {
+          "background" : "#e7004c",
+          "tag" : "ML Engineer"
+        }, {
           "background" : "#0065a1",
           "color" : "#ffffff",
           "tag" : "Software System"
         }, {
+          "background" : "#85bbf0",
           "shape" : "Cylinder",
-          "tag" : "database"
+          "tag" : "Database"
+        }, {
+          "background" : "#85bbf0",
+          "shape" : "Cylinder",
+          "tag" : "Vector Database"
         }, {
           "background" : "#85bbf0",
           "color" : "#000000",
@@ -323,85 +475,132 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "description" : "TODO",
+      "description" : "Container diagram for the existing components interacting with the ARCHIFY extensions",
       "dimensions" : {
-        "height" : 2611,
+        "height" : 4411,
         "width" : 2390
       },
       "elements" : [ {
+        "id" : "5",
+        "x" : 1344,
+        "y" : 171
+      }, {
         "id" : "6",
-        "x" : 220,
-        "y" : 772
+        "x" : 1719,
+        "y" : 771
+      }, {
+        "id" : "7",
+        "x" : 969,
+        "y" : 771
       }, {
         "id" : "8",
-        "x" : 970,
-        "y" : 1372
+        "x" : 969,
+        "y" : 1371
       }, {
         "id" : "9",
-        "x" : 970,
-        "y" : 772
+        "x" : 1719,
+        "y" : 1371
       }, {
-        "id" : "10",
-        "x" : 970,
-        "y" : 172
+        "id" : "11",
+        "x" : 969,
+        "y" : 1971
       }, {
         "id" : "12",
-        "x" : 1720,
-        "y" : 1372
+        "x" : 969,
+        "y" : 2571
       }, {
         "id" : "13",
-        "x" : 1720,
-        "y" : 1972
+        "x" : 219,
+        "y" : 1971
+      }, {
+        "id" : "15",
+        "x" : 969,
+        "y" : 3171
+      }, {
+        "id" : "16",
+        "x" : 969,
+        "y" : 3771
+      }, {
+        "id" : "18",
+        "x" : 1719,
+        "y" : 1971
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Containers",
       "order" : 2,
       "relationships" : [ {
-        "id" : "18"
+        "id" : "23"
       }, {
-        "id" : "22",
+        "id" : "24"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "31",
         "vertices" : [ {
-          "x" : 1345,
-          "y" : 1222
+          "x" : 1598,
+          "y" : 1867
+        }, {
+          "x" : 1448,
+          "y" : 1821
+        }, {
+          "x" : 969,
+          "y" : 1821
+        }, {
+          "x" : 819,
+          "y" : 1867
         } ]
       }, {
-        "id" : "23",
+        "id" : "35"
+      }, {
+        "id" : "39",
         "vertices" : [ {
-          "x" : 1045,
-          "y" : 1222
+          "x" : 1044,
+          "y" : 2421
         } ]
       }, {
-        "id" : "24",
+        "id" : "40"
+      }, {
+        "id" : "43",
         "vertices" : [ {
-          "x" : 1476,
-          "y" : 1339
+          "x" : 1344,
+          "y" : 2421
         } ]
       }, {
-        "id" : "28",
+        "id" : "44",
         "vertices" : [ {
-          "x" : 1663,
-          "y" : 1104
+          "x" : 1044,
+          "y" : 3021
         } ]
       }, {
-        "id" : "32"
-      }, {
-        "id" : "33",
+        "id" : "48",
         "vertices" : [ {
-          "x" : 2095,
-          "y" : 1822
+          "x" : 1344,
+          "y" : 3021
         } ]
       }, {
-        "id" : "34",
+        "id" : "52"
+      }, {
+        "id" : "53",
         "vertices" : [ {
-          "x" : 1795,
-          "y" : 1822
+          "x" : 1344,
+          "y" : 3621
+        } ]
+      }, {
+        "id" : "54",
+        "vertices" : [ {
+          "x" : 1044,
+          "y" : 3621
         } ]
       } ],
-      "softwareSystemId" : "7"
+      "softwareSystemId" : "10"
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -409,53 +608,49 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
-      "dimensions" : {
-        "height" : 2100,
-        "width" : 1875
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 200,
-        "y" : 165
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "2",
-        "x" : 900,
-        "y" : 165
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "3",
-        "x" : 1275,
-        "y" : 865
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "4",
-        "x" : 525,
-        "y" : 915
+        "x" : 0,
+        "y" : 0
       }, {
-        "id" : "7",
-        "x" : 525,
-        "y" : 1565
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "generatedKey" : true,
       "key" : "SystemContext-001",
       "order" : 1,
       "relationships" : [ {
-        "id" : "14"
+        "id" : "19"
       }, {
-        "id" : "15"
+        "id" : "20"
       }, {
-        "id" : "16"
+        "id" : "21"
       }, {
-        "id" : "17",
-        "vertices" : [ {
-          "x" : 900,
-          "y" : 1390
-        } ]
+        "id" : "22"
       }, {
-        "id" : "21",
-        "vertices" : [ {
-          "x" : 600,
-          "y" : 1390
-        } ]
+        "id" : "30"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "38"
       } ],
       "softwareSystemId" : "4"
     } ]
