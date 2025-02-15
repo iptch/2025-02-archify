@@ -20,7 +20,7 @@ Several AI approaches exist:
 
 ## Decision:
 
-Adopt a RAG-based grading system that references curated exam content, guidelines, and rubrics when evaluating and scoring new textual answers.
+Adopt a RAG-based grading system that references curated exam content, guidelines, and rubrics when evaluating and scoring exams.
 
 ### Why did we take this decision?
 

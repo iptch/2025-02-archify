@@ -12,6 +12,8 @@ In our second Workshop we refined use cases and identified/discussed architectur
 * How to promt (Aptitude Testing) (per question)
 * (IDE) Prevent Promt Injection Guard Rails (Aptitude)
 * (IDE) Structure Output (Aptitude Test)
+* (JVI) Prevent Promt Injection Guard Rails (Aptitude)
+* Structure Output (Aptitude Test)
 * Integration into existing system (Adapter component, Scheduling/Queues, Write back Results (DBs), Changes to existing comonents)
 * How to evaluate Architectural Exams (Use evaluation criteria and technical context)
 * Enrich Contect for Architectural Exam
