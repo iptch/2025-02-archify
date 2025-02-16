@@ -13,6 +13,7 @@ workspace {
                 certifiableAptManualCapture = component "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
                 certifiableUngradedAptDb = component "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
                 certifiableAptGradedDb = component "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
+                certifiableAptQuestionsDb = component "Aptitude Test Database" "" "" "Database"
             }
 
             certifiableArchGrading = container "Certifiable Architecture Exams Module" {
@@ -42,8 +43,12 @@ workspace {
                 archGuardrails = component "Architecture Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Architecture Guardrails"
             }
 
-            archifyExamGeneration = container "Archify Exam Generation" {
-                archifyAptQuestionGeneratorAdapter = component "Aptitude Question Adapter"
+            archifyExamMaintenance = container "Archify Exam Maintenance" {
+                archifyExamMaintenanceAdapter = component "Exam Maintenance Adapter"
+                archifyAptQuestionPromtOrchestrator = component "Aptitude Question Promt Orchestrator"
+                archifyAptQuestionGuardRails = component "Aptitude Question Guard Rails"
+
+                archifyArchCaseStudyGenerator = component "Case Study Adapter"
             }
 		}
 
@@ -126,13 +131,28 @@ workspace {
         certifiableArchManualGrader -> certifiableArchGradedDb "Writes manually reviews final Graded Exams"
 
         // Exam Generator
-        // Aptitude Question Generator
-        certifiableAptGrading -> archifyExamGeneration "Read existing aptitude questions"
-        certifiableArchGrading -> archifyExamGeneration "Read existing case studies"
-        dataPipelineKnowledge ->  archifyAptQuestionGeneratorAdapter "Read relevant knowledge"
-        archifyExamGeneration -> llmSystem "Promt to generate questions and case studies"
-        archifyExamGeneration -> certifiableAptGrading "Write generated aptitude questions"
-        archifyExamGeneration -> certifiableArchGrading "Write generated case studies"
+        // Question Generator Container Relationships
+        certifiableAptGrading -> archifyExamMaintenance "Read existing aptitude questions"
+        certifiableArchGrading -> archifyExamMaintenance "Read existing case studies"
+        
+        archifyExamMaintenance -> llmSystem "Promt to generate questions and case studies"
+        archifyExamMaintenance -> certifiableAptGrading "Write generated aptitude questions"
+        archifyExamMaintenance -> certifiableArchGrading "Write generated case studies"
+
+        // Question Generator Container Relationships
+        knowledgeVectorDb -> archifyAptQuestionPromtOrchestrator "Read knowhow to give technical context for generated questions"
+        aptAnswersVectorDb -> archifyAptQuestionPromtOrchestrator "Read known answers and questions"
+        certifiableKnowledgeBase -> archifyExamMaintenanceAdapter "Read latest entries to identify new areas"
+        archifyExamMaintenanceAdapter -> archifyAptQuestionPromtOrchestrator "Provide identified areas where new questions are needed"
+        archifyAptQuestionPromtOrchestrator -> archifyExamMaintenanceAdapter "Return generated exam exam questions and case studies"
+        archifyAptQuestionPromtOrchestrator -> archifyAptQuestionGuardRails "Enrich promt with technical context. Identify additional ares for questions by finding which specifics have little similarity in existing answers."
+        archifyAptQuestionGuardRails -> archifyAptQuestionPromtOrchestrator "Return generated exam exam questions and case studies"
+        archifyAptQuestionGuardRails -> llmSystem "Promt LLM"
+        llmSystem -> archifyAptQuestionGuardRails "Filter output for harmful content and enforce needed structures"
+        archifyExamMaintenanceAdapter -> certifiableAptQuestionsDb "Write generated exam questions"
+        archifyExamMaintenanceAdapter -> certifiableCaseStudyDb "Write generated case studies"
+        certifiableCaseStudyDb -> archifyArchCaseStudyGenerator "Read existing case studies"
+        
     }
 
     views {
@@ -156,11 +176,11 @@ workspace {
             description "Container diagram for Automated Architecture Grading"
             autoLayout lr 500 750
         }
-        container archifySystem "Container-Exam-Generation" {
+        container archifySystem "Container-Exam-Maintenance" {
             include certifiableAptGrading \
                     certifiableArchGrading \
                     dataPipelineKnowledge \
-                    archifyExamGeneration
+                    archifyExamMaintenance
             description "Container diagram for Automated Architecture Grading"
             autoLayout lr 500 750
         }
@@ -193,6 +213,19 @@ workspace {
                     knowledgeUpdater
             description "Component diagram for Automated Architecture Grading"
             autoLayout lr 500 750
+        }
+        component archifyArchGrading "Component-Exam-Maintenance" {
+            include certifiableAptQuestionsDb \
+                    archifyExamMaintenanceAdapter \
+                    knowledgeVectorDb \
+                    aptAnswersVectorDb \
+                    llmSystem \
+                    archifyAptQuestionPromtOrchestrator \
+                    archifyAptQuestionGuardRails \
+                    certifiableCaseStudyDb \
+                    certifiableKnowledgeBase
+            description "Component diagram for Exam Maintenance"
+            autoLayout lr 750 500
         }
 
 
