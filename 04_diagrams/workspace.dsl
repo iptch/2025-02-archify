@@ -6,14 +6,13 @@ workspace {
 		engineer = person "ML Engineer" "AI Engineer, working for Certifiable Inc." "ML Engineer"
 		
 		certifiableSystem = softwareSystem "Certifiable Inc. Existing Software System" {
-            aptitudeTestTaker = container "Aptitude Test Taker" "Interface handling test loading, question sending, answer capturing and test timing" "Aptitude Test Taker"
-            aptitudeAutoGrader = container "Aptitude Auto Grader" "Auto-grading component for multiple-choice questions" "Auto Grader"
-            aptitudeManualCapture = container "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
-            aptitudeUngradedDatabase = container "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
-            aptitudeGradedDatabase = container "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
 
             certifiableAptGrading = container "Certifiable Aptitude Grading Module" {
-
+                aptitudeTestTaker = component "Aptitude Test Taker" "Interface handling test loading, question sending, answer capturing and test timing" "Aptitude Test Taker"
+                aptitudeAutoGrader = component "Aptitude Auto Grader" "Auto-grading component for multiple-choice questions" "Auto Grader"
+                aptitudeManualCapture = component "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
+                aptitudeUngradedDatabase = component "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
+                aptitudeGradedDatabase = component "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
             }
 
             certifiableArchGrading = container "Certifiable Architecture Exams Module" {
@@ -25,12 +24,11 @@ workspace {
             }
 		}
 		archifySystem = softwareSystem "ARCHIFY AI Certification Systems" {
-            aptitudeGradingAdapter = container "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
-            aptitudePromtOrchestrator = container "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
-            aptitudeVectorDb = container "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
 
             archifyAptGrading = container "Archify Aptitude Exam Grading" {
-
+                aptitudeGradingAdapter = component "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
+                aptitudePromtOrchestrator = component "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
+                aptitudeVectorDb = component "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
             }
 
             archifyArchGrading = container "Archify Architecture Exam Grading" {
@@ -49,9 +47,7 @@ workspace {
 		}
 
 		llm = softwareSystem "LLM Model" {
-
             aptitudeGuardrails = container "Aptitude Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Aptitude Guardrails"
-            
 			llmodel = container "Model" "External LLM API" "Model"
 		}
 
@@ -124,21 +120,6 @@ workspace {
             include * engineer
 			autoLayout
         }
-        container archifySystem "Aptitude-Grading" {
-            include updater \
-                    aptitudeTestTaker \
-                    aptitudeManualCapture \
-                    aptitudeAutoGrader \
-                    aptitudeUngradedDatabase \
-                    aptitudeGradedDatabase \
-                    aptitudeGradingAdapter \
-                    aptitudePromtOrchestrator \
-                    aptitudeVectorDb \
-                    aptitudeGuardrails \
-                    llmodel 
-            description "Container diagram for the existing components interacting with the ARCHIFY extensions"
-            autoLayout
-        }
         container archifySystem "Container-Aptitude-Grading" {
             include certifiableAptGrading \
                     dataPipeline \
@@ -154,6 +135,21 @@ workspace {
                     llm
             description "Container diagram for Automated Architecture Grading"
             autoLayout lr 500 750
+        }
+        component archifyAptGrading "Component-Aptitude-Grading" {
+            include updater \
+                    aptitudeTestTaker \
+                    aptitudeManualCapture \
+                    aptitudeAutoGrader \
+                    aptitudeUngradedDatabase \
+                    aptitudeGradedDatabase \
+                    aptitudeGradingAdapter \
+                    aptitudePromtOrchestrator \
+                    aptitudeVectorDb \
+                    aptitudeGuardrails \
+                    llmodel 
+            description "Container diagram for the existing components interacting with the ARCHIFY extensions"
+            autoLayout
         }
         component archifyArchGrading "Component-Architecture-Grading" {
             include archGradingAdapter \
