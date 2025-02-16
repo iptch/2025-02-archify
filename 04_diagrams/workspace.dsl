@@ -41,6 +41,10 @@ workspace {
                 archPromtOrchestrator = component "Architecture Prompt Orchestrator" 
                 archGuardrails = component "Architecture Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Architecture Guardrails"
             }
+
+            archifyExamGeneration = container "Archify Exam Generation" {
+                archifyAptQuestionGeneratorAdapter = component "Aptitude Question Adapter"
+            }
 		}
 
 		dataPipelineSystem = softwareSystem "Context Data Pre-Processing" {
@@ -120,6 +124,15 @@ workspace {
 		archGuardrails -> llmSystem "Analyses for input injection attacks"
         certifiableArchManualGrader -> certifiableArchGradedDb "Reads AI Graded Exams"
         certifiableArchManualGrader -> certifiableArchGradedDb "Writes manually reviews final Graded Exams"
+
+        // Exam Generator
+        // Aptitude Question Generator
+        certifiableAptGrading -> archifyExamGeneration "Read existing aptitude questions"
+        certifiableArchGrading -> archifyExamGeneration "Read existing case studies"
+        dataPipelineKnowledge ->  archifyAptQuestionGeneratorAdapter "Read relevant knowledge"
+        archifyExamGeneration -> llmSystem "Promt to generate questions and case studies"
+        archifyExamGeneration -> certifiableAptGrading "Write generated aptitude questions"
+        archifyExamGeneration -> certifiableArchGrading "Write generated case studies"
     }
 
     views {
@@ -140,6 +153,14 @@ workspace {
                     dataPipelineKnowledge \
                     archifyArchGrading \
                     llmSystem
+            description "Container diagram for Automated Architecture Grading"
+            autoLayout lr 500 750
+        }
+        container archifySystem "Container-Exam-Generation" {
+            include certifiableAptGrading \
+                    certifiableArchGrading \
+                    dataPipelineKnowledge \
+                    archifyExamGeneration
             description "Container diagram for Automated Architecture Grading"
             autoLayout lr 500 750
         }
