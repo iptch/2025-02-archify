@@ -11,12 +11,17 @@ workspace {
             aptitudeManualCapture = container "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
             aptitudeUngradedDatabase = container "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
             aptitudeGradedDatabase = container "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
-            
+
+            certifiableArchGrading = container "Certifiable Architecture Exams Module" {
+
+            }
+
             archSubmissionService = container "Architecture Submission Service" "" "Architecture Manual Grader"
             archManualGrader = container "Architecture Manual Grader" "" "Architecture Manual Grader"
             archCaseStudyDatabase = container "Case Study Database" "Database, contains case studies." "" "Database"
             archSubmissionUngradedDatabase = container "Submission Ungraded Database" "Ungraded Exams Database, contains the architecture submissions from previous 120k exams." "" "Database"
             archSubmissionGradedDatabase = container "Submission Graded Database" "Graded Exams & Feedback Database, contains the graded architecture submissions and feedback from previous 120k exams." "" "Database"
+
 		}
 		archifySystem = softwareSystem "ARCHIFY AI Certification Systems" {
             aptitudeGradingAdapter = container "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
@@ -26,6 +31,14 @@ workspace {
             archGradingAdapter = container "Architecture Autograding Adapter" "Architecture Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
             archPromtOrchestrator = container "Architecture Prompt Orchestrator" "Prompt Orchestrator" "Prompt Orchestrator"
             knowledgeVectorDb = container "Knowledge Vector DB" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
+
+            archGradingContainer = container "Archify Architecture Exam Grading" {
+               
+            }
+
+            dataPipeline = container "Context Data Pre-Processing" {
+
+            }
 		}
 
 		llm = softwareSystem "LLM Model" {
@@ -80,6 +93,15 @@ workspace {
 		knowledgeVectorDb -> archPromtOrchestrator "Enriches promt by providing most relevant technical context"
 		llmodel -> archGuardrails "Returns generated output by LLM"
 		archGuardrails -> llmodel "Analyses for input injection attacks"
+
+
+        // Architecture Container Relationships
+        dataPipeline -> archGradingContainer "Provide context data"
+        archGradingContainer -> llmodel "Promt to grade exams"
+        llmodel -> archGradingContainer "Return output with graded submission and feedback"
+        archGradingContainer -> certifiableArchGrading "Write automatically graded submission and feedback"
+        certifiableArchGrading -> archGradingContainer "Read ungraded submission for automatic grading"
+        certifiableArchGrading -> dataPipeline "Knowledge"
     }
 
     views {
@@ -98,24 +120,20 @@ workspace {
                     aptitudePromtOrchestrator \
                     aptitudeVectorDb \
                     aptitudeGuardrails \
-                    llmodel \
-                    testContainer
+                    llmodel 
             description "Container diagram for the existing components interacting with the ARCHIFY extensions"
             autoLayout
         }
-        container archifySystem "Architecture-Grading" {
-            include updater \
-                    llmodel \
-                    archSubmissionService \
-                    archSubmissionUngradedDatabase \
-                    archSubmissionGradedDatabase \
-                    archGradingAdapter \
-                    archPromtOrchestrator \
-                    knowledgeVectorDb \
-                    archGuardrails
+        container archifySystem "Container-Architecture-Grading" {
+            include certifiableArchGrading \
+                    dataPipeline \
+                    archGradingContainer \
+                    llm
             description "Container diagram for the existing components interacting with the ARCHIFY extensions"
-            autoLayout
+            autoLayout lr 500 750
         }
+
+
 
         styles {
             element "Person" {
