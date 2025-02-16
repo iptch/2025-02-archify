@@ -12,6 +12,10 @@ workspace {
             aptitudeUngradedDatabase = container "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
             aptitudeGradedDatabase = container "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
 
+            certifiableAptGrading = container "Certifiable Aptitude Grading Module" {
+
+            }
+
             certifiableArchGrading = container "Certifiable Architecture Exams Module" {
                 archSubmissionService = component "Architecture Submission Service" "" "Architecture Manual Grader"
                 archManualGrader = component "Architecture Manual Grader" "" "Architecture Manual Grader"
@@ -24,6 +28,10 @@ workspace {
             aptitudeGradingAdapter = container "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
             aptitudePromtOrchestrator = container "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
             aptitudeVectorDb = container "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
+
+            archifyAptGrading = container "Archify Aptitude Exam Grading" {
+
+            }
 
             archifyArchGrading = container "Archify Architecture Exam Grading" {
                 archGradingAdapter = component "Architecture Autograding Adapter"
@@ -41,6 +49,7 @@ workspace {
 		}
 
 		llm = softwareSystem "LLM Model" {
+
             aptitudeGuardrails = container "Aptitude Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Aptitude Guardrails"
             
 			llmodel = container "Model" "External LLM API" "Model"
@@ -82,6 +91,14 @@ workspace {
 		llmodel -> aptitudeGuardrails "Returns generated output by LLM"
 		aptitudeGuardrails -> llmodel "Analyses for input injection attacks"
 
+        // Aptitude Container Relationships
+        dataPipeline -> archifyAptGrading "Provide context data"
+        archifyAptGrading -> llmodel "Promt to grade exams"
+        llmodel -> archifyAptGrading "Return output with graded submission and feedback"
+        archifyAptGrading -> certifiableAptGrading "Write automatically graded submission and feedback"
+        certifiableAptGrading -> archifyAptGrading "Read ungraded submission for automatic grading"
+        certifiableAptGrading -> dataPipeline "Allowed Answers and Answers from past exams"
+
         // Architecture Container Relationships
         dataPipeline -> archifyArchGrading "Provide context data"
         archifyArchGrading -> llmodel "Promt to grade exams"
@@ -121,6 +138,14 @@ workspace {
                     llmodel 
             description "Container diagram for the existing components interacting with the ARCHIFY extensions"
             autoLayout
+        }
+        container archifySystem "Container-Aptitude-Grading" {
+            include certifiableAptGrading \
+                    dataPipeline \
+                    archifyAptGrading \
+                    llm
+            description "Container diagram for Automated Aptitude Grading"
+            autoLayout lr 500 750
         }
         container archifySystem "Container-Architecture-Grading" {
             include certifiableArchGrading \
