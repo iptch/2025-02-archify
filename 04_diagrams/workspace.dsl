@@ -8,19 +8,23 @@ workspace {
 		certifiableSystem = softwareSystem "Certifiable Inc. Existing Software System" {
 
             certifiableAptGrading = container "Certifiable Aptitude Grading Module" {
-                aptitudeTestTaker = component "Aptitude Test Taker" "Interface handling test loading, question sending, answer capturing and test timing" "Aptitude Test Taker"
-                aptitudeAutoGrader = component "Aptitude Auto Grader" "Auto-grading component for multiple-choice questions" "Auto Grader"
-                aptitudeManualCapture = component "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
-                aptitudeUngradedDatabase = component "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
-                aptitudeGradedDatabase = component "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
+                certifiableestTaker = component "Aptitude Test Taker" "Interface handling test loading, question sending, answer capturing and test timing" "Aptitude Test Taker"
+                certifiableAutoGrader = component "Aptitude Auto Grader" "Auto-grading component for multiple-choice questions" "Auto Grader"
+                certifiableAptManualCapture = component "Aptitude Manuel Capture" "Manual capture component for short-answer questions" "Manual Capture"
+                certifiableUngradedAptDb = component "Ungraded Database" "Contains the ungraded short-answer Q&A tuples" "" "Database"
+                certifiableAptGradedDb = component "Graded Database" "Graded Exams Database, contains the aptitutde tests from previous 120k exams." "" "Database"
             }
 
             certifiableArchGrading = container "Certifiable Architecture Exams Module" {
-                archSubmissionService = component "Architecture Submission Service" "" "Architecture Manual Grader"
-                archManualGrader = component "Architecture Manual Grader" "" "Architecture Manual Grader"
-                archCaseStudyDatabase = component "Case Study Database" "Database, contains case studies." "" "Database"
-                archSubmissionUngradedDatabase = component "Submission Ungraded Database" "Ungraded Exams Database, contains the architecture submissions from previous 120k exams." "" "Database"
-                archSubmissionGradedDatabase = component "Submission Graded Database" "Graded Exams & Feedback Database, contains the graded architecture submissions and feedback from previous 120k exams." "" "Database"
+                certfifiableArchSubmissionService = component "Architecture Submission Service" "" "Architecture Manual Grader"
+                certifiableArchManualGrader = component "Architecture Manual Grader" "" "Architecture Manual Grader"
+                certifiableCaseStudyDb = component "Case Study Database" "Database, contains case studies." "" "Database"
+                certifiableArchUngradedDb = component "Submission Ungraded Database" "Ungraded Exams Database, contains the architecture submissions from previous 120k exams." "" "Database"
+                certifiableArchGradedDb = component "Submission Graded Database" "Graded Exams & Feedback Database, contains the graded architecture submissions and feedback from previous 120k exams." "" "Database"
+            }
+
+            certifiableKnowledgeBase = container "Certifiable Knowledge Base" {
+                certifiableKnowledgeAdapter = component "Knowledge Adapter"
             }
 		}
 		archifySystem = softwareSystem "ARCHIFY AI Certification Systems" {
@@ -28,7 +32,7 @@ workspace {
             archifyAptGrading = container "Archify Aptitude Exam Grading" {
                 aptitudeGradingAdapter = component "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
                 aptitudePromtOrchestrator = component "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
-                aptitudeVectorDb = component "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
+                
                 aptitudeGuardrails = component "Aptitude Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Aptitude Guardrails"
             }
 
@@ -41,87 +45,91 @@ workspace {
 
 		dataPipelineSystem = softwareSystem "Context Data Pre-Processing" {
 
-            aptitudeExamAnswers = container "Aptitude Integration" {
-
+            dataPipelineAptAnswers = container "Aptitude Integration" {
+                aptAnswersUpdater = component "Aptitude Data Pipeline" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
+                aptAnswersVectorDb = component "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
             }
 
-            knowledgeBase = container "Knowledge Base" {
-                knowledgeVectorDb = component "Knowledge Vector DB"
-            }
-
-			updater = container "Data Pipeline" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
+            dataPipelineKnowledge = container "Knowledge Base" {
+                knowledgeUpdater = component "Knowledge Data Pipeline"
+                knowledgeVectorDb = component "Knowledge Vector DB" "" "" "Database"
+            }			
 		}
 
-		llmSystem = softwareSystem "LLM Model" {}
+		llmSystem = softwareSystem "LLM Model" 
 
 		// People and Software Systems
 		candidate -> certifiableSystem "Takes aptitude certification exam, consisting of multiple-choice and short-answer tests"
         expert -> certifiableSystem "Grades short-answer tests, provides feedback. Analyses question catalog."
 		engineer -> archifySystem "Maintains LLM components used for auto-grading, including monitoring, parameter and threshold tuning, updating models etc."
 		archifySystem -> certifiableSystem "Provides databases with ungraded exam questions and graded exam database"
+        archifySystem -> llmSystem "Prompt LLM for grading, test generation and feedback generation"
+        llmSystem -> archifySystem "Return returns grading results, test generation and feedback generation"
 
-		// Containers 
-		// Existing System
-		aptitudeTestTaker -> aptitudeManualCapture "Passes short-answer questions"
-		aptitudeTestTaker -> aptitudeAutoGrader "Passes multiple-choice questions to auto-grader"
-		aptitudeAutoGrader -> aptitudeGradedDatabase "Writes multiple-choice question answers and results"
-		aptitudeManualCapture -> aptitudeUngradedDatabase "Forwards ungraded Q&A tuples"
-
-        archSubmissionService -> archSubmissionUngradedDatabase "Writes submissions to architecture exam"
+		// Existing Certifiable System
+		certifiableestTaker -> certifiableAptManualCapture "Passes short-answer questions"
+		certifiableestTaker -> certifiableAutoGrader "Passes multiple-choice questions to auto-grader"
+		certifiableAutoGrader -> certifiableAptGradedDb "Writes multiple-choice question answers and results"
+		certifiableAptManualCapture -> certifiableUngradedAptDb "Forwards ungraded Q&A tuples"
+        certfifiableArchSubmissionService -> certifiableArchUngradedDb "Writes submissions to architecture exam"
         
-
 		// Data Pipeline
-		aptitudeGradedDatabase -> updater "Reads new graded Q&A tuples from the database via high watermark (timestamp column)"
-		updater -> aptitudeVectorDb "Embedds the new Q&A tuples into vector space and writes them to Aptitude Q&A Vector Database"
-        updater -> knowledgeVectorDb "Embedds knowledge base into vector space and writes them to Knowledge Vector Database"
+		certifiableAptGradedDb -> aptAnswersUpdater "Reads new graded Q&A tuples from the database via high watermark (timestamp column)"
+		aptAnswersUpdater -> aptAnswersVectorDb "Embedds the new Q&A tuples into vector space and writes them to Aptitude Q&A Vector Database"
+        certifiableKnowledgeAdapter -> knowledgeUpdater "Reads information from knowledge base"
+        knowledgeUpdater -> knowledgeVectorDb "Embedds knowledge base into vector space and writes them to Knowledge Vector Database"
 
-		// New LLM aptitude grading System
-		aptitudeUngradedDatabase -> aptitudeGradingAdapter "reads ungraded aptitude test exams"
-		aptitudeGradingAdapter -> aptitudePromtOrchestrator "Provides Q&A tuple"
-		aptitudeGradingAdapter -> aptitudeGradedDatabase "Writes graded Q&A tuples with feedback"
-		aptitudePromtOrchestrator -> aptitudeGradingAdapter "Returns LLM grading"
-		aptitudePromtOrchestrator -> aptitudeGuardrails "Forwards prompt to be checked"
-		aptitudeGuardrails -> aptitudePromtOrchestrator "Compares against expected output format and checks for schema compatibility"
-		aptitudeVectorDb -> aptitudePromtOrchestrator "Enriches prompt by providing most similar Q&A tuples"
-		llmSystem -> aptitudeGuardrails "Returns generated output by LLM"
-		aptitudeGuardrails -> llmSystem "Analyses for input injection attacks"
-
+        // Aptitude Grading
         // Aptitude Container Relationships
-        aptitudeExamAnswers -> archifyAptGrading "Provide context data"
+        dataPipelineAptAnswers -> archifyAptGrading "Provide context data"
         archifyAptGrading -> llmSystem "Promt to grade exams"
         llmSystem -> archifyAptGrading "Return output with graded submission and feedback"
         archifyAptGrading -> certifiableAptGrading "Write automatically graded submission and feedback"
         certifiableAptGrading -> archifyAptGrading "Read ungraded submission for automatic grading"
-        certifiableAptGrading -> aptitudeExamAnswers "Allowed Answers and Answers from past exams"
+        certifiableAptGrading -> dataPipelineAptAnswers "Allowed Answers and Answers from past exams"
 
+        // Aptitude Component Relationships
+		certifiableUngradedAptDb -> aptitudeGradingAdapter "reads ungraded aptitude test exams"
+		aptitudeGradingAdapter -> aptitudePromtOrchestrator "Provides Q&A tuple"
+		aptitudeGradingAdapter -> certifiableAptGradedDb "Writes graded Q&A tuples with feedback"
+		aptitudePromtOrchestrator -> aptitudeGradingAdapter "Returns LLM grading"
+		aptitudePromtOrchestrator -> aptitudeGuardrails "Forwards prompt to be checked"
+		aptitudeGuardrails -> aptitudePromtOrchestrator "Compares against expected output format and checks for schema compatibility"
+		aptAnswersVectorDb -> aptitudePromtOrchestrator "Enriches prompt by providing most similar Q&A tuples"
+		llmSystem -> aptitudeGuardrails "Returns generated output by LLM"
+		aptitudeGuardrails -> llmSystem "Analyses for input injection attacks"
+
+        // Architecture Grading
         // Architecture Container Relationships
-        knowledgeBase -> archifyArchGrading "Provide context data"
+        dataPipelineKnowledge -> archifyArchGrading "Provide context data"
         archifyArchGrading -> llmSystem "Promt to grade exams"
         llmSystem -> archifyArchGrading "Return output with graded submission and feedback"
         archifyArchGrading -> certifiableArchGrading "Write automatically graded submission and feedback"
         certifiableArchGrading -> archifyArchGrading "Read ungraded submission for automatic grading"
-        certifiableArchGrading -> knowledgeBase "Knowledge"
+        certifiableArchGrading -> dataPipelineKnowledge "Knowledge"
 
         // Architecture Grading Component Relationships
-        archSubmissionUngradedDatabase -> archGradingAdapter "reads ungraded architecture exams"
+        certifiableArchUngradedDb -> archGradingAdapter "reads ungraded architecture exams"
         archGradingAdapter -> archPromtOrchestrator "provides ungraded architecture exam"
-        archGradingAdapter -> archSubmissionGradedDatabase "Writes graded exam with feedback"
+        archGradingAdapter -> certifiableArchGradedDb "Writes graded exam with feedback"
         archPromtOrchestrator -> archGradingAdapter "Returns LLM grading"
 		archPromtOrchestrator -> archGuardrails "Forwards prompt to be checked"
 		archGuardrails -> archPromtOrchestrator "Compares against expected output format and checks for schema compatibility"
 		knowledgeVectorDb -> archPromtOrchestrator "Enriches promt by providing most relevant technical context"
 		llmSystem -> archGuardrails "Returns generated output by LLM"
 		archGuardrails -> llmSystem "Analyses for input injection attacks"
+        certifiableArchManualGrader -> certifiableArchGradedDb "Reads AI Graded Exams"
+        certifiableArchManualGrader -> certifiableArchGradedDb "Writes manually reviews final Graded Exams"
     }
 
     views {
         systemContext certifiableSystem {
-            include * engineer
+            include * engineer llmSystem
 			autoLayout
         }
         container archifySystem "Container-Aptitude-Grading" {
             include certifiableAptGrading \
-                    aptitudeExamAnswers \
+                    dataPipelineAptAnswers \
                     archifyAptGrading \
                     llmSystem
             description "Container diagram for Automated Aptitude Grading"
@@ -129,26 +137,26 @@ workspace {
         }
         container archifySystem "Container-Architecture-Grading" {
             include certifiableArchGrading \
-                    knowledgeBase \
+                    dataPipelineKnowledge \
                     archifyArchGrading \
                     llmSystem
             description "Container diagram for Automated Architecture Grading"
             autoLayout lr 500 750
         }
         component archifyAptGrading "Component-Aptitude-Grading" {
-            include updater \
-                    aptitudeTestTaker \
-                    aptitudeManualCapture \
-                    aptitudeAutoGrader \
-                    aptitudeUngradedDatabase \
-                    aptitudeGradedDatabase \
+            include aptAnswersUpdater \
+                    certifiableestTaker \
+                    certifiableAptManualCapture \
+                    certifiableAutoGrader \
+                    certifiableUngradedAptDb \
+                    certifiableAptGradedDb \
                     aptitudeGradingAdapter \
                     aptitudePromtOrchestrator \
-                    aptitudeVectorDb \
+                    aptAnswersVectorDb \
                     aptitudeGuardrails \
                     llmSystem 
             description "Container diagram for the existing components interacting with the ARCHIFY extensions"
-            autoLayout
+            autoLayout lr 500 750
         }
         component archifyArchGrading "Component-Architecture-Grading" {
             include archGradingAdapter \
@@ -156,11 +164,12 @@ workspace {
                     knowledgeVectorDb \
                     archGuardrails \
                     llmSystem \
-                    archSubmissionService \
-                    archManualGrader \
-                    archCaseStudyDatabase \
-                    archSubmissionUngradedDatabase \
-                    archSubmissionGradedDatabase
+                    certfifiableArchSubmissionService \
+                    certifiableArchManualGrader \
+                    certifiableArchUngradedDb \
+                    certifiableArchGradedDb \
+                    certifiableKnowledgeAdapter \
+                    knowledgeUpdater
             description "Component diagram for Automated Architecture Grading"
             autoLayout lr 500 750
         }
