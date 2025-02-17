@@ -8,13 +8,14 @@ Proposed
 
 ## Context:
 The grading of architectural exams and the generation of new exam questions require access to accurate technical knowledge. 
+This technical knowledge is already available today in Certifiables knowledge base (See A11).
 The relevant factual information needs to be made available to the components processing these tasks. 
 
 ## Decision:
 
 * Vector database for technical knowledge – A dedicated vector database will store and structure relevant technical information, enabling efficient retrieval.
 * Dedicated non-AI knowledge management system – A new system component within Certifiable will manage the creation, validation, and maintenance of technical knowledge.
-* Data pipeline for aggregation and transformation – A processing pipeline will collect, preprocess, and structure knowledge before storing it in the vector database. (TODO link ADR-11)
+* Data pipeline for aggregation and transformation – A processing pipeline will collect, preprocess, and structure knowledge before storing it in the vector database. 
 
 ### Why did we take this decision?
 

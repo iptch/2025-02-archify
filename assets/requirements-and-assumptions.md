@@ -24,6 +24,8 @@ In this document, we derive context that is relevant for our architecture contri
 - A8 (C8): Given C8, we have access to an existing database with solved tests and case studies from 120k certifications that can be used to enrich our LLM usage.
 - A9 (C4): We assume that at the moment, there is also a certain overhead for formulating the emails providing feedback for an exam taker.
 - A10: The case study contains architectural diagrams. We assume those diagrams in the case study are created via an established DSL language such as Structurizr. Since the language is well established in the industry, we assume that LLMs can process the language and hence the LLM can be used to support the evaluation in the case study.
+- A11: Certifiable Inc. already has a system that can provide technical knowledge in the form of research articles, books and or blog entries. 
+This knowledge base is used as a basis for grading aptitude exams and architecture exam submissions. 
 
 ## Requirements (R)
 - R1 (C4, A1, A4): Scalability: by automating the grading process for the expected 5-10x volume growth while keeping the turnaround time at 1 week per test.
