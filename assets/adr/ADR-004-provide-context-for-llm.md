@@ -8,9 +8,8 @@ Accepted
 
 ## Context:
 In this ADR, we decide how to provide context to LLMs, so they can grade examinations reliable and consistent.
-For this, we use existing data (in this case, the database containing 120k previous exams). 
-
-Certifiable Inc. has an existing database of 120k archived and graded exams from previous examinations (A8). This database can be used to provide context to the LLM. The context can "teach" the LLM about:
+Certifiable Inc. has an existing database of 120k archived and graded exams from previous examinations (A8). 
+This database should be used to provide context to the LLM. The context can "teach" the LLM about:
 - How exams should be graded
 - What kind of answers to expect for each question
 - How to provide feedback for wrong answers
@@ -23,7 +22,9 @@ The following approaches exist to enhance an existing LLM models generations:
 
 ## Decision:
 
-Integrate RAG into our LLM based grading system to be able to retrieve previous successfully answered exam questions reliable.
+Integrate RAG into our LLM based grading system. This enables us to 
+1) Retrieve previous successfully answered exam questions reliable for grading the short-answer questionnaire. This is done by embedding question and answer tuples from previous exams into a vector, such that semantically similar questions can be retrieved and 
+2) Retrieve relevant content in the 
 
 ### Why did we take this decision?
 
@@ -34,7 +35,7 @@ Our decision for RAG over fine-tuning was based on:
 - Cost Efficiency & Implementation Complexity: Lower operational costs and simpler management using a vector database compared to orchestrating ML DevOps pipelines for model training and fine-tuning
 
 ## Consequences:
-* Low implementation complexity: RAG requires us to embedd our existing exam database in a vector database. In addition, a retrieval layer is required that translates natural language into vector representations and vice versa. The vector database and the embedding layer implementation have significantly less effort then orchestrating the re-training pipeline.
-* Increased Latency: Retrieval steps can introduce some overhead, see e.g. [here](https://github.com/Tongji-KGLLM/RAG-Survey
+- Low implementation complexity: RAG requires us to embedd our existing exam database in a vector database. In addition, a retrieval layer is required that translates natural language into vector representations and vice versa. The vector database and the embedding layer implementation have significantly less effort then orchestrating the re-training pipeline.
+- Increased Latency: Retrieval steps can introduce some overhead, see e.g. [here](https://github.com/Tongji-KGLLM/RAG-Survey
 ). We accept this consequence, because we anyways process the exams in batch jobs and hence latency is not important. The latency comes from accessing the vector database and executing similarity searches to find the most relevant vectors, which depending on the chosen vector search algorithm (e.g., approximate nearest neighbors), adds computational cost. There is no requirement for near real-time grading.
-* Continuous Maintenance: The RAG approach demands ongoing curation and updates to the knowledge base. This process, however, is less taxing than frequent model fine-tuning or re-training.
+- Continuous Maintenance: The RAG approach demands ongoing curation and updates to the knowledge base. This process, however, is less taxing than frequent model fine-tuning or re-training.
