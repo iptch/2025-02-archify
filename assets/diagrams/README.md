@@ -22,7 +22,7 @@ docker run -it --rm -p 8080:8080 -v PATH:/usr/local/structurizr structurizr/lite
 
 **LLM Model**: ARCHIFY AI Certification handles prompt engineering, prompt context provisioning and guardrails, hence the LLM model can be any LLM API or a self-hosted model, that fulfils the criteria discussed in [ADR-003](../adr/ADR-003-model-choice.md)
 
-TODO ![Context diagram](./images/structurizr-1-Diagram1.png)
+![Context diagram](structurizr-1-SystemContext-001.png)
 
 
 ## Actors

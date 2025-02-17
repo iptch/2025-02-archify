@@ -158,7 +158,6 @@ workspace {
     views {
         systemContext certifiableSystem {
             include * engineer llmSystem
-			autoLayout
         }
         container archifySystem "Container-Aptitude-Grading" {
             include certifiableAptGrading \
