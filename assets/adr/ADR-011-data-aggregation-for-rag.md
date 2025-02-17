@@ -1,4 +1,4 @@
-# Vector Databases for RAG data
+# Update Vector Databases
 
 ## Date:
 2025-02-15
@@ -7,7 +7,7 @@
 Proposed
 
 ## Context:
-In ADRxxx and ADRxxx we decided to use RAG to augment the promts for evaluating aptitude and architectural exams. 
+In [ADR004](/assets/adr/ADR-004-provide-context-for-llm.md) and [ADR006](/assets/adr/ADR-006-architecture-test-rag.md) we decided to use RAG to augment the promts for evaluating aptitude and architectural exams. 
 As content we will use exam submissions for the same questions / case studies from the past. 
 This data needs to be made available to the components promting the LLM.
 We also need a way for the component to identify, which submissions to include in the context. 
@@ -19,7 +19,7 @@ There are the following ways to achieve this:
 
 ## Decision:
 
-We choose implement a data pipeline to pre-process all submissions and relevant techniical information. 
+We choose implement a data pipeline to pre-process all submissions and relevant technical information. 
 The pre-processing includes transforming the data and sotring it in a vector databases accessible by the individual llm integrations.
 
 ### Why did we take this decision?
