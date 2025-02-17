@@ -32,11 +32,13 @@ The task for this Kata is to provide a solution how this could be done.
 
 ## Solution Summary
 
-1. **Automating the grading process**: 
+We propose two areas in which to levarage AI. 
+
+### Automating the grading process
     * Aptitude test: Fully automated grading with minimal human review
     * Architecture test: Automated grading and feedback suggestions with more human oversight.
 
-2. **Managing test cases**: 
+### Automating exam creation & maintenance
     * AI will provide support for the creation and maintenance of architecture test cases, such that a human expert spends significantly less time. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
 
 ## Driving Characteristics
