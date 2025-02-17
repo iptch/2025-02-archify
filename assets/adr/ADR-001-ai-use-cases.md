@@ -13,27 +13,25 @@ Certifiable wants to leverage AI to address scalability challenges in light of a
 ## Decision:
 
 ### Areas to focus on
-We will focus on three key AI applications. Our expectation is that these three applications can save the most amount of "expert human hours" and hence will improve scalability:
+We will focus on two key AI applications. Our expectation is that these two applications can save the most amount of "expert human hours" and hence will improve scalability:
 
 1. **Automating the grading process**: 
     * AI will assist with grading by analyzing responses, reducing manual effort. 
-    - Enriching the AI usage by integrating the 120k existing graded exams in the grading context, which stream-lines and enhances the AI grading.
+    * Enriching the AI usage by integrating the 120k existing graded exams in the grading context, which stream-lines and enhances the AI grading.
     * Aptitude test: Fully automated grading with minimal human review.
     * Architecture test: Automated grading and feedback suggestions with more human oversight.
 
 2. **Managing test cases**: 
     * AI will provide support for the creation and maintenance of architecture test cases, such that a human expert spends significantly less time. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
 
-3. **Automating feedback generation**: 
-    * AI will summarize exam results and provide personalized, actionable feedback to users.
-
-### Areas to ignore 
+### Less important opportunities  
 
 We identified additional AI applications that will not be prioritized within this case study: 
 
 * **Cheat Detection & Mitigation**: 
 * **Analytics**
 * **Grading Quality**
+* **Automating feedback generation**
 
 ### Why did we take this decision?
 
@@ -53,11 +51,6 @@ As demand grows, the management workload will increase, as there is the requirem
 In addition, Certifiable must incorporate new technologies into the test cases to stay up to date.
 Automating test case management will help reduce manual effort and address scalability.
 Additionally, the greater variation in text cases will reduce the need for extensive cheat detection and mitigation, allowing those efforts to be deprioritized for now.
-
-**Automating feedback generation** will further reduce manual effort.
-While the potential savings are smaller compared to grading and test case management, the implementation effort is also less demanding.
-Providing feedback for graded exams is a task well-suited for large language models (LLMs).
-
 
 ## Consequences:
 * **Mistakes in the automated grading**:

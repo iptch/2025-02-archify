@@ -1,10 +1,14 @@
-# 2025-02-archify
+# Architecture & AI | O'Reilly Architectural Kata (Winter 2025)
 
-(TODO): add subtitle
+Our solution for the O'Reilly Architectural Kata (Winter 2025)
 
 - [Team](#team)
-- [Introduction](#introduction)
-
+- [The Kata](#introduction)
+- [Solution Summary](#summary)
+- [Requirements](#requirements)
+- [Driving Characteristics](#characteristics)
+- [Selected Use Cases](#usecases)
+- [Architecture](#architecture)
 
 ## Team
 
@@ -16,11 +20,36 @@
 
 ## Introduction
 
-(todo) add introduction
+Certifiable Inc. wants to leverage AI to address scalability challenges in light of anticipated growth. 
 
-### Key Objectives
+## Summary
 
-(todo): add key objectives
+## Driving Characteristics
+
+* Scalability
+* Maintainability
+* Data Consistency & Accuracy
+
+## Selected Use Cases
+
+1. **Automating the grading process**: 
+    * Aptitude test: Fully automated grading with minimal human review
+    * Architecture test: Automated grading and feedback suggestions with more human oversight.
+
+2. **Managing test cases**: 
+    
+
+
+## Architecture
+
+### System Context
+
+### Aptitude Exam Automated Grading
+
+### Architecture Case Study Grading
+
+### Exam & Question Geneartion
+
 
 ## Requirements
 
@@ -32,5 +61,3 @@
 - Ai (f. ex. [A1](/01-requirements/requirements-and-assumptions.md)) , for assumptions
 
 We typically link to the file, but due to markdown limitations, the specific entry can not be referenced in the link.
-
-The [glossary](/Requirements/glossary.md) defines terms we use.
