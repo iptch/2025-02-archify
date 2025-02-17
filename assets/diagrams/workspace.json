@@ -3,7 +3,8 @@
   "description" : "Description",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedDate" : "2025-02-17T20:01:00Z",
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-02-17T20:29:52Z",
   "model" : {
     "people" : [ {
       "description" : "A candidate that is aiming to get professionally certified by Cerfifiable Inc..",
@@ -1281,7 +1282,7 @@
   "views" : {
     "componentViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 750,
@@ -1291,60 +1292,79 @@
       },
       "containerId" : "21",
       "description" : "Container diagram for the existing components interacting with the ARCHIFY extensions",
+      "dimensions" : {
+        "height" : 2891,
+        "width" : 5640
+      },
       "elements" : [ {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 219,
+        "y" : 1727
       }, {
         "id" : "7",
-        "x" : 0,
-        "y" : 0
+        "x" : 1169,
+        "y" : 2252
       }, {
         "id" : "8",
-        "x" : 0,
-        "y" : 0
+        "x" : 1169,
+        "y" : 1202
       }, {
         "id" : "9",
-        "x" : 0,
-        "y" : 0
+        "x" : 2119,
+        "y" : 1202
       }, {
         "id" : "10",
-        "x" : 0,
-        "y" : 0
+        "x" : 2119,
+        "y" : 2252
       }, {
         "id" : "22",
-        "x" : 0,
-        "y" : 0
+        "x" : 3069,
+        "y" : 1202
       }, {
         "id" : "23",
-        "x" : 0,
-        "y" : 0
+        "x" : 4019,
+        "y" : 1202
       }, {
         "id" : "24",
-        "x" : 0,
-        "y" : 0
+        "x" : 4969,
+        "y" : 1202
       }, {
         "id" : "36",
-        "x" : 0,
-        "y" : 0
+        "x" : 3069,
+        "y" : 2252
       }, {
         "id" : "37",
-        "x" : 0,
-        "y" : 0
+        "x" : 4019,
+        "y" : 2252
       }, {
         "id" : "41",
-        "x" : 0,
-        "y" : 0
+        "x" : 4019,
+        "y" : 152
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Component-Aptitude-Grading",
       "order" : 5,
       "relationships" : [ {
-        "id" : "100"
+        "id" : "100",
+        "vertices" : [ {
+          "x" : 4244,
+          "y" : 2052
+        }, {
+          "x" : 4244,
+          "y" : 1702
+        } ]
       }, {
-        "id" : "105"
+        "id" : "105",
+        "vertices" : [ {
+          "x" : 4607,
+          "y" : 927
+        } ]
       }, {
-        "id" : "106"
+        "id" : "106",
+        "vertices" : [ {
+          "x" : 4830,
+          "y" : 726
+        } ]
       }, {
         "id" : "48"
       }, {
@@ -1360,19 +1380,35 @@
       }, {
         "id" : "86"
       }, {
-        "id" : "91"
+        "id" : "91",
+        "vertices" : [ {
+          "x" : 3769,
+          "y" : 1502
+        } ]
       }, {
         "id" : "92"
       }, {
-        "id" : "97"
+        "id" : "97",
+        "vertices" : [ {
+          "x" : 3769,
+          "y" : 1202
+        } ]
       }, {
-        "id" : "98"
+        "id" : "98",
+        "vertices" : [ {
+          "x" : 4719,
+          "y" : 1502
+        } ]
       }, {
-        "id" : "99"
+        "id" : "99",
+        "vertices" : [ {
+          "x" : 4719,
+          "y" : 1202
+        } ]
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 750,
@@ -1382,50 +1418,54 @@
       },
       "containerId" : "25",
       "description" : "Component diagram for Automated Architecture Grading",
+      "dimensions" : {
+        "height" : 2911,
+        "width" : 4690
+      },
       "elements" : [ {
         "id" : "13",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 172
       }, {
         "id" : "14",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 1222
       }, {
         "id" : "16",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 172
       }, {
         "id" : "17",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 1222
       }, {
         "id" : "19",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 2272
       }, {
         "id" : "26",
-        "x" : 0,
-        "y" : 0
+        "x" : 2120,
+        "y" : 1222
       }, {
         "id" : "27",
-        "x" : 0,
-        "y" : 0
+        "x" : 3070,
+        "y" : 1222
       }, {
         "id" : "28",
-        "x" : 0,
-        "y" : 0
+        "x" : 4020,
+        "y" : 1222
       }, {
         "id" : "39",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 2272
       }, {
         "id" : "40",
-        "x" : 0,
-        "y" : 0
+        "x" : 2120,
+        "y" : 2272
       }, {
         "id" : "41",
-        "x" : 0,
-        "y" : 0
+        "x" : 3070,
+        "y" : 172
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Component-Architecture-Grading",
@@ -1433,25 +1473,57 @@
       "relationships" : [ {
         "id" : "120"
       }, {
-        "id" : "125"
+        "id" : "125",
+        "vertices" : [ {
+          "x" : 2820,
+          "y" : 1522
+        } ]
       }, {
         "id" : "126"
       }, {
-        "id" : "131"
+        "id" : "131",
+        "vertices" : [ {
+          "x" : 2820,
+          "y" : 1222
+        } ]
       }, {
-        "id" : "132"
+        "id" : "132",
+        "vertices" : [ {
+          "x" : 3770,
+          "y" : 1522
+        } ]
       }, {
-        "id" : "133"
+        "id" : "133",
+        "vertices" : [ {
+          "x" : 3770,
+          "y" : 1222
+        } ]
       }, {
         "id" : "134"
       }, {
-        "id" : "139"
+        "id" : "139",
+        "vertices" : [ {
+          "x" : 3658,
+          "y" : 947
+        } ]
       }, {
-        "id" : "140"
+        "id" : "140",
+        "vertices" : [ {
+          "x" : 3881,
+          "y" : 746
+        } ]
       }, {
-        "id" : "141"
+        "id" : "141",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 1522
+        } ]
       }, {
-        "id" : "142"
+        "id" : "142",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 1222
+        } ]
       }, {
         "id" : "52"
       }, {
@@ -1461,7 +1533,7 @@
       } ]
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 500,
@@ -1471,42 +1543,46 @@
       },
       "containerId" : "25",
       "description" : "Component diagram for Exam Maintenance",
+      "dimensions" : {
+        "height" : 4011,
+        "width" : 5650
+      },
       "elements" : [ {
         "id" : "11",
-        "x" : 0,
-        "y" : 0
+        "x" : 2600,
+        "y" : 3371
       }, {
         "id" : "15",
-        "x" : 0,
-        "y" : 0
+        "x" : 2600,
+        "y" : 2571
       }, {
         "id" : "18",
-        "x" : 0,
-        "y" : 0
+        "x" : 200,
+        "y" : 1771
       }, {
         "id" : "30",
-        "x" : 0,
-        "y" : 0
+        "x" : 1400,
+        "y" : 1771
       }, {
         "id" : "31",
-        "x" : 0,
-        "y" : 0
+        "x" : 2600,
+        "y" : 1771
       }, {
         "id" : "32",
-        "x" : 0,
-        "y" : 0
+        "x" : 3800,
+        "y" : 1771
       }, {
         "id" : "37",
-        "x" : 0,
-        "y" : 0
+        "x" : 1400,
+        "y" : 171
       }, {
         "id" : "40",
-        "x" : 0,
-        "y" : 0
+        "x" : 1400,
+        "y" : 971
       }, {
         "id" : "41",
-        "x" : 0,
-        "y" : 0
+        "x" : 5000,
+        "y" : 1771
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Component-Exam-Maintenance",
@@ -1514,30 +1590,63 @@
       "relationships" : [ {
         "id" : "150"
       }, {
-        "id" : "156"
+        "id" : "156",
+        "vertices" : [ {
+          "x" : 1954,
+          "y" : 742
+        } ]
       }, {
         "id" : "160"
       }, {
-        "id" : "164"
+        "id" : "164",
+        "vertices" : [ {
+          "x" : 2225,
+          "y" : 2071
+        } ]
       }, {
-        "id" : "165"
+        "id" : "165",
+        "vertices" : [ {
+          "x" : 2225,
+          "y" : 1771
+        } ]
       }, {
-        "id" : "166"
+        "id" : "166",
+        "vertices" : [ {
+          "x" : 3425,
+          "y" : 2071
+        } ]
       }, {
-        "id" : "167"
+        "id" : "167",
+        "vertices" : [ {
+          "x" : 3425,
+          "y" : 1771
+        } ]
       }, {
-        "id" : "168"
+        "id" : "168",
+        "vertices" : [ {
+          "x" : 4625,
+          "y" : 2071
+        } ]
       }, {
-        "id" : "169"
+        "id" : "169",
+        "vertices" : [ {
+          "x" : 4625,
+          "y" : 1771
+        } ]
       }, {
-        "id" : "171"
+        "id" : "171",
+        "vertices" : [ {
+          "x" : 2496,
+          "y" : 3100
+        } ]
       }, {
         "id" : "176"
       } ]
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "SystemContext-001",
+      "lastSavedView" : "Component-Exam-Maintenance",
+      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
@@ -1579,7 +1688,7 @@
     },
     "containerViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 750,
@@ -1588,45 +1697,80 @@
         "vertices" : false
       },
       "description" : "Container diagram for Automated Aptitude Grading",
+      "dimensions" : {
+        "height" : 1871,
+        "width" : 1840
+      },
       "elements" : [ {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 1231
       }, {
         "id" : "21",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 181
       }, {
         "id" : "35",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 1231
       }, {
         "id" : "41",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 181
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Aptitude-Grading",
       "order" : 2,
       "relationships" : [ {
-        "id" : "57"
+        "id" : "57",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 1531
+        } ]
       }, {
-        "id" : "72"
+        "id" : "72",
+        "vertices" : [ {
+          "x" : 1395,
+          "y" : 1031
+        }, {
+          "x" : 1395,
+          "y" : 681
+        } ]
       }, {
-        "id" : "76"
+        "id" : "76",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 181
+        } ]
       }, {
-        "id" : "77"
+        "id" : "77",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 481
+        } ]
       }, {
-        "id" : "78"
+        "id" : "78",
+        "vertices" : [ {
+          "x" : 808,
+          "y" : 755
+        } ]
       }, {
-        "id" : "81"
+        "id" : "81",
+        "vertices" : [ {
+          "x" : 1031,
+          "y" : 956
+        } ]
       }, {
-        "id" : "85"
+        "id" : "85",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 1231
+        } ]
       } ],
       "softwareSystemId" : "20"
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 750,
@@ -1635,43 +1779,70 @@
         "vertices" : false
       },
       "description" : "Container diagram for Automated Architecture Grading",
+      "dimensions" : {
+        "height" : 1871,
+        "width" : 1840
+      },
       "elements" : [ {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 1231
       }, {
         "id" : "25",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 181
       }, {
         "id" : "38",
-        "x" : 0,
-        "y" : 0
+        "x" : 1170,
+        "y" : 1231
       }, {
         "id" : "41",
-        "x" : 0,
-        "y" : 0
+        "x" : 220,
+        "y" : 181
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Architecture-Grading",
       "order" : 3,
       "relationships" : [ {
-        "id" : "107"
+        "id" : "107",
+        "vertices" : [ {
+          "x" : 1395,
+          "y" : 1031
+        }, {
+          "x" : 1395,
+          "y" : 681
+        } ]
       }, {
-        "id" : "110"
+        "id" : "110",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 181
+        } ]
       }, {
-        "id" : "111"
+        "id" : "111",
+        "vertices" : [ {
+          "x" : 920,
+          "y" : 481
+        } ]
       }, {
-        "id" : "112"
+        "id" : "112",
+        "vertices" : [ {
+          "x" : 808,
+          "y" : 755
+        } ]
       }, {
-        "id" : "115"
+        "id" : "115",
+        "vertices" : [ {
+          "x" : 1031,
+          "y" : 956
+        } ]
       }, {
         "id" : "118"
       } ],
       "softwareSystemId" : "20"
     }, {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 750,
@@ -1680,22 +1851,26 @@
         "vertices" : false
       },
       "description" : "Container diagram for Automated Architecture Grading",
+      "dimensions" : {
+        "height" : 1885,
+        "width" : 1840
+      },
       "elements" : [ {
         "id" : "5",
-        "x" : 0,
-        "y" : 0
+        "x" : 219,
+        "y" : 196
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 219,
+        "y" : 1246
       }, {
         "id" : "29",
-        "x" : 0,
-        "y" : 0
+        "x" : 1169,
+        "y" : 196
       }, {
         "id" : "38",
-        "x" : 0,
-        "y" : 0
+        "x" : 1169,
+        "y" : 1246
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Exam-Maintenance",
@@ -1703,15 +1878,38 @@
       "relationships" : [ {
         "id" : "118"
       }, {
-        "id" : "143"
+        "id" : "143",
+        "vertices" : [ {
+          "x" : 919,
+          "y" : 496
+        } ]
       }, {
-        "id" : "145"
+        "id" : "145",
+        "vertices" : [ {
+          "x" : 1030,
+          "y" : 971
+        } ]
       }, {
-        "id" : "147"
+        "id" : "147",
+        "vertices" : [ {
+          "x" : 919,
+          "y" : 196
+        } ]
       }, {
-        "id" : "149"
+        "id" : "149",
+        "vertices" : [ {
+          "x" : 807,
+          "y" : 770
+        } ]
       }, {
-        "id" : "153"
+        "id" : "153",
+        "vertices" : [ {
+          "x" : 1394,
+          "y" : 1046
+        }, {
+          "x" : 1394,
+          "y" : 696
+        } ]
       } ],
       "softwareSystemId" : "20"
     } ],
