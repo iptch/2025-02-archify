@@ -13,15 +13,16 @@ Certifiable wants to leverage AI to address scalability challenges in light of a
 ## Decision:
 
 ### Areas to focus on
-We will focus on three key AI applications to improve scalability:
+We will focus on three key AI applications. Our expectation is that these three applications can save the most amount of "expert human hours" and hence will improve scalability:
 
 1. **Automating the grading process**: 
     * AI will assist with grading by analyzing responses, reducing manual effort. 
+    - Enriching the AI usage by integrating the 120k existing graded exams in the grading context, which stream-lines and enhances the AI grading.
     * Aptitude test: Fully automated grading with minimal human review.
-    * Architecture test: Automated grading with more human oversight.
+    * Architecture test: Automated grading and feedback suggestions with more human oversight.
 
 2. **Managing test cases**: 
-    * AI will create and maintain test cases, generating new ones from existing content and knowledge bases, including case study scenarios.
+    * AI will provide support for the creation and maintenance of architecture test cases, such that a human expert spends significantly less time. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
 
 3. **Automating feedback generation**: 
     * AI will summarize exam results and provide personalized, actionable feedback to users.
@@ -36,45 +37,42 @@ We identified additional AI applications that will not be prioritized within thi
 
 ### Why did we take this decision?
 
-The prioritized three use cases are ideal for AI, especially LLMs.
-They involve repetitive tasks that require processing large amounts of text. 
-AI can efficiently automate grading, test case creation, and feedback generation, scaling easily to meet growing demand.
+The prioritized three use cases are ideal for LLMs.
+Grading exams involves repetitive tasks (e.g. when the same question appears in multiple exams) and can require processing large amounts of text. 
+LLMs can efficiently automate grading and feedback provisioning as well as creating new tests and case studies. In addition, scaling is possible based on demand.
 
-We view **manual grading** as the primary barrier to scalability. 
-The current process requires a fixed amount of time per exam, and as the volume of exams increases, 
-Certifiable would struggle to maintain the desired one-week turnaround. 
-While hiring additional experts could help, it won't be sufficient to meet future demand. 
+We view **manual grading** as the primary barrier to scalability.
+The current process requires a fixed amount of time per exam, and as the volume of exams increases, Certifiable would struggle to maintain the desired one-week turnaround while keeping the same grading quality.
+While hiring additional experts could help, it won't be sufficient to meet future demand.
 Automation offers the flexibility to quickly scale up or down in response to fluctuations in demand, particularly in short-term or seasonal spikes. 
 Given these factors, we conclude that automating the grading process is the most critical use case for improving scalability.
 
 We consider **managing test cases** to be the second most important challenge. 
-Maintaining test cases already requires significant manual effort.
-As demand grows this workload will also increase. 
-On one hand Certifiable must incorporate new technologies into the test cases to stay up to date.
-On the other hand more candidates will require a greater variation in questions and case studies.
+Maintaining test cases requires significant manual effort.
+As demand grows, the management workload will increase, as there is the requirement to have more variation in test questions and case studies when there are more candidates taking the exams.
+In addition, Certifiable must incorporate new technologies into the test cases to stay up to date.
 Automating test case management will help reduce manual effort and address scalability.
 Additionally, the greater variation in text cases will reduce the need for extensive cheat detection and mitigation, allowing those efforts to be deprioritized for now.
 
-**Automating feedback generation** will further reduce manual effort. 
-While the potential savings are smaller compared to grading and test case management, the implementation effort is also less demanding. 
-Summarizing feedback for graded exams is a task well-suited for large language models (LLMs). 
+**Automating feedback generation** will further reduce manual effort.
+While the potential savings are smaller compared to grading and test case management, the implementation effort is also less demanding.
+Providing feedback for graded exams is a task well-suited for large language models (LLMs).
 
 
 ## Consequences:
 * **Mistakes in the automated grading**:
-    * With these use cases we automate some of the core business of Certifiable. Errors in these ares can be fatal to the company. 
-    * We will need to define additional measures to minimize the impact errors of the AI has. 
-    * We will also need to define measures to reduce the chance of the AI making errors. 
-* Manual Labor will not be completely eliminated. This means that some scalability concerns remain unadressed. 
-    * We accept this risk. Not soley relying on AI means t
-    
+    * With these use cases we automate some of the core business of Certifiable. Errors in these ares can be fatal to the company.
+    * We will need to define additional measures to minimize the impact errors of the AI has.
+    * We will also need to define measures to reduce the chance of the AI making errors.
+* Manual Labor will not be completely eliminated. This means that some scalability concerns remain unadressed.
+    * We accept this risk. Not soley relying on AI means that we still have a demand for human experts that could become the bottleneck, when scaling the exam takers out-paces the hiring of new IT experts.
 * Missed Oportunities. By only prioritizing 3 use cases we miss out on additional improvements to be made in other areas. 
-  * We accept this trade off. We can't implement everything at once. Doing the important stuff (the one with the largest impact) first allows to face immeadiat challanges. We can still do the other stuff later.  
+  * We accept this trade off. We can't implement everything at once, and decided to foucs on the tasks that enable us to save the most human hours. In addition, we can add the other LLM use-cases at a later stage.
 
 
   ### 3. Consequences
 
-* **Mistakes in automated grading**: Errors in automated grading or generated test cases could severely impact Certifiable's reputation. To mitigate this, we will implement measures to minimize AI errors and ensure thorough monitoring and review processes.
+* **Mistakes in automated grading**: Errors in automated grading or generated test cases could severely impact Certifiable's reputation. To mitigate this, we will implement measures to minimize AI errors and ensure thorough monitoring and review processes. Especially in the beginning of embedding LLMs in the grading process, we let human experts manually investigate all of the grading and feedback provisioning to confidentally estimate the LLM capabilities, before making use of more and more automatic grading.
 
 * **Non deterministic grading**: Due to the nature of LLMs the automation of grading with AI can lead to non-deterministic results. We need to implement measures to address this.
 
