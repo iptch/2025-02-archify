@@ -2,8 +2,8 @@
 workspace {
     model {
         candidate = person "Certification Candidate" "A candidate that is aiming to get professionally certified by Cerfifiable Inc.." "Candidate"
-        expert = person "IT Expert" "IT Expert Grader, working for Certifiable Inc." "Expert"
-		engineer = person "ML Engineer" "AI Engineer, working for Certifiable Inc." "ML Engineer"
+        expert = person "IT Expert" "IT Expert Grader, working for Certifiable Inc., grading exams and maintaining exam question catalog" "Expert"
+		engineer = person "ML Engineer" "AI Engineer, working for Certifiable Inc., maintaining LLM system components" "ML Engineer"
 		
 		certifiableSystem = softwareSystem "Certifiable Inc. Existing Software System" {
 
@@ -68,12 +68,12 @@ workspace {
 		llmSystem = softwareSystem "LLM Model" 
 
 		// People and Software Systems
-		candidate -> certifiableSystem "Takes aptitude certification exam, consisting of multiple-choice and short-answer tests"
-        expert -> certifiableSystem "Grades short-answer tests, provides feedback. Analyses question catalog."
-		engineer -> archifySystem "Maintains LLM components used for auto-grading, including monitoring, parameter and threshold tuning, updating models etc."
-		archifySystem -> certifiableSystem "Provides databases with ungraded exam questions and graded exam database"
-        archifySystem -> llmSystem "Prompt LLM for grading, test generation and feedback generation"
-        llmSystem -> archifySystem "Return returns grading results, test generation and feedback generation"
+		candidate -> certifiableSystem "takes aptitude exam (multi-choice and short-answer test)"
+        expert -> certifiableSystem "grades short-answer tests, provides exam feedback, updates question catalog"
+		engineer -> archifySystem "maintains and monitors LLM system components (including parameter and threshold tuning)"
+		archifySystem -> certifiableSystem "reads ungraded exam database, grades exams"
+        archifySystem -> llmSystem "prompt LLM for grading, feedback and new test generation"
+        llmSystem -> archifySystem "return LLM result"
 
 		// Existing Certifiable System
 		certifiableestTaker -> certifiableAptManualCapture "Passes short-answer questions"
@@ -83,18 +83,18 @@ workspace {
         certfifiableArchSubmissionService -> certifiableArchUngradedDb "Writes submissions to architecture exam"
         
 		// Data Pipeline
-		certifiableAptGradedDb -> aptAnswersUpdater "Reads new graded Q&A tuples from the database via high watermark (timestamp column)"
+		certifiableAptGradedDb -> aptAnswersUpdater "provides newly graded Q&A tuples via high watermark (timestamp column)"
 		aptAnswersUpdater -> aptAnswersVectorDb "Embedds the new Q&A tuples into vector space and writes them to Aptitude Q&A Vector Database"
         certifiableKnowledgeAdapter -> knowledgeUpdater "Reads information from knowledge base"
         knowledgeUpdater -> knowledgeVectorDb "Embedds knowledge base into vector space and writes them to Knowledge Vector Database"
 
         // Aptitude Grading
         // Aptitude Container Relationships
-        dataPipelineAptAnswers -> archifyAptGrading "Provide context data"
+        dataPipelineAptAnswers -> archifyAptGrading "updates vector database with new Q&A tuples"
         archifyAptGrading -> llmSystem "Promt to grade exams"
         llmSystem -> archifyAptGrading "Return output with graded submission and feedback"
         archifyAptGrading -> certifiableAptGrading "Write automatically graded submission and feedback"
-        certifiableAptGrading -> archifyAptGrading "Read ungraded submission for automatic grading"
+        certifiableAptGrading -> archifyAptGrading "reads ungraded submission"
         certifiableAptGrading -> dataPipelineAptAnswers "Allowed Answers and Answers from past exams"
 
         // Aptitude Component Relationships
