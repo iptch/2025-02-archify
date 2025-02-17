@@ -62,8 +62,7 @@ Additionally, the greater variation in text cases will reduce the need for exten
 * Missed Oportunities. By only prioritizing 3 use cases we miss out on additional improvements to be made in other areas. 
   * We accept this trade off. We can't implement everything at once, and decided to foucs on the tasks that enable us to save the most human hours. In addition, we can add the other LLM use-cases at a later stage.
 
-
-  ### 3. Consequences
+### 3. Consequences
 
 * **Mistakes in automated grading**: Errors in automated grading or generated test cases could severely impact Certifiable's reputation. To mitigate this, we will implement measures to minimize AI errors and ensure thorough monitoring and review processes. Especially in the beginning of embedding LLMs in the grading process, we let human experts manually investigate all of the grading and feedback provisioning to confidentally estimate the LLM capabilities, before making use of more and more automatic grading.
 

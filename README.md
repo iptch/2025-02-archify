@@ -7,7 +7,6 @@ Our solution for the O'Reilly Architectural Kata (Winter 2025)
 - [Solution Summary](#summary)
 - [Requirements](#requirements)
 - [Driving Characteristics](#characteristics)
-- [Selected Use Cases](#usecases)
 - [Architecture](#architecture)
 
 ## Team
@@ -18,27 +17,36 @@ Our solution for the O'Reilly Architectural Kata (Winter 2025)
 - Joshua Villing, [Linkedin](https://www.linkedin.com/in/joshua-villing-931078130)
 - Ignacio de los Rios, [Linkedin](https://www.linkedin.com/in/ignacio-de-los-rios-ruiz-713150162)
 
-## Introduction
+## The Kata
 
-Certifiable Inc. wants to leverage AI to address scalability challenges in light of anticipated growth. 
+Certifiable, Inc. is an accredited leader in software architecture certification.
+The current certification process requires candidates to pass two different tests: an aptitude test and an architecture submission.
+Large parts of the evaluation process for submitted exams as well as maintenance of the exam base is done manually by IT experts. 
 
-## Summary
+In the face of legislature changes Certifiable expects a significant growth.
+It is expected that within four years the number of candidates taking the exams will increase tenfold. 
+This is reason for concern, as the manual processes will likely not be able to scale up to the increased demand. 
 
-## Driving Characteristics
+Certifiable Inc. wants to leverage AI to address scalability challenges in light of the anticipated growth.
+The task for this Kata is to provide a solution how this could be done. 
 
-* Scalability
-* Maintainability
-* Data Consistency & Accuracy
-
-## Selected Use Cases
+## Solution Summary
 
 1. **Automating the grading process**: 
     * Aptitude test: Fully automated grading with minimal human review
     * Architecture test: Automated grading and feedback suggestions with more human oversight.
 
 2. **Managing test cases**: 
-    
+    * AI will provide support for the creation and maintenance of architecture test cases, such that a human expert spends significantly less time. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
 
+## Driving Characteristics
+
+* Scalability
+    * [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
+* Maintainability
+    * [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
+* Data Consistency & Accuracy
+    * [ADR-002](/assets/adr/ADR-002-human-in-the-loop.md)
 
 ## Architecture
 
