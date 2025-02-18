@@ -10,7 +10,7 @@ Proposed
 Human oversight will be maintained in the AI-assisted grading process, with full review for architecture exams and partial review for aptitude tests.
 
 ## Context:  
-In ADRxxx, we decided to automate the grading process for aptitude and architectural exams. However, AI-generated output is **non-deterministic** and may contain **errors or harmful content**. Since certification results have a **significant impact on an individual’s career**, it is **crucial to ensure grading accuracy and fairness**.  
+In [ADR-001](ADR-001-ai-use-cases.md), we decided to automate the grading process for aptitude and architectural exams. However, AI-generated output is **non-deterministic** and may contain **errors or harmful content**. Since certification results have a **significant impact on an individual’s career**, it is **crucial to ensure grading accuracy and fairness**.  
 
 We identified three possible approaches for human oversight in AI-assisted grading:  
 

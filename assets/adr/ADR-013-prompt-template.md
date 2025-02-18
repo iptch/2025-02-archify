@@ -20,7 +20,7 @@ This Architecture Decision Record (ADR) aims to establish how Certifiable will s
 * Non-Ambiguous Prompt: The prompt should write clear and explicit instructions.
 * Provide Examples: Examples provide a clear guideline on how the model should answer to tasks. We need to make sure that we provide sufficient context. 
 * Token Efficiency: Prompts that include excessive context will consume more tokens. It is important to use tokens efficiently to minimize costs.
-* Output Format Specification: As decided in (TODO: output adr), we will rely on a certain output format. This will simplify the way in which we process the output of our model.
+* Output Format Specification: As decided in [ADR-009](ADR-009-aptitude-ai-output-verification.md), we will rely on a certain output format. This will simplify the way in which we process the output of our model.
 * Use Chain of Thought (CoT): It has been shown in the past that CoT is a powerful prompting technique that works across models. More on this [here](https://arxiv.org/abs/2201.11903)
 * Defense Against Malicious Prompting: The prompt must be robust against potential attacks. Two key scenarios to watch for include exam takers trying to extract hidden information (e.g., past exam questions) or attempting to confuse the LLM into giving them a passing grade.
 

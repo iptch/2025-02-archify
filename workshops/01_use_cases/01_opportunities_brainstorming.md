@@ -38,8 +38,7 @@ We identified 3 areas in which we want to explore the use of AI:
 
 ## Part 1 - Constrains and Assumptions
 
-TODO: @Manual - Can you please add them here? You took those notes in the workshop. 
-
+Context, requirements and assumptions are documented [here](../../assets/requirements-and-assumptions.md).
 
 ## Part 2 - Opportunities & Challanges
 

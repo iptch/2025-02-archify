@@ -63,7 +63,7 @@ We propose two areas in which to levarage AI.
 
 ## Requirements
 
-(todo): add how we defined teh requirements
+TODO: define choice of requirements
 
 - Ci (f.ex. [C1](/01-requirements/requirements-and-assumptions.md)) , for constraints
 - Ri (f. ex. [R1](/01-requirements/requirements-and-assumptions.md)), for functional requirements

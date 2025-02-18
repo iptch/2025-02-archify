@@ -1,4 +1,3 @@
-//TODO: Color the legacy/existing components that are integrated 1:1 in gray
 workspace {
     model {
         candidate = person "Certification Candidate" "A candidate that is aiming to get professionally certified by Cerfifiable Inc.." "Candidate"
