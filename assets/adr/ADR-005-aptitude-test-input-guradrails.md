@@ -6,6 +6,9 @@
 ## Status:
 Proposed
 
+## Decision Details
+We will implement input guardrails to protect our AI grading system from potential prompt injection attacks in exam submissions.
+
 ## Context:
 Our certification platform uses an AI-driven grading system, incorporating Retrieval-Augmented Generation (RAG). There is a possibility that test-takers might embed malicious or confusing prompts within their responses to manipulate our AI system. Such prompt injections could cause the system to deviate from its intended grading logic, leading to incorrect outcomes. This creates a security concern for both the company.
 

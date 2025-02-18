@@ -6,6 +6,9 @@
 ## Status:
 Proposed
 
+## Decision Details
+We will use RAG to provide AI-assisted preliminary grading of architecture case studies, while maintaining human expert review of the AI's suggested grades and feedback.
+
 ## Context:
 After passing the initial aptitude test, candidates proceed to a second assessment phase—a case study in which each candidate designs an architecture. There are five possible case studies, randomly assigned. Candidates have two weeks to upload their final solution, after which expert software architects review and grade the submission within a week. An overall score of 80% is required to pass and receive certification.
 

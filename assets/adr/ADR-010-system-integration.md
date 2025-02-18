@@ -6,6 +6,10 @@
 ## Status:
 Proposed
 
+## Decision Details
+We will integrate AI capabilities through dedicated gateway components that interface with existing databases, rather than directly embedding AI into current system components.
+
+
 ## Context:
 We need to integrate AI into an existing system. 
 AI components need to be triggered from the existing system. 

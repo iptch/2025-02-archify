@@ -6,6 +6,9 @@
 ## Status:
 Accepted
 
+## Decision Details
+We will use Retrieval-Augmented Generation (RAG) to provide LLMs with relevant context **from our existing exam database** for grading, rather than fine-tuning or training new models.
+
 ## Context:
 In this ADR, we decide how to provide context to LLMs, so they can grade examinations reliable and consistent.
 Certifiable Inc. has an existing database of 120k archived and graded exams from previous examinations (A8). 

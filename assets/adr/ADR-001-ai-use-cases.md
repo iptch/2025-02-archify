@@ -6,6 +6,9 @@
 ## Status:
 Proposed
 
+## Decision Details
+We will implement AI primarily for exam grading automation and test case management, while deprioritizing other potential AI applications like cheat detection and analytics.
+
 ## Context:
 
 Certifiable wants to leverage AI to address scalability challenges in light of anticipated growth. Many potential AI applications could support this goal, but time and resources are limited. A strategic decision is required to identify the most impactful AI solutions and prioritize their implementation.

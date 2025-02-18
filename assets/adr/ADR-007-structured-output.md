@@ -6,6 +6,9 @@
 ## Status:
 Proposed
 
+## Decision Details
+We will implement a standardized JSON output format with validation guardrails for all AI-generated grading results.
+
 ## Context:
 Our automated grading system, powered by Retrieval-Augmented Generation (RAG), needs to supply results that can be seamlessly processed by downstream systems. We require a structured output and possibly some output guardrails to ensure that the downstream system can handle the output of our AI model.
 

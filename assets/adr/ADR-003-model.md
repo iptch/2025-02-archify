@@ -6,6 +6,9 @@
 ## Status:
 Accepted
 
+## Decision Details
+We will use a state-of-the-art LLM via API instead of self-hosting open source models for exam grading and feedback.
+
 ## Context:
 Given the large set of available LLM models, we need to choose whether to self-host a LLM (which requires the usage of an open source LLM) or use a LLM API.
 This decision is crucial and impacts development velocity, operational costs, system performance (in terms of feedback provisioning and grading) and scalability.
