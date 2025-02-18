@@ -168,7 +168,8 @@ workspace {
                     dataPipelineAptAnswers \
                     archifyAptGrading \
                     llmSystem
-            description "Container diagram for Automated Aptitude Grading"
+            title "[Container] ARCHIFY Aptitude Exams"
+            description "Overview of automated aptitude exam grading"
         }
         container archifySystem "Container-Architecture-Grading" {
             include certifiableArchGrading \
@@ -176,14 +177,16 @@ workspace {
                     archifyArchGrading \
                     llmSystem \
                     certifiableKnowledgeBase
-            description "Container diagram for Automated Architecture Grading"
+            title "[Container] ARCHIFY Architecture Exams"
+            description "Overview of automated architecture case study grading"
         }
         container archifySystem "Container-Exam-Maintenance" {
             include certifiableAptGrading \
                     certifiableArchGrading \
                     dataPipelineKnowledge \
                     archifyExamMaintenance
-            description "Container diagram for Automated Architecture Grading"
+            title "[Container] ARCHIFY Exam Maintenance"
+            description "Overview of automated exam maintenance"
         }
         component archifyAptGrading "Component-Aptitude-Grading" {
             include aptAnswersUpdater \
@@ -197,7 +200,8 @@ workspace {
                     aptAnswersVectorDb \
                     aptitudeGuardrails \
                     llmSystem 
-            description "Container diagram for the existing components interacting with the ARCHIFY extensions"
+            title "[Component] ARCHIFY Aptitude Exams"
+            description "Detailled view of components interacting to achieve automated aptitude exam grading"                    
         }
         component archifyArchGrading "Component-Architecture-Grading" {
             include archGradingAdapter \
@@ -211,7 +215,8 @@ workspace {
                     certifiableArchGradedDb \
                     certifiableKnowledgeAdapter \
                     knowledgeUpdater
-            description "Component diagram for Automated Architecture Grading"
+            title "[Component] ARCHIFY Architecture Exams"
+            description "Detailled view of components interacting to achieve automated architecture case study grading"     
         }
         component archifyArchGrading "Component-Exam-Maintenance" {
             include certifiableAptQuestionsDb \
@@ -223,9 +228,9 @@ workspace {
                     archifyAptQuestionGuardRails \
                     certifiableCaseStudyDb \
                     certifiableKnowledgeBase
-            description "Component diagram for Exam Maintenance"
+            title "[Component] ARCHIFY Exam Maintenance"
+            description "Detailled view of components interacting for automated exam maintenance"                         
         }
-
 
         styles {
             element "Person" {
