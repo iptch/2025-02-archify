@@ -22,7 +22,7 @@ We already decided in [ADR-004](ADR-004-provide-context-for-llm.md) to leverage 
 ## Decision:
 
 Use a RAG-based system to enhance the preliminary grading of architecture case studies, where a human-in-the-loop reviews suggested feedback and grading by the LLM.
-The promting of the LLM will be augmented with the following relevant information: 
+The prompting of the LLM will be augmented with the following relevant information: 
 
 - Set of evaluation criteria for the given case study.
 - Set of past submitted exams for the same case study.
