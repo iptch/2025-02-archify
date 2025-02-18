@@ -96,28 +96,27 @@ The software extension "ARCHIFY" integrates into the existing Certifiable Inc. s
   </a>
 </div>
 
-
-The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/README.md).
+The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/C01-SystemContext.md).
 
 ### Aptitude Exam Automated Grading (C2)
 
-* TODO link Aptitude Container md
+A more detailled description of this diagram can be found [here](/assets/diagrams/C02-AptitudeContainer.md).
 
 ### Architecture Case Study Grading (C2)
 
-* TODO link Architecture Container md
+A more detailled description of this diagram can be found [here](/assets/diagrams/C02-ArchitectureContainer.md).
 
 ### Exam & Question Generation (C2)
 
-* TODO link Maintenance Container md
+A more detailled description of this diagram can be found [here](/assets/diagrams/C02-MaintenanceContainer.md).
 
 ### Component Diagrams
 
 The component diagrams contain more detailled description of the design of the individual atuomation use cases: 
 
-* TODO link Aptitude Component md
-* TODO link Architecture Component md
-* TODO link Maintenance Component md
+* [Aptitude Grading](/assets/diagrams/C03-AptitudeComponents.md)
+* [Architecture Case Study Grading](/assets/diagrams/C03-ArchitectureComponents.md)
+* [Exam Maintenance](/assets/diagrams/C03-MaintenanceComponents.md)
 
 ## Requirements
 
