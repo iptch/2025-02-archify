@@ -29,22 +29,22 @@ workspace {
 		}
 		archifySystem = softwareSystem "ARCHIFY AI Certification Systems" {
 
-            archifyAptGrading = container "Archify Aptitude Exam Grading" {
+            archifyAptGrading = container "ARCHIFY Aptitude Exam Grading" {
                 aptitudeGradingAdapter = component "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
-                aptitudePromtOrchestrator = component "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
+                aptitudePromptOrchestrator = component "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
                 
                 aptitudeGuardrails = component "Aptitude Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Aptitude Guardrails"
             }
 
-            archifyArchGrading = container "Archify Architecture Exam Grading" {
+            archifyArchGrading = container "ARCHIFY Architecture Exam Grading" {
                 archGradingAdapter = component "Architecture Autograding Adapter"
-                archPromtOrchestrator = component "Architecture Prompt Orchestrator" 
+                archPromptOrchestrator = component "Architecture Prompt Orchestrator" 
                 archGuardrails = component "Architecture Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Architecture Guardrails"
             }
 
-            archifyExamMaintenance = container "Archify Exam Maintenance" {
+            archifyExamMaintenance = container "ARCHIFY Exam Maintenance" {
                 archifyExamMaintenanceAdapter = component "Exam Maintenance Adapter"
-                archifyAptQuestionPromtOrchestrator = component "Aptitude Question Promt Orchestrator"
+                archifyAptQuestionPromptOrchestrator = component "Aptitude Question Prompt Orchestrator"
                 archifyAptQuestionGuardRails = component "Aptitude Question Guard Rails"
 
                 archifyArchCaseStudyGenerator = component "Case Study Adapter"
@@ -82,7 +82,7 @@ workspace {
         certfifiableArchSubmissionService -> certifiableArchUngradedDb "writes submissions to architecture exam"
         
 		// Data Pipeline
-		certifiableAptGradedDb -> aptAnswersUpdater "provides newly graded Q&A tuples via high watermark (timestamp column)"
+		certifiableAptGradedDb -> aptAnswersUpdater "provides new Q&A solution tuples via high watermark (timestamp column)"
 		aptAnswersUpdater -> aptAnswersVectorDb "embedds the new Q&A tuples into vector space and writes them to Aptitude Q&A Vector Database"
         certifiableKnowledgeAdapter -> knowledgeUpdater "reads information from knowledge base"
         knowledgeUpdater -> knowledgeVectorDb "embedds knowledge base into vector space and writes them to Knowledge Vector Database"
@@ -90,20 +90,19 @@ workspace {
         // Aptitude Grading
         // Aptitude Container Relationships
         dataPipelineAptAnswers -> archifyAptGrading "updates vector database with new Q&A tuples"
-        archifyAptGrading -> llmSystem "promt to grade exams"
-        llmSystem -> archifyAptGrading "return output with graded submission and feedback"
-        archifyAptGrading -> certifiableAptGrading "write automatically graded submission and feedback"
+        archifyAptGrading -> llmSystem "sends prompt"
+        llmSystem -> archifyAptGrading "returns graded submission and extensive feedback"
+        archifyAptGrading -> certifiableAptGrading "write auto-graded submission to database"
         certifiableAptGrading -> archifyAptGrading "reads ungraded submission"
-        certifiableAptGrading -> dataPipelineAptAnswers "write allowed Questions and Answers from past exams"
 
         // Aptitude Component Relationships
 		certifiableUngradedAptDb -> aptitudeGradingAdapter "reads ungraded aptitude test exams"
-		aptitudeGradingAdapter -> aptitudePromtOrchestrator "Provides Q&A tuple"
+		aptitudeGradingAdapter -> aptitudePromptOrchestrator "Provides Q&A tuple"
 		aptitudeGradingAdapter -> certifiableAptGradedDb "writes graded Q&A tuples with feedback"
-		aptitudePromtOrchestrator -> aptitudeGradingAdapter "returns LLM grading"
-		aptitudePromtOrchestrator -> aptitudeGuardrails "forwards prompt to be checked"
-		aptitudeGuardrails -> aptitudePromtOrchestrator "compares against expected output format and checks for schema compatibility"
-		aptAnswersVectorDb -> aptitudePromtOrchestrator "enriches prompt by providing most similar Q&A tuples"
+		aptitudePromptOrchestrator -> aptitudeGradingAdapter "returns LLM grading"
+		aptitudePromptOrchestrator -> aptitudeGuardrails "forwards prompt to be checked"
+		aptitudeGuardrails -> aptitudePromptOrchestrator "compares against expected output format and checks for schema compatibility"
+		aptAnswersVectorDb -> aptitudePromptOrchestrator "enriches prompt by providing most similar Q&A tuples"
 		llmSystem -> aptitudeGuardrails "returns generated output by LLM"
 		aptitudeGuardrails -> llmSystem "analyses for input injection attacks"
 
@@ -111,20 +110,20 @@ workspace {
         // Architecture Container Relationships
         certifiableKnowledgeBase -> dataPipelineKnowledge "Pre-Process technical knowhow database for querying"
         dataPipelineKnowledge -> archifyArchGrading "Identify relevant technical context"
-        archifyArchGrading -> llmSystem "promt to grade exams"
+        archifyArchGrading -> llmSystem "prompt to grade exams"
         llmSystem -> archifyArchGrading "return output with graded submission and feedback"
         archifyArchGrading -> certifiableArchGrading "write automatically graded submission and feedback"
         certifiableArchGrading -> archifyArchGrading "read ungraded submission for automatic grading"
 
         // Architecture Grading Component Relationships
         certifiableArchUngradedDb -> archGradingAdapter "reads ungraded architecture exams"
-        archGradingAdapter -> archPromtOrchestrator "provides ungraded architecture exam"
+        archGradingAdapter -> archPromptOrchestrator "provides ungraded architecture exam"
         archGradingAdapter -> certifiableArchGradedDb "Writes graded exam with feedback"
-        archPromtOrchestrator -> archGradingAdapter "returns LLM grading"
-		archPromtOrchestrator -> archGuardrails "sanitize input and forward promt"
-		archGuardrails -> archPromtOrchestrator "enforce output format and filter harmful content"
-		knowledgeVectorDb -> archPromtOrchestrator "identify relevant technical areas for given case study and evaluation criteria"
-		certifiableKnowledgeAdapter -> archPromtOrchestrator "read technical knowledge (plain text= to enrich promt with technical context"
+        archPromptOrchestrator -> archGradingAdapter "returns LLM grading"
+		archPromptOrchestrator -> archGuardrails "sanitize input and forward prompt"
+		archGuardrails -> archPromptOrchestrator "enforce output format and filter harmful content"
+		knowledgeVectorDb -> archPromptOrchestrator "identify relevant technical areas for given case study and evaluation criteria"
+		certifiableKnowledgeAdapter -> archPromptOrchestrator "read technical knowledge (plain text= to enrich prompt with technical context"
         llmSystem -> archGuardrails "returns generated output by LLM"
 		archGuardrails -> llmSystem "analyses for input injection attacks"
         certifiableArchManualGrader -> certifiableArchGradedDb "reads AI Graded Exams"
@@ -136,20 +135,20 @@ workspace {
         certifiableAptGrading -> archifyExamMaintenance "read existing aptitude questions"
         certifiableArchGrading -> archifyExamMaintenance "read existing case studies"
         
-        archifyExamMaintenance -> llmSystem "promt to generate questions and case studies"
+        archifyExamMaintenance -> llmSystem "prompt to generate questions and case studies"
         archifyExamMaintenance -> certifiableAptGrading "write generated aptitude questions"
         archifyExamMaintenance -> certifiableArchGrading "write generated case studies"
 
         // Question Generator Container Relationships
-        certifiableKnowledgeBase -> archifyAptQuestionPromtOrchestrator "read plain text knowledge to enrich promt"        
-        knowledgeVectorDb -> archifyAptQuestionPromtOrchestrator "read data to correlate knowledge with questions"
-        aptAnswersVectorDb -> archifyAptQuestionPromtOrchestrator "read known answers and questions"
-        archifyExamMaintenanceAdapter -> archifyAptQuestionPromtOrchestrator "request new exam creation based on scheduled jobs"
-        archifyAptQuestionPromtOrchestrator -> archifyExamMaintenanceAdapter "return generated exam exam questions and case studies"
+        certifiableKnowledgeBase -> archifyAptQuestionPromptOrchestrator "read plain text knowledge to enrich prompt"        
+        knowledgeVectorDb -> archifyAptQuestionPromptOrchestrator "read data to correlate knowledge with questions"
+        aptAnswersVectorDb -> archifyAptQuestionPromptOrchestrator "read known answers and questions"
+        archifyExamMaintenanceAdapter -> archifyAptQuestionPromptOrchestrator "request new exam creation based on scheduled jobs"
+        archifyAptQuestionPromptOrchestrator -> archifyExamMaintenanceAdapter "return generated exam exam questions and case studies"
     
-        archifyAptQuestionPromtOrchestrator -> archifyAptQuestionGuardRails "enrich promt with technical context and instructions to generate exam questions and case studies."
-        archifyAptQuestionGuardRails -> archifyAptQuestionPromtOrchestrator "return generated exam exam questions and case studies"
-        archifyAptQuestionGuardRails -> llmSystem "promt LLM"
+        archifyAptQuestionPromptOrchestrator -> archifyAptQuestionGuardRails "enrich prompt with technical context and instructions to generate exam questions and case studies."
+        archifyAptQuestionGuardRails -> archifyAptQuestionPromptOrchestrator "return generated exam exam questions and case studies"
+        archifyAptQuestionGuardRails -> llmSystem "prompt LLM"
         llmSystem -> archifyAptQuestionGuardRails "filter output for harmful content and enforce needed output data structure"
         archifyExamMaintenanceAdapter -> certifiableAptQuestionsDb "write generated exam questions and flag outdated questions"
         archifyExamMaintenanceAdapter -> certifiableCaseStudyDb "write generated case studies"
@@ -196,7 +195,7 @@ workspace {
                     certifiableUngradedAptDb \
                     certifiableAptGradedDb \
                     aptitudeGradingAdapter \
-                    aptitudePromtOrchestrator \
+                    aptitudePromptOrchestrator \
                     aptAnswersVectorDb \
                     aptitudeGuardrails \
                     llmSystem 
@@ -205,7 +204,7 @@ workspace {
         }
         component archifyArchGrading "Component-Architecture-Grading" {
             include archGradingAdapter \
-                    archPromtOrchestrator \
+                    archPromptOrchestrator \
                     knowledgeVectorDb \
                     archGuardrails \
                     llmSystem \
@@ -224,7 +223,7 @@ workspace {
                     knowledgeVectorDb \
                     aptAnswersVectorDb \
                     llmSystem \
-                    archifyAptQuestionPromtOrchestrator \
+                    archifyAptQuestionPromptOrchestrator \
                     archifyAptQuestionGuardRails \
                     certifiableCaseStudyDb \
                     certifiableKnowledgeBase

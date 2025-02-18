@@ -30,7 +30,7 @@ Our design prioritizes responsible AI integration by maintaining human oversight
 We identified the following key objectives:
 
 1. Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
-    * Our main contributions for this objective are: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
+    * Our main contributions for this objective are: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md), [ADR-003](/assets/adr/ADR-003-model.md)
 2. Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
     * Our main contributions for this objective are: [ADR-010](/assets/adr/ADR-010-system-integration.md)
 3. Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
@@ -91,12 +91,37 @@ This was the new review processes can be integrated into the existing solutions 
 The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through [C4](https://c4model.com/) diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
 
 <div style="text-align: center">
-  <a href="./assets/diagrams/README.md">
-      <img src="./assets/diagrams/structurizr-1-SystemContext-001.png" width=75% height=75%>
+  <a href="./assets/diagrams/C01-SystemContext.md">
+      <img src="./assets/diagrams/structurizr-1-SystemContext-001.png">
+      <p>System Context Diagram, describing how ARCHIFY integrates into the existing software system.</p>
   </a>
 </div>
 
 The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/C01-SystemContext.md).
+
+### Container diagrams
+<table>
+  <tr>
+    <td align="center">
+      <a href="./assets/diagrams/C02-AptitudeContainer.md">
+        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
+        <p>Container diagram for the Aptitude Exam Grading module.</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="./assets/diagrams/C02-ArchitectureContainer.md">
+        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
+        <p>Container diagram for the Architecture Exam Grading module.</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="./assets/diagrams/C02-MaintenanceContainer.md">
+        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
+        <p>Container diagram for the Exam Maintenance Grading module.</p>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ### Aptitude Exam Automated Grading (C2)
 
