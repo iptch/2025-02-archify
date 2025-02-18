@@ -19,16 +19,20 @@ Our solution for the O'Reilly Architectural Kata (Winter 2025)
 
 ## The Kata
 
-Certifiable, Inc. is an accredited leader in software architecture certification.
-The current certification process requires candidates to pass two different tests: an aptitude test and an architecture submission.
-Large parts of the evaluation process for submitted exams as well as maintenance of the exam base is done manually by IT experts. 
+Certifiable, Inc. leads in U.S. software certification but must evolve to expand globally. Its reliance on manual processes may hinder scalability, requiring AI integration for efficiency. A targeted redesign of SoftArchCert can help manage demand while maintaining accuracy.
 
-In the face of legislature changes Certifiable expects a significant growth.
-It is expected that within four years the number of candidates taking the exams will increase tenfold. 
-This is reason for concern, as the manual processes will likely not be able to scale up to the increased demand. 
+During the katas we created a concept that will help certifiable to scale in a controled way. we were able to identify three use cases that act as a bottleneck when it comes to scaling and focused on these three cases. While we recognize the potential of AI and most precisely, LLMs, we are very aware of the potential risks of using these technologies for automated tasks in the IT sector. Our architecture leverages the potential of AI and aims to mitigate the risks and threads that this technology brings with it.
 
-Certifiable Inc. wants to leverage AI to address scalability challenges in light of the anticipated growth.
-The task for this Kata is to provide a solution how this could be done. 
+### Key Objectives
+
+We identified the following key objectives:
+
+* Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
+    * Our main contributions for this objective are:
+* Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
+    * Our main contributions for this objective are:
+* Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
+    * Our main contributions for this objective are:
 
 ## Solution Summary
 
@@ -58,7 +62,7 @@ We propose two areas in which to levarage AI.
 
 ### Architecture Case Study Grading
 
-### Exam & Question Geneartion
+### Exam & Question Generation
 
 
 ## Requirements
