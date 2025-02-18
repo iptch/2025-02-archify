@@ -3,7 +3,8 @@
   "description" : "Description",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedDate" : "2025-02-18T18:56:26Z",
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-02-18T20:23:08Z",
   "model" : {
     "people" : [ {
       "description" : "A candidate that is aiming to get professionally certified by Cerfifiable Inc..",
@@ -124,20 +125,20 @@
           "relationships" : [ {
             "description" : "reads ungraded aptitude test exams",
             "destinationId" : "22",
-            "id" : "86",
+            "id" : "87",
             "sourceId" : "9",
             "tags" : "Relationship"
           }, {
             "description" : "reads ungraded aptitude test exams",
             "destinationId" : "21",
-            "id" : "87",
-            "linkedRelationshipId" : "86",
+            "id" : "88",
+            "linkedRelationshipId" : "87",
             "sourceId" : "9"
           }, {
             "description" : "reads ungraded aptitude test exams",
             "destinationId" : "20",
-            "id" : "88",
-            "linkedRelationshipId" : "86",
+            "id" : "89",
+            "linkedRelationshipId" : "87",
             "sourceId" : "9"
           } ],
           "tags" : "Element,Component,Database"
@@ -150,19 +151,19 @@
             "structurizr.dsl.identifier" : "certifiableaptgradeddb"
           },
           "relationships" : [ {
-            "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+            "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
             "destinationId" : "36",
             "id" : "53",
             "sourceId" : "10",
             "tags" : "Relationship"
           }, {
-            "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+            "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
             "destinationId" : "35",
             "id" : "54",
             "linkedRelationshipId" : "53",
             "sourceId" : "10"
           }, {
-            "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+            "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
             "destinationId" : "34",
             "id" : "55",
             "linkedRelationshipId" : "53",
@@ -185,19 +186,19 @@
           "structurizr.dsl.identifier" : "certifiableaptgrading"
         },
         "relationships" : [ {
-          "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+          "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
           "destinationId" : "36",
           "id" : "56",
           "linkedRelationshipId" : "53",
           "sourceId" : "5"
         }, {
-          "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+          "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
           "destinationId" : "35",
           "id" : "57",
           "linkedRelationshipId" : "53",
           "sourceId" : "5"
         }, {
-          "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+          "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
           "destinationId" : "34",
           "id" : "58",
           "linkedRelationshipId" : "53",
@@ -205,31 +206,25 @@
         }, {
           "description" : "reads ungraded submission",
           "destinationId" : "21",
-          "id" : "81",
+          "id" : "83",
           "sourceId" : "5",
           "tags" : "Relationship"
         }, {
           "description" : "reads ungraded submission",
           "destinationId" : "20",
-          "id" : "82",
-          "linkedRelationshipId" : "81",
+          "id" : "84",
+          "linkedRelationshipId" : "83",
           "sourceId" : "5"
-        }, {
-          "description" : "write allowed Questions and Answers from past exams",
-          "destinationId" : "35",
-          "id" : "85",
-          "sourceId" : "5",
-          "tags" : "Relationship"
         }, {
           "description" : "reads ungraded aptitude test exams",
           "destinationId" : "22",
-          "id" : "89",
-          "linkedRelationshipId" : "86",
+          "id" : "90",
+          "linkedRelationshipId" : "87",
           "sourceId" : "5"
         }, {
           "description" : "read existing aptitude questions",
           "destinationId" : "29",
-          "id" : "149",
+          "id" : "142",
           "sourceId" : "5",
           "tags" : "Relationship"
         } ],
@@ -261,13 +256,13 @@
           "relationships" : [ {
             "description" : "reads AI Graded Exams",
             "destinationId" : "17",
-            "id" : "147",
+            "id" : "140",
             "sourceId" : "14",
             "tags" : "Relationship"
           }, {
             "description" : "writes manually reviews final Graded Exams",
             "destinationId" : "17",
-            "id" : "148",
+            "id" : "141",
             "sourceId" : "14",
             "tags" : "Relationship"
           } ],
@@ -284,20 +279,20 @@
           "relationships" : [ {
             "description" : "read existing case studies",
             "destinationId" : "33",
-            "id" : "185",
+            "id" : "179",
             "sourceId" : "15",
             "tags" : "Relationship"
           }, {
             "description" : "read existing case studies",
             "destinationId" : "29",
-            "id" : "186",
-            "linkedRelationshipId" : "185",
+            "id" : "180",
+            "linkedRelationshipId" : "179",
             "sourceId" : "15"
           }, {
             "description" : "read existing case studies",
             "destinationId" : "20",
-            "id" : "187",
-            "linkedRelationshipId" : "185",
+            "id" : "181",
+            "linkedRelationshipId" : "179",
             "sourceId" : "15"
           } ],
           "tags" : "Element,Component,Database"
@@ -346,13 +341,25 @@
           "structurizr.dsl.identifier" : "certifiablearchgrading"
         },
         "relationships" : [ {
-          "description" : "read ungraded submission for automatic grading",
+          "description" : "updates catalog",
+          "destinationId" : "19",
+          "id" : "71",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        }, {
+          "description" : "updates catalog",
+          "destinationId" : "18",
+          "id" : "72",
+          "linkedRelationshipId" : "71",
+          "sourceId" : "12"
+        }, {
+          "description" : "read ungraded submissions",
           "destinationId" : "25",
           "id" : "116",
           "sourceId" : "12",
           "tags" : "Relationship"
         }, {
-          "description" : "read ungraded submission for automatic grading",
+          "description" : "read ungraded submissions",
           "destinationId" : "20",
           "id" : "117",
           "linkedRelationshipId" : "116",
@@ -366,14 +373,14 @@
         }, {
           "description" : "read existing case studies",
           "destinationId" : "29",
-          "id" : "151",
+          "id" : "144",
           "sourceId" : "12",
           "tags" : "Relationship"
         }, {
           "description" : "read existing case studies",
           "destinationId" : "33",
-          "id" : "188",
-          "linkedRelationshipId" : "185",
+          "id" : "182",
+          "linkedRelationshipId" : "179",
           "sourceId" : "12"
         } ],
         "tags" : "Element,Container"
@@ -386,103 +393,67 @@
             "structurizr.dsl.identifier" : "certifiableknowledgeadapter"
           },
           "relationships" : [ {
-            "description" : "reads information from knowledge base",
+            "description" : "obtains relevant context from document database",
             "destinationId" : "39",
             "id" : "63",
             "sourceId" : "19",
             "tags" : "Relationship"
           }, {
-            "description" : "reads information from knowledge base",
+            "description" : "obtains relevant context from document database",
             "destinationId" : "38",
             "id" : "64",
             "linkedRelationshipId" : "63",
             "sourceId" : "19"
           }, {
-            "description" : "reads information from knowledge base",
+            "description" : "obtains relevant context from document database",
             "destinationId" : "34",
             "id" : "65",
             "linkedRelationshipId" : "63",
-            "sourceId" : "19"
-          }, {
-            "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-            "destinationId" : "27",
-            "id" : "138",
-            "sourceId" : "19",
-            "tags" : "Relationship"
-          }, {
-            "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-            "destinationId" : "25",
-            "id" : "139",
-            "linkedRelationshipId" : "138",
-            "sourceId" : "19"
-          }, {
-            "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-            "destinationId" : "20",
-            "id" : "140",
-            "linkedRelationshipId" : "138",
             "sourceId" : "19"
           } ],
           "tags" : "Element,Component"
         } ],
         "documentation" : { },
         "id" : "18",
-        "name" : "Certifiable Knowledge Base",
+        "name" : "Certifiable, Inc. Architecture Knowledge Catalog",
         "properties" : {
           "structurizr.dsl.identifier" : "certifiableknowledgebase"
         },
         "relationships" : [ {
-          "description" : "reads information from knowledge base",
+          "description" : "obtains relevant context from document database",
           "destinationId" : "39",
           "id" : "66",
           "linkedRelationshipId" : "63",
           "sourceId" : "18"
         }, {
-          "description" : "reads information from knowledge base",
+          "description" : "obtains relevant context from document database",
           "destinationId" : "38",
           "id" : "67",
           "linkedRelationshipId" : "63",
           "sourceId" : "18"
         }, {
-          "description" : "reads information from knowledge base",
+          "description" : "obtains relevant context from document database",
           "destinationId" : "34",
           "id" : "68",
           "linkedRelationshipId" : "63",
           "sourceId" : "18"
         }, {
-          "description" : "Pre-Process technical knowhow database for querying",
-          "destinationId" : "38",
-          "id" : "107",
-          "sourceId" : "18",
-          "tags" : "Relationship"
-        }, {
-          "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-          "destinationId" : "27",
-          "id" : "141",
-          "linkedRelationshipId" : "138",
-          "sourceId" : "18"
-        }, {
-          "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-          "destinationId" : "25",
-          "id" : "142",
-          "linkedRelationshipId" : "138",
-          "sourceId" : "18"
-        }, {
-          "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-          "destinationId" : "20",
-          "id" : "143",
-          "linkedRelationshipId" : "138",
-          "sourceId" : "18"
-        }, {
-          "description" : "read plain text knowledge to enrich promt",
+          "description" : "read plain text knowledge to enrich prompt",
           "destinationId" : "31",
-          "id" : "156",
+          "id" : "149",
           "sourceId" : "18",
           "tags" : "Relationship"
         }, {
-          "description" : "read plain text knowledge to enrich promt",
+          "description" : "read plain text knowledge to enrich prompt",
           "destinationId" : "29",
-          "id" : "157",
-          "linkedRelationshipId" : "156",
+          "id" : "150",
+          "linkedRelationshipId" : "149",
+          "sourceId" : "18"
+        }, {
+          "description" : "read plain text knowledge to enrich prompt",
+          "destinationId" : "20",
+          "id" : "151",
+          "linkedRelationshipId" : "149",
           "sourceId" : "18"
         } ],
         "tags" : "Element,Container"
@@ -495,31 +466,31 @@
         "structurizr.dsl.identifier" : "certifiablesystem"
       },
       "relationships" : [ {
-        "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+        "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
         "destinationId" : "36",
         "id" : "59",
         "linkedRelationshipId" : "53",
         "sourceId" : "4"
       }, {
-        "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+        "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
         "destinationId" : "35",
         "id" : "60",
         "linkedRelationshipId" : "53",
         "sourceId" : "4"
       }, {
-        "description" : "provides newly graded Q&A tuples via high watermark (timestamp column)",
+        "description" : "provides new Q&A solution tuples via high watermark (timestamp column)",
         "destinationId" : "34",
         "id" : "61",
         "linkedRelationshipId" : "53",
         "sourceId" : "4"
       }, {
-        "description" : "reads information from knowledge base",
+        "description" : "obtains relevant context from document database",
         "destinationId" : "39",
         "id" : "69",
         "linkedRelationshipId" : "63",
         "sourceId" : "4"
       }, {
-        "description" : "reads information from knowledge base",
+        "description" : "obtains relevant context from document database",
         "destinationId" : "38",
         "id" : "70",
         "linkedRelationshipId" : "63",
@@ -527,23 +498,23 @@
       }, {
         "description" : "reads ungraded submission",
         "destinationId" : "21",
-        "id" : "83",
-        "linkedRelationshipId" : "81",
+        "id" : "85",
+        "linkedRelationshipId" : "83",
         "sourceId" : "4"
       }, {
         "description" : "reads ungraded submission",
         "destinationId" : "20",
-        "id" : "84",
-        "linkedRelationshipId" : "81",
+        "id" : "86",
+        "linkedRelationshipId" : "83",
         "sourceId" : "4"
       }, {
         "description" : "reads ungraded aptitude test exams",
         "destinationId" : "22",
-        "id" : "90",
-        "linkedRelationshipId" : "86",
+        "id" : "91",
+        "linkedRelationshipId" : "87",
         "sourceId" : "4"
       }, {
-        "description" : "read ungraded submission for automatic grading",
+        "description" : "read ungraded submissions",
         "destinationId" : "25",
         "id" : "118",
         "linkedRelationshipId" : "116",
@@ -555,28 +526,22 @@
         "linkedRelationshipId" : "119",
         "sourceId" : "4"
       }, {
-        "description" : "read technical knowledge (plain text= to enrich promt with technical context",
-        "destinationId" : "27",
-        "id" : "144",
-        "linkedRelationshipId" : "138",
-        "sourceId" : "4"
-      }, {
         "description" : "read existing aptitude questions",
         "destinationId" : "29",
-        "id" : "150",
-        "linkedRelationshipId" : "149",
+        "id" : "143",
+        "linkedRelationshipId" : "142",
         "sourceId" : "4"
       }, {
-        "description" : "read plain text knowledge to enrich promt",
+        "description" : "read plain text knowledge to enrich prompt",
         "destinationId" : "31",
-        "id" : "158",
-        "linkedRelationshipId" : "156",
+        "id" : "152",
+        "linkedRelationshipId" : "149",
         "sourceId" : "4"
       }, {
         "description" : "read existing case studies",
         "destinationId" : "33",
-        "id" : "189",
-        "linkedRelationshipId" : "185",
+        "id" : "183",
+        "linkedRelationshipId" : "179",
         "sourceId" : "4"
       } ],
       "tags" : "Element,Software System"
@@ -593,26 +558,26 @@
           "relationships" : [ {
             "description" : "Provides Q&A tuple",
             "destinationId" : "23",
-            "id" : "91",
-            "sourceId" : "22",
-            "tags" : "Relationship"
-          }, {
-            "description" : "writes graded Q&A tuples with feedback",
-            "destinationId" : "10",
             "id" : "92",
             "sourceId" : "22",
             "tags" : "Relationship"
           }, {
             "description" : "writes graded Q&A tuples with feedback",
-            "destinationId" : "5",
+            "destinationId" : "10",
             "id" : "93",
-            "linkedRelationshipId" : "92",
+            "sourceId" : "22",
+            "tags" : "Relationship"
+          }, {
+            "description" : "writes graded Q&A tuples with feedback",
+            "destinationId" : "5",
+            "id" : "94",
+            "linkedRelationshipId" : "93",
             "sourceId" : "22"
           }, {
             "description" : "writes graded Q&A tuples with feedback",
             "destinationId" : "4",
-            "id" : "94",
-            "linkedRelationshipId" : "92",
+            "id" : "95",
+            "linkedRelationshipId" : "93",
             "sourceId" : "22"
           } ],
           "tags" : "Element,Component",
@@ -623,18 +588,18 @@
           "id" : "23",
           "name" : "Aptitude Prompt Orchestrator",
           "properties" : {
-            "structurizr.dsl.identifier" : "aptitudepromtorchestrator"
+            "structurizr.dsl.identifier" : "aptitudepromptorchestrator"
           },
           "relationships" : [ {
             "description" : "returns LLM grading",
             "destinationId" : "22",
-            "id" : "97",
+            "id" : "98",
             "sourceId" : "23",
             "tags" : "Relationship"
           }, {
             "description" : "forwards prompt to be checked",
             "destinationId" : "24",
-            "id" : "98",
+            "id" : "99",
             "sourceId" : "23",
             "tags" : "Relationship"
           } ],
@@ -651,13 +616,13 @@
           "relationships" : [ {
             "description" : "compares against expected output format and checks for schema compatibility",
             "destinationId" : "23",
-            "id" : "99",
+            "id" : "100",
             "sourceId" : "24",
             "tags" : "Relationship"
           }, {
             "description" : "analyses for input injection attacks",
             "destinationId" : "41",
-            "id" : "106",
+            "id" : "107",
             "sourceId" : "24",
             "tags" : "Relationship"
           } ],
@@ -666,33 +631,33 @@
         } ],
         "documentation" : { },
         "id" : "21",
-        "name" : "Archify Aptitude Exam Grading",
+        "name" : "ARCHIFY Aptitude Exam Grading",
         "properties" : {
           "structurizr.dsl.identifier" : "archifyaptgrading"
         },
         "relationships" : [ {
-          "description" : "promt to grade exams",
+          "description" : "sends prompt",
           "destinationId" : "41",
-          "id" : "76",
-          "sourceId" : "21",
-          "tags" : "Relationship"
-        }, {
-          "description" : "write automatically graded submission and feedback",
-          "destinationId" : "5",
           "id" : "78",
           "sourceId" : "21",
           "tags" : "Relationship"
         }, {
-          "description" : "write automatically graded submission and feedback",
+          "description" : "write auto-graded submission to database",
+          "destinationId" : "5",
+          "id" : "80",
+          "sourceId" : "21",
+          "tags" : "Relationship"
+        }, {
+          "description" : "write auto-graded submission to database",
           "destinationId" : "4",
-          "id" : "79",
-          "linkedRelationshipId" : "78",
+          "id" : "81",
+          "linkedRelationshipId" : "80",
           "sourceId" : "21"
         }, {
           "description" : "writes graded Q&A tuples with feedback",
           "destinationId" : "10",
-          "id" : "95",
-          "linkedRelationshipId" : "92",
+          "id" : "96",
+          "linkedRelationshipId" : "93",
           "sourceId" : "21"
         } ],
         "tags" : "Element,Container"
@@ -735,7 +700,7 @@
           "id" : "27",
           "name" : "Architecture Prompt Orchestrator",
           "properties" : {
-            "structurizr.dsl.identifier" : "archpromtorchestrator"
+            "structurizr.dsl.identifier" : "archpromptorchestrator"
           },
           "relationships" : [ {
             "description" : "returns LLM grading",
@@ -744,7 +709,7 @@
             "sourceId" : "27",
             "tags" : "Relationship"
           }, {
-            "description" : "sanitize input and forward promt",
+            "description" : "sanitize input and forward prompt",
             "destinationId" : "28",
             "id" : "131",
             "sourceId" : "27",
@@ -768,7 +733,7 @@
           }, {
             "description" : "analyses for input injection attacks",
             "destinationId" : "41",
-            "id" : "146",
+            "id" : "139",
             "sourceId" : "28",
             "tags" : "Relationship"
           } ],
@@ -777,24 +742,24 @@
         } ],
         "documentation" : { },
         "id" : "25",
-        "name" : "Archify Architecture Exam Grading",
+        "name" : "ARCHIFY Architecture Exam Grading",
         "properties" : {
           "structurizr.dsl.identifier" : "archifyarchgrading"
         },
         "relationships" : [ {
-          "description" : "promt to grade exams",
+          "description" : "sends prompt",
           "destinationId" : "41",
           "id" : "111",
           "sourceId" : "25",
           "tags" : "Relationship"
         }, {
-          "description" : "write automatically graded submission and feedback",
+          "description" : "write feedback and AI grade proposal",
           "destinationId" : "12",
           "id" : "113",
           "sourceId" : "25",
           "tags" : "Relationship"
         }, {
-          "description" : "write automatically graded submission and feedback",
+          "description" : "write feedback and AI grade proposal",
           "destinationId" : "4",
           "id" : "114",
           "linkedRelationshipId" : "113",
@@ -818,58 +783,58 @@
           "relationships" : [ {
             "description" : "request new exam creation based on scheduled jobs",
             "destinationId" : "31",
-            "id" : "169",
+            "id" : "163",
             "sourceId" : "30",
             "tags" : "Relationship"
           }, {
             "description" : "write generated exam questions and flag outdated questions",
             "destinationId" : "11",
-            "id" : "176",
+            "id" : "170",
             "sourceId" : "30",
             "tags" : "Relationship"
           }, {
             "description" : "write generated exam questions and flag outdated questions",
             "destinationId" : "5",
-            "id" : "177",
-            "linkedRelationshipId" : "176",
+            "id" : "171",
+            "linkedRelationshipId" : "170",
             "sourceId" : "30"
           }, {
             "description" : "write generated exam questions and flag outdated questions",
             "destinationId" : "4",
-            "id" : "178",
-            "linkedRelationshipId" : "176",
+            "id" : "172",
+            "linkedRelationshipId" : "170",
             "sourceId" : "30"
           }, {
             "description" : "write generated case studies",
             "destinationId" : "15",
-            "id" : "181",
+            "id" : "175",
             "sourceId" : "30",
             "tags" : "Relationship"
           }, {
             "description" : "write generated case studies",
             "destinationId" : "12",
-            "id" : "182",
-            "linkedRelationshipId" : "181",
+            "id" : "176",
+            "linkedRelationshipId" : "175",
             "sourceId" : "30"
           } ],
           "tags" : "Element,Component"
         }, {
           "documentation" : { },
           "id" : "31",
-          "name" : "Aptitude Question Promt Orchestrator",
+          "name" : "Aptitude Question Prompt Orchestrator",
           "properties" : {
-            "structurizr.dsl.identifier" : "archifyaptquestionpromtorchestrator"
+            "structurizr.dsl.identifier" : "archifyaptquestionpromptorchestrator"
           },
           "relationships" : [ {
             "description" : "return generated exam exam questions and case studies",
             "destinationId" : "30",
-            "id" : "170",
+            "id" : "164",
             "sourceId" : "31",
             "tags" : "Relationship"
           }, {
-            "description" : "enrich promt with technical context and instructions to generate exam questions and case studies.",
+            "description" : "enrich prompt with technical context and instructions to generate exam questions and case studies.",
             "destinationId" : "32",
-            "id" : "171",
+            "id" : "165",
             "sourceId" : "31",
             "tags" : "Relationship"
           } ],
@@ -884,13 +849,13 @@
           "relationships" : [ {
             "description" : "return generated exam exam questions and case studies",
             "destinationId" : "31",
-            "id" : "172",
+            "id" : "166",
             "sourceId" : "32",
             "tags" : "Relationship"
           }, {
-            "description" : "promt LLM",
+            "description" : "prompt LLM",
             "destinationId" : "41",
-            "id" : "173",
+            "id" : "167",
             "sourceId" : "32",
             "tags" : "Relationship"
           } ],
@@ -906,45 +871,45 @@
         } ],
         "documentation" : { },
         "id" : "29",
-        "name" : "Archify Exam Maintenance",
+        "name" : "ARCHIFY Exam Maintenance",
         "properties" : {
           "structurizr.dsl.identifier" : "archifyexammaintenance"
         },
         "relationships" : [ {
-          "description" : "promt to generate questions and case studies",
+          "description" : "prompt to generate questions and case studies",
           "destinationId" : "41",
-          "id" : "152",
+          "id" : "145",
           "sourceId" : "29",
           "tags" : "Relationship"
         }, {
           "description" : "write generated aptitude questions",
           "destinationId" : "5",
-          "id" : "153",
+          "id" : "146",
           "sourceId" : "29",
           "tags" : "Relationship"
         }, {
           "description" : "write generated aptitude questions",
           "destinationId" : "4",
-          "id" : "154",
-          "linkedRelationshipId" : "153",
+          "id" : "147",
+          "linkedRelationshipId" : "146",
           "sourceId" : "29"
         }, {
           "description" : "write generated case studies",
           "destinationId" : "12",
-          "id" : "155",
+          "id" : "148",
           "sourceId" : "29",
           "tags" : "Relationship"
         }, {
           "description" : "write generated exam questions and flag outdated questions",
           "destinationId" : "11",
-          "id" : "179",
-          "linkedRelationshipId" : "176",
+          "id" : "173",
+          "linkedRelationshipId" : "170",
           "sourceId" : "29"
         }, {
           "description" : "write generated case studies",
           "destinationId" : "15",
-          "id" : "183",
-          "linkedRelationshipId" : "181",
+          "id" : "177",
+          "linkedRelationshipId" : "175",
           "sourceId" : "29"
         } ],
         "tags" : "Element,Container"
@@ -969,19 +934,19 @@
         "sourceId" : "20",
         "tags" : "Relationship"
       }, {
-        "description" : "write automatically graded submission and feedback",
+        "description" : "write auto-graded submission to database",
         "destinationId" : "5",
-        "id" : "80",
-        "linkedRelationshipId" : "78",
+        "id" : "82",
+        "linkedRelationshipId" : "80",
         "sourceId" : "20"
       }, {
         "description" : "writes graded Q&A tuples with feedback",
         "destinationId" : "10",
-        "id" : "96",
-        "linkedRelationshipId" : "92",
+        "id" : "97",
+        "linkedRelationshipId" : "93",
         "sourceId" : "20"
       }, {
-        "description" : "write automatically graded submission and feedback",
+        "description" : "write feedback and AI grade proposal",
         "destinationId" : "12",
         "id" : "115",
         "linkedRelationshipId" : "113",
@@ -995,14 +960,14 @@
       }, {
         "description" : "write generated exam questions and flag outdated questions",
         "destinationId" : "11",
-        "id" : "180",
-        "linkedRelationshipId" : "176",
+        "id" : "174",
+        "linkedRelationshipId" : "170",
         "sourceId" : "20"
       }, {
         "description" : "write generated case studies",
         "destinationId" : "15",
-        "id" : "184",
-        "linkedRelationshipId" : "181",
+        "id" : "178",
+        "linkedRelationshipId" : "175",
         "sourceId" : "20"
       } ],
       "tags" : "Element,Software System"
@@ -1036,32 +1001,32 @@
           "relationships" : [ {
             "description" : "enriches prompt by providing most similar Q&A tuples",
             "destinationId" : "23",
-            "id" : "100",
+            "id" : "101",
             "sourceId" : "37",
             "tags" : "Relationship"
           }, {
             "description" : "enriches prompt by providing most similar Q&A tuples",
             "destinationId" : "21",
-            "id" : "101",
-            "linkedRelationshipId" : "100",
+            "id" : "102",
+            "linkedRelationshipId" : "101",
             "sourceId" : "37"
           }, {
             "description" : "enriches prompt by providing most similar Q&A tuples",
             "destinationId" : "20",
-            "id" : "102",
-            "linkedRelationshipId" : "100",
+            "id" : "103",
+            "linkedRelationshipId" : "101",
             "sourceId" : "37"
           }, {
             "description" : "read known answers and questions",
             "destinationId" : "31",
-            "id" : "165",
+            "id" : "159",
             "sourceId" : "37",
             "tags" : "Relationship"
           }, {
             "description" : "read known answers and questions",
             "destinationId" : "29",
-            "id" : "166",
-            "linkedRelationshipId" : "165",
+            "id" : "160",
+            "linkedRelationshipId" : "159",
             "sourceId" : "37"
           } ],
           "tags" : "Element,Component,Aptitude Q&A Vector Database"
@@ -1075,32 +1040,32 @@
         "relationships" : [ {
           "description" : "updates vector database with new Q&A tuples",
           "destinationId" : "21",
-          "id" : "72",
+          "id" : "74",
           "sourceId" : "35",
           "tags" : "Relationship"
         }, {
           "description" : "updates vector database with new Q&A tuples",
           "destinationId" : "20",
-          "id" : "73",
-          "linkedRelationshipId" : "72",
+          "id" : "75",
+          "linkedRelationshipId" : "74",
           "sourceId" : "35"
         }, {
           "description" : "enriches prompt by providing most similar Q&A tuples",
           "destinationId" : "23",
-          "id" : "103",
-          "linkedRelationshipId" : "100",
+          "id" : "104",
+          "linkedRelationshipId" : "101",
           "sourceId" : "35"
         }, {
           "description" : "read known answers and questions",
           "destinationId" : "31",
-          "id" : "167",
-          "linkedRelationshipId" : "165",
+          "id" : "161",
+          "linkedRelationshipId" : "159",
           "sourceId" : "35"
         }, {
           "description" : "read known answers and questions",
           "destinationId" : "29",
-          "id" : "168",
-          "linkedRelationshipId" : "165",
+          "id" : "162",
+          "linkedRelationshipId" : "159",
           "sourceId" : "35"
         } ],
         "tags" : "Element,Container"
@@ -1115,7 +1080,7 @@
           "relationships" : [ {
             "description" : "embedds knowledge base into vector space and writes them to Knowledge Vector Database",
             "destinationId" : "40",
-            "id" : "71",
+            "id" : "73",
             "sourceId" : "39",
             "tags" : "Relationship"
           } ],
@@ -1148,14 +1113,14 @@
           }, {
             "description" : "read data to correlate knowledge with questions",
             "destinationId" : "31",
-            "id" : "159",
+            "id" : "153",
             "sourceId" : "40",
             "tags" : "Relationship"
           }, {
             "description" : "read data to correlate knowledge with questions",
             "destinationId" : "29",
-            "id" : "160",
-            "linkedRelationshipId" : "159",
+            "id" : "154",
+            "linkedRelationshipId" : "153",
             "sourceId" : "40"
           } ],
           "tags" : "Element,Component,Database"
@@ -1167,13 +1132,13 @@
           "structurizr.dsl.identifier" : "datapipelineknowledge"
         },
         "relationships" : [ {
-          "description" : "Identify relevant technical context",
+          "description" : "provides relevant technical context for grading",
           "destinationId" : "25",
           "id" : "108",
           "sourceId" : "38",
           "tags" : "Relationship"
         }, {
-          "description" : "Identify relevant technical context",
+          "description" : "provides relevant technical context for grading",
           "destinationId" : "20",
           "id" : "109",
           "linkedRelationshipId" : "108",
@@ -1187,14 +1152,14 @@
         }, {
           "description" : "read data to correlate knowledge with questions",
           "destinationId" : "31",
-          "id" : "161",
-          "linkedRelationshipId" : "159",
+          "id" : "155",
+          "linkedRelationshipId" : "153",
           "sourceId" : "38"
         }, {
           "description" : "read data to correlate knowledge with questions",
           "destinationId" : "29",
-          "id" : "162",
-          "linkedRelationshipId" : "159",
+          "id" : "156",
+          "linkedRelationshipId" : "153",
           "sourceId" : "38"
         } ],
         "tags" : "Element,Container"
@@ -1202,30 +1167,30 @@
       "documentation" : { },
       "id" : "34",
       "location" : "Unspecified",
-      "name" : "ARCHIFY \n Data Pipeline",
+      "name" : "ARCHIFY Data Pipeline",
       "properties" : {
         "structurizr.dsl.identifier" : "datapipelinesystem"
       },
       "relationships" : [ {
         "description" : "updates vector database with new Q&A tuples",
         "destinationId" : "21",
-        "id" : "74",
-        "linkedRelationshipId" : "72",
+        "id" : "76",
+        "linkedRelationshipId" : "74",
         "sourceId" : "34"
       }, {
         "description" : "updates vector database with new Q&A tuples",
         "destinationId" : "20",
-        "id" : "75",
-        "linkedRelationshipId" : "72",
+        "id" : "77",
+        "linkedRelationshipId" : "74",
         "sourceId" : "34"
       }, {
         "description" : "enriches prompt by providing most similar Q&A tuples",
         "destinationId" : "23",
-        "id" : "104",
-        "linkedRelationshipId" : "100",
+        "id" : "105",
+        "linkedRelationshipId" : "101",
         "sourceId" : "34"
       }, {
-        "description" : "Identify relevant technical context",
+        "description" : "provides relevant technical context for grading",
         "destinationId" : "25",
         "id" : "110",
         "linkedRelationshipId" : "108",
@@ -1239,14 +1204,14 @@
       }, {
         "description" : "read data to correlate knowledge with questions",
         "destinationId" : "31",
-        "id" : "163",
-        "linkedRelationshipId" : "159",
+        "id" : "157",
+        "linkedRelationshipId" : "153",
         "sourceId" : "34"
       }, {
         "description" : "read data to correlate knowledge with questions",
         "destinationId" : "29",
-        "id" : "164",
-        "linkedRelationshipId" : "159",
+        "id" : "158",
+        "linkedRelationshipId" : "153",
         "sourceId" : "34"
       } ],
       "tags" : "Element,Software System"
@@ -1265,19 +1230,19 @@
         "sourceId" : "41",
         "tags" : "Relationship"
       }, {
-        "description" : "return output with graded submission and feedback",
+        "description" : "returns graded submission and extensive feedback",
         "destinationId" : "21",
-        "id" : "77",
+        "id" : "79",
         "sourceId" : "41",
         "tags" : "Relationship"
       }, {
         "description" : "returns generated output by LLM",
         "destinationId" : "24",
-        "id" : "105",
+        "id" : "106",
         "sourceId" : "41",
         "tags" : "Relationship"
       }, {
-        "description" : "return output with graded submission and feedback",
+        "description" : "returns extensive feedback and proposes grading",
         "destinationId" : "25",
         "id" : "112",
         "sourceId" : "41",
@@ -1285,20 +1250,20 @@
       }, {
         "description" : "returns generated output by LLM",
         "destinationId" : "28",
-        "id" : "145",
+        "id" : "138",
         "sourceId" : "41",
         "tags" : "Relationship"
       }, {
         "description" : "filter output for harmful content and enforce needed output data structure",
         "destinationId" : "32",
-        "id" : "174",
+        "id" : "168",
         "sourceId" : "41",
         "tags" : "Relationship"
       }, {
         "description" : "filter output for harmful content and enforce needed output data structure",
         "destinationId" : "29",
-        "id" : "175",
-        "linkedRelationshipId" : "174",
+        "id" : "169",
+        "linkedRelationshipId" : "168",
         "sourceId" : "41"
       } ],
       "tags" : "Element,Software System"
@@ -1306,12 +1271,12 @@
   },
   "name" : "Name",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICBjYW5kaWRhdGUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIiAiQSBjYW5kaWRhdGUgdGhhdCBpcyBhaW1pbmcgdG8gZ2V0IHByb2Zlc3Npb25hbGx5IGNlcnRpZmllZCBieSBDZXJmaWZpYWJsZSBJbmMuLiIgIkNhbmRpZGF0ZSIKICAgICAgICBleHBlcnQgPSBwZXJzb24gIklUIEV4cGVydCIgIklUIEV4cGVydCBHcmFkZXIsIHdvcmtpbmcgZm9yIENlcnRpZmlhYmxlIEluYy4sIGdyYWRpbmcgZXhhbXMgYW5kIG1haW50YWluaW5nIGV4YW0gcXVlc3Rpb24gY2F0YWxvZyIgIkV4cGVydCIKCQllbmdpbmVlciA9IHBlcnNvbiAiTUwgRW5naW5lZXIiICJBSSBFbmdpbmVlciwgd29ya2luZyBmb3IgQ2VydGlmaWFibGUgSW5jLiwgbWFpbnRhaW5pbmcgTExNIHN5c3RlbSBjb21wb25lbnRzIiAiTUwgRW5naW5lZXIiCgkJCgkJY2VydGlmaWFibGVTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQ2VydGlmaWFibGUgSW5jLiBFeGlzdGluZyBTb2Z0d2FyZSBTeXN0ZW0iIHsKCiAgICAgICAgICAgIGNlcnRpZmlhYmxlQXB0R3JhZGluZyA9IGNvbnRhaW5lciAiQ2VydGlmaWFibGUgQXB0aXR1ZGUgR3JhZGluZyBNb2R1bGUiIHsKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlZXN0VGFrZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIFRlc3QgVGFrZXIiICJJbnRlcmZhY2UgaGFuZGxpbmcgdGVzdCBsb2FkaW5nLCBxdWVzdGlvbiBzZW5kaW5nLCBhbnN3ZXIgY2FwdHVyaW5nIGFuZCB0ZXN0IHRpbWluZyIgIkFwdGl0dWRlIFRlc3QgVGFrZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUF1dG9HcmFkZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIEF1dG8gR3JhZGVyIiAiQXV0by1ncmFkaW5nIGNvbXBvbmVudCBmb3IgbXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIgIkF1dG8gR3JhZGVyIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRNYW51YWxDYXB0dXJlID0gY29tcG9uZW50ICJBcHRpdHVkZSBNYW51ZWwgQ2FwdHVyZSIgIk1hbnVhbCBjYXB0dXJlIGNvbXBvbmVudCBmb3Igc2hvcnQtYW5zd2VyIHF1ZXN0aW9ucyIgIk1hbnVhbCBDYXB0dXJlIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVVbmdyYWRlZEFwdERiID0gY29tcG9uZW50ICJVbmdyYWRlZCBEYXRhYmFzZSIgIkNvbnRhaW5zIHRoZSB1bmdyYWRlZCBzaG9ydC1hbnN3ZXIgUSZBIHR1cGxlcyIgIiIgIkRhdGFiYXNlIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRHcmFkZWREYiA9IGNvbXBvbmVudCAiR3JhZGVkIERhdGFiYXNlIiAiR3JhZGVkIEV4YW1zIERhdGFiYXNlLCBjb250YWlucyB0aGUgYXB0aXR1dGRlIHRlc3RzIGZyb20gcHJldmlvdXMgMTIwayBleGFtcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXB0UXVlc3Rpb25zRGIgPSBjb21wb25lbnQgIkFwdGl0dWRlIFRlc3QgRGF0YWJhc2UiICIiICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgfQoKICAgICAgICAgICAgY2VydGlmaWFibGVBcmNoR3JhZGluZyA9IGNvbnRhaW5lciAiQ2VydGlmaWFibGUgQXJjaGl0ZWN0dXJlIEV4YW1zIE1vZHVsZSIgewogICAgICAgICAgICAgICAgY2VydGZpZmlhYmxlQXJjaFN1Ym1pc3Npb25TZXJ2aWNlID0gY29tcG9uZW50ICJBcmNoaXRlY3R1cmUgU3VibWlzc2lvbiBTZXJ2aWNlIiAiIiAiQXJjaGl0ZWN0dXJlIE1hbnVhbCBHcmFkZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hNYW51YWxHcmFkZXIgPSBjb21wb25lbnQgIkFyY2hpdGVjdHVyZSBNYW51YWwgR3JhZGVyIiAiIiAiQXJjaGl0ZWN0dXJlIE1hbnVhbCBHcmFkZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUNhc2VTdHVkeURiID0gY29tcG9uZW50ICJDYXNlIFN0dWR5IERhdGFiYXNlIiAiRGF0YWJhc2UsIGNvbnRhaW5zIGNhc2Ugc3R1ZGllcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgPSBjb21wb25lbnQgIlN1Ym1pc3Npb24gVW5ncmFkZWQgRGF0YWJhc2UiICJVbmdyYWRlZCBFeGFtcyBEYXRhYmFzZSwgY29udGFpbnMgdGhlIGFyY2hpdGVjdHVyZSBzdWJtaXNzaW9ucyBmcm9tIHByZXZpb3VzIDEyMGsgZXhhbXMuIiAiIiAiRGF0YWJhc2UiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiA9IGNvbXBvbmVudCAiU3VibWlzc2lvbiBHcmFkZWQgRGF0YWJhc2UiICJHcmFkZWQgRXhhbXMgJiBGZWVkYmFjayBEYXRhYmFzZSwgY29udGFpbnMgdGhlIGdyYWRlZCBhcmNoaXRlY3R1cmUgc3VibWlzc2lvbnMgYW5kIGZlZWRiYWNrIGZyb20gcHJldmlvdXMgMTIwayBleGFtcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgfQoKICAgICAgICAgICAgY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlID0gY29udGFpbmVyICJDZXJ0aWZpYWJsZSBLbm93bGVkZ2UgQmFzZSIgewogICAgICAgICAgICAgICAgY2VydGlmaWFibGVLbm93bGVkZ2VBZGFwdGVyID0gY29tcG9uZW50ICJLbm93bGVkZ2UgQWRhcHRlciIKICAgICAgICAgICAgfQoJCX0KCQlhcmNoaWZ5U3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgQUkgQ2VydGlmaWNhdGlvbiBTeXN0ZW1zIiB7CgogICAgICAgICAgICBhcmNoaWZ5QXB0R3JhZGluZyA9IGNvbnRhaW5lciAiQXJjaGlmeSBBcHRpdHVkZSBFeGFtIEdyYWRpbmciIHsKICAgICAgICAgICAgICAgIGFwdGl0dWRlR3JhZGluZ0FkYXB0ZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIEF1dG9ncmFkaW5nIEFkYXB0ZXIiICJBcHRpdHVkZSBBdXRvZ3JhZGluZyBBZGFwdGVyLCBwYXJzZXMgZXhhbXMgZnJvbSB1bmdyYWRlZCBleGFtcyBkYXRhYmFzZSIgIkFwdGl0dWRlIEFkYXB0ZXIiCiAgICAgICAgICAgICAgICBhcHRpdHVkZVByb210T3JjaGVzdHJhdG9yID0gY29tcG9uZW50ICJBcHRpdHVkZSBQcm9tcHQgT3JjaGVzdHJhdG9yIiAiQXB0aXR1ZGUgQXV0b2dyYWRpbmcgUHJvbXB0IE9yY2hlc3RyYXRvciIgIlByb21wdCBPcmNoZXN0cmF0b3IiCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIGFwdGl0dWRlR3VhcmRyYWlscyA9IGNvbXBvbmVudCAiQXB0aXR1ZGUgR3VhcmRyYWlscyBDb21wb25lbnQiICJHdWFyZHJhaWxzIHRvIHByZXZldCBqYWlsYnJlYWtzIGFuZCBpbmNyZWFzZSBvdXRwdXQgY29uc2lzdGVuY3kiICJBcHRpdHVkZSBHdWFyZHJhaWxzIgogICAgICAgICAgICB9CgogICAgICAgICAgICBhcmNoaWZ5QXJjaEdyYWRpbmcgPSBjb250YWluZXIgIkFyY2hpZnkgQXJjaGl0ZWN0dXJlIEV4YW0gR3JhZGluZyIgewogICAgICAgICAgICAgICAgYXJjaEdyYWRpbmdBZGFwdGVyID0gY29tcG9uZW50ICJBcmNoaXRlY3R1cmUgQXV0b2dyYWRpbmcgQWRhcHRlciIKICAgICAgICAgICAgICAgIGFyY2hQcm9tdE9yY2hlc3RyYXRvciA9IGNvbXBvbmVudCAiQXJjaGl0ZWN0dXJlIFByb21wdCBPcmNoZXN0cmF0b3IiIAogICAgICAgICAgICAgICAgYXJjaEd1YXJkcmFpbHMgPSBjb21wb25lbnQgIkFyY2hpdGVjdHVyZSBHdWFyZHJhaWxzIENvbXBvbmVudCIgIkd1YXJkcmFpbHMgdG8gcHJldmV0IGphaWxicmVha3MgYW5kIGluY3JlYXNlIG91dHB1dCBjb25zaXN0ZW5jeSIgIkFyY2hpdGVjdHVyZSBHdWFyZHJhaWxzIgogICAgICAgICAgICB9CgogICAgICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlID0gY29udGFpbmVyICJBcmNoaWZ5IEV4YW0gTWFpbnRlbmFuY2UiIHsKICAgICAgICAgICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2VBZGFwdGVyID0gY29tcG9uZW50ICJFeGFtIE1haW50ZW5hbmNlIEFkYXB0ZXIiCiAgICAgICAgICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciA9IGNvbXBvbmVudCAiQXB0aXR1ZGUgUXVlc3Rpb24gUHJvbXQgT3JjaGVzdHJhdG9yIgogICAgICAgICAgICAgICAgYXJjaGlmeUFwdFF1ZXN0aW9uR3VhcmRSYWlscyA9IGNvbXBvbmVudCAiQXB0aXR1ZGUgUXVlc3Rpb24gR3VhcmQgUmFpbHMiCgogICAgICAgICAgICAgICAgYXJjaGlmeUFyY2hDYXNlU3R1ZHlHZW5lcmF0b3IgPSBjb21wb25lbnQgIkNhc2UgU3R1ZHkgQWRhcHRlciIKICAgICAgICAgICAgfQoJCX0KCgkJZGF0YVBpcGVsaW5lU3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkFSQ0hJRlkgXG4gRGF0YSBQaXBlbGluZSIgewoKICAgICAgICAgICAgZGF0YVBpcGVsaW5lQXB0QW5zd2VycyA9IGNvbnRhaW5lciAiQXB0aXR1ZGUgUSZBIERhdGEgUGlwZWxpbmUiIHsKICAgICAgICAgICAgICAgIGFwdEFuc3dlcnNVcGRhdGVyID0gY29tcG9uZW50ICJBcHRpdHVkZSBEYXRhIFVwZGF0ZXIiICJVcGRhdGVzIHRoZSBWZWN0b3IgREIgcGVyaW9kaWNhbGx5IHdpdGggbmV3IFEmQSB0dXBsZXMiICJEYXRhIFBpcGVsaW5lIgogICAgICAgICAgICAgICAgYXB0QW5zd2Vyc1ZlY3RvckRiID0gY29tcG9uZW50ICJBcHRpdHVkZSBRJkEgXG4gVmVjdG9yIERhdGFiYXNlIiAiQXB0aXR1ZGUgUSZBIFZlY3RvciBEYXRhYmFzZSB3aXRoIFEmQSB0dXBsZXMiICIiICJBcHRpdHVkZSBRJkEgVmVjdG9yIERhdGFiYXNlIgogICAgICAgICAgICB9CgogICAgICAgICAgICBkYXRhUGlwZWxpbmVLbm93bGVkZ2UgPSBjb250YWluZXIgIktub3dsZWRnZSBCYXNlIERhdGEgUGlwZWxpbmUiIHsKICAgICAgICAgICAgICAgIGtub3dsZWRnZVVwZGF0ZXIgPSBjb21wb25lbnQgIktub3dsZWRnZSBEYXRhIFVwZGF0ZXIiCiAgICAgICAgICAgICAgICBrbm93bGVkZ2VWZWN0b3JEYiA9IGNvbXBvbmVudCAiS25vd2xlZGdlIFZlY3RvciBEQiIgIiIgIiIgIkRhdGFiYXNlIgogICAgICAgICAgICB9CQkJCgkJfQoKCQlsbG1TeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiTExNIE1vZGVsIiAKCgkJLy8gUGVvcGxlIGFuZCBTb2Z0d2FyZSBTeXN0ZW1zCgkJY2FuZGlkYXRlIC0+IGNlcnRpZmlhYmxlU3lzdGVtICJ0YWtlcyBhcHRpdHVkZSBleGFtIChtdWx0aS1jaG9pY2UgYW5kIHNob3J0LWFuc3dlciB0ZXN0KSIKICAgICAgICBleHBlcnQgLT4gY2VydGlmaWFibGVTeXN0ZW0gImdyYWRlcyBzaG9ydC1hbnN3ZXIgdGVzdHMsIHByb3ZpZGVzIGV4YW0gZmVlZGJhY2ssIHVwZGF0ZXMgcXVlc3Rpb24gY2F0YWxvZyIKCQllbmdpbmVlciAtPiBhcmNoaWZ5U3lzdGVtICJtYWludGFpbnMgYW5kIG1vbml0b3JzIExMTSBzeXN0ZW0gY29tcG9uZW50cyAoaW5jbHVkaW5nIHBhcmFtZXRlciBhbmQgdGhyZXNob2xkIHR1bmluZykiCgkJYXJjaGlmeVN5c3RlbSAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAicmVhZHMgdW5ncmFkZWQgZXhhbSBkYXRhYmFzZSwgZ3JhZGVzIGV4YW1zIgogICAgICAgIGFyY2hpZnlTeXN0ZW0gLT4gbGxtU3lzdGVtICJwcm9tcHQgTExNIGZvciBncmFkaW5nLCBmZWVkYmFjayBhbmQgbmV3IHRlc3QgZ2VuZXJhdGlvbiIKICAgICAgICBsbG1TeXN0ZW0gLT4gYXJjaGlmeVN5c3RlbSAicmV0dXJuIExMTSByZXN1bHQiCgoJCS8vIEV4aXN0aW5nIENlcnRpZmlhYmxlIFN5c3RlbQoJCWNlcnRpZmlhYmxlZXN0VGFrZXIgLT4gY2VydGlmaWFibGVBcHRNYW51YWxDYXB0dXJlICJwYXNzZXMgc2hvcnQtYW5zd2VyIHF1ZXN0aW9ucyIKCQljZXJ0aWZpYWJsZWVzdFRha2VyIC0+IGNlcnRpZmlhYmxlQXV0b0dyYWRlciAicGFzc2VzIG11bHRpcGxlLWNob2ljZSBxdWVzdGlvbnMgdG8gYXV0by1ncmFkZXIiCgkJY2VydGlmaWFibGVBdXRvR3JhZGVyIC0+IGNlcnRpZmlhYmxlQXB0R3JhZGVkRGIgIndyaXRlcyBtdWx0aXBsZS1jaG9pY2UgcXVlc3Rpb24gYW5zd2VycyBhbmQgcmVzdWx0cyIKCQljZXJ0aWZpYWJsZUFwdE1hbnVhbENhcHR1cmUgLT4gY2VydGlmaWFibGVVbmdyYWRlZEFwdERiICJmb3J3YXJkcyB1bmdyYWRlZCBRJkEgdHVwbGVzIgogICAgICAgIGNlcnRmaWZpYWJsZUFyY2hTdWJtaXNzaW9uU2VydmljZSAtPiBjZXJ0aWZpYWJsZUFyY2hVbmdyYWRlZERiICJ3cml0ZXMgc3VibWlzc2lvbnMgdG8gYXJjaGl0ZWN0dXJlIGV4YW0iCiAgICAgICAgCgkJLy8gRGF0YSBQaXBlbGluZQoJCWNlcnRpZmlhYmxlQXB0R3JhZGVkRGIgLT4gYXB0QW5zd2Vyc1VwZGF0ZXIgInByb3ZpZGVzIG5ld2x5IGdyYWRlZCBRJkEgdHVwbGVzIHZpYSBoaWdoIHdhdGVybWFyayAodGltZXN0YW1wIGNvbHVtbikiCgkJYXB0QW5zd2Vyc1VwZGF0ZXIgLT4gYXB0QW5zd2Vyc1ZlY3RvckRiICJlbWJlZGRzIHRoZSBuZXcgUSZBIHR1cGxlcyBpbnRvIHZlY3RvciBzcGFjZSBhbmQgd3JpdGVzIHRoZW0gdG8gQXB0aXR1ZGUgUSZBIFZlY3RvciBEYXRhYmFzZSIKICAgICAgICBjZXJ0aWZpYWJsZUtub3dsZWRnZUFkYXB0ZXIgLT4ga25vd2xlZGdlVXBkYXRlciAicmVhZHMgaW5mb3JtYXRpb24gZnJvbSBrbm93bGVkZ2UgYmFzZSIKICAgICAgICBrbm93bGVkZ2VVcGRhdGVyIC0+IGtub3dsZWRnZVZlY3RvckRiICJlbWJlZGRzIGtub3dsZWRnZSBiYXNlIGludG8gdmVjdG9yIHNwYWNlIGFuZCB3cml0ZXMgdGhlbSB0byBLbm93bGVkZ2UgVmVjdG9yIERhdGFiYXNlIgoKICAgICAgICAvLyBBcHRpdHVkZSBHcmFkaW5nCiAgICAgICAgLy8gQXB0aXR1ZGUgQ29udGFpbmVyIFJlbGF0aW9uc2hpcHMKICAgICAgICBkYXRhUGlwZWxpbmVBcHRBbnN3ZXJzIC0+IGFyY2hpZnlBcHRHcmFkaW5nICJ1cGRhdGVzIHZlY3RvciBkYXRhYmFzZSB3aXRoIG5ldyBRJkEgdHVwbGVzIgogICAgICAgIGFyY2hpZnlBcHRHcmFkaW5nIC0+IGxsbVN5c3RlbSAicHJvbXQgdG8gZ3JhZGUgZXhhbXMiCiAgICAgICAgbGxtU3lzdGVtIC0+IGFyY2hpZnlBcHRHcmFkaW5nICJyZXR1cm4gb3V0cHV0IHdpdGggZ3JhZGVkIHN1Ym1pc3Npb24gYW5kIGZlZWRiYWNrIgogICAgICAgIGFyY2hpZnlBcHRHcmFkaW5nIC0+IGNlcnRpZmlhYmxlQXB0R3JhZGluZyAid3JpdGUgYXV0b21hdGljYWxseSBncmFkZWQgc3VibWlzc2lvbiBhbmQgZmVlZGJhY2siCiAgICAgICAgY2VydGlmaWFibGVBcHRHcmFkaW5nIC0+IGFyY2hpZnlBcHRHcmFkaW5nICJyZWFkcyB1bmdyYWRlZCBzdWJtaXNzaW9uIgogICAgICAgIGNlcnRpZmlhYmxlQXB0R3JhZGluZyAtPiBkYXRhUGlwZWxpbmVBcHRBbnN3ZXJzICJ3cml0ZSBhbGxvd2VkIFF1ZXN0aW9ucyBhbmQgQW5zd2VycyBmcm9tIHBhc3QgZXhhbXMiCgogICAgICAgIC8vIEFwdGl0dWRlIENvbXBvbmVudCBSZWxhdGlvbnNoaXBzCgkJY2VydGlmaWFibGVVbmdyYWRlZEFwdERiIC0+IGFwdGl0dWRlR3JhZGluZ0FkYXB0ZXIgInJlYWRzIHVuZ3JhZGVkIGFwdGl0dWRlIHRlc3QgZXhhbXMiCgkJYXB0aXR1ZGVHcmFkaW5nQWRhcHRlciAtPiBhcHRpdHVkZVByb210T3JjaGVzdHJhdG9yICJQcm92aWRlcyBRJkEgdHVwbGUiCgkJYXB0aXR1ZGVHcmFkaW5nQWRhcHRlciAtPiBjZXJ0aWZpYWJsZUFwdEdyYWRlZERiICJ3cml0ZXMgZ3JhZGVkIFEmQSB0dXBsZXMgd2l0aCBmZWVkYmFjayIKCQlhcHRpdHVkZVByb210T3JjaGVzdHJhdG9yIC0+IGFwdGl0dWRlR3JhZGluZ0FkYXB0ZXIgInJldHVybnMgTExNIGdyYWRpbmciCgkJYXB0aXR1ZGVQcm9tdE9yY2hlc3RyYXRvciAtPiBhcHRpdHVkZUd1YXJkcmFpbHMgImZvcndhcmRzIHByb21wdCB0byBiZSBjaGVja2VkIgoJCWFwdGl0dWRlR3VhcmRyYWlscyAtPiBhcHRpdHVkZVByb210T3JjaGVzdHJhdG9yICJjb21wYXJlcyBhZ2FpbnN0IGV4cGVjdGVkIG91dHB1dCBmb3JtYXQgYW5kIGNoZWNrcyBmb3Igc2NoZW1hIGNvbXBhdGliaWxpdHkiCgkJYXB0QW5zd2Vyc1ZlY3RvckRiIC0+IGFwdGl0dWRlUHJvbXRPcmNoZXN0cmF0b3IgImVucmljaGVzIHByb21wdCBieSBwcm92aWRpbmcgbW9zdCBzaW1pbGFyIFEmQSB0dXBsZXMiCgkJbGxtU3lzdGVtIC0+IGFwdGl0dWRlR3VhcmRyYWlscyAicmV0dXJucyBnZW5lcmF0ZWQgb3V0cHV0IGJ5IExMTSIKCQlhcHRpdHVkZUd1YXJkcmFpbHMgLT4gbGxtU3lzdGVtICJhbmFseXNlcyBmb3IgaW5wdXQgaW5qZWN0aW9uIGF0dGFja3MiCgogICAgICAgIC8vIEFyY2hpdGVjdHVyZSBHcmFkaW5nCiAgICAgICAgLy8gQXJjaGl0ZWN0dXJlIENvbnRhaW5lciBSZWxhdGlvbnNoaXBzCiAgICAgICAgY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlIC0+IGRhdGFQaXBlbGluZUtub3dsZWRnZSAiUHJlLVByb2Nlc3MgdGVjaG5pY2FsIGtub3dob3cgZGF0YWJhc2UgZm9yIHF1ZXJ5aW5nIgogICAgICAgIGRhdGFQaXBlbGluZUtub3dsZWRnZSAtPiBhcmNoaWZ5QXJjaEdyYWRpbmcgIklkZW50aWZ5IHJlbGV2YW50IHRlY2huaWNhbCBjb250ZXh0IgogICAgICAgIGFyY2hpZnlBcmNoR3JhZGluZyAtPiBsbG1TeXN0ZW0gInByb210IHRvIGdyYWRlIGV4YW1zIgogICAgICAgIGxsbVN5c3RlbSAtPiBhcmNoaWZ5QXJjaEdyYWRpbmcgInJldHVybiBvdXRwdXQgd2l0aCBncmFkZWQgc3VibWlzc2lvbiBhbmQgZmVlZGJhY2siCiAgICAgICAgYXJjaGlmeUFyY2hHcmFkaW5nIC0+IGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgIndyaXRlIGF1dG9tYXRpY2FsbHkgZ3JhZGVkIHN1Ym1pc3Npb24gYW5kIGZlZWRiYWNrIgogICAgICAgIGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgLT4gYXJjaGlmeUFyY2hHcmFkaW5nICJyZWFkIHVuZ3JhZGVkIHN1Ym1pc3Npb24gZm9yIGF1dG9tYXRpYyBncmFkaW5nIgoKICAgICAgICAvLyBBcmNoaXRlY3R1cmUgR3JhZGluZyBDb21wb25lbnQgUmVsYXRpb25zaGlwcwogICAgICAgIGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgLT4gYXJjaEdyYWRpbmdBZGFwdGVyICJyZWFkcyB1bmdyYWRlZCBhcmNoaXRlY3R1cmUgZXhhbXMiCiAgICAgICAgYXJjaEdyYWRpbmdBZGFwdGVyIC0+IGFyY2hQcm9tdE9yY2hlc3RyYXRvciAicHJvdmlkZXMgdW5ncmFkZWQgYXJjaGl0ZWN0dXJlIGV4YW0iCiAgICAgICAgYXJjaEdyYWRpbmdBZGFwdGVyIC0+IGNlcnRpZmlhYmxlQXJjaEdyYWRlZERiICJXcml0ZXMgZ3JhZGVkIGV4YW0gd2l0aCBmZWVkYmFjayIKICAgICAgICBhcmNoUHJvbXRPcmNoZXN0cmF0b3IgLT4gYXJjaEdyYWRpbmdBZGFwdGVyICJyZXR1cm5zIExMTSBncmFkaW5nIgoJCWFyY2hQcm9tdE9yY2hlc3RyYXRvciAtPiBhcmNoR3VhcmRyYWlscyAic2FuaXRpemUgaW5wdXQgYW5kIGZvcndhcmQgcHJvbXQiCgkJYXJjaEd1YXJkcmFpbHMgLT4gYXJjaFByb210T3JjaGVzdHJhdG9yICJlbmZvcmNlIG91dHB1dCBmb3JtYXQgYW5kIGZpbHRlciBoYXJtZnVsIGNvbnRlbnQiCgkJa25vd2xlZGdlVmVjdG9yRGIgLT4gYXJjaFByb210T3JjaGVzdHJhdG9yICJpZGVudGlmeSByZWxldmFudCB0ZWNobmljYWwgYXJlYXMgZm9yIGdpdmVuIGNhc2Ugc3R1ZHkgYW5kIGV2YWx1YXRpb24gY3JpdGVyaWEiCgkJY2VydGlmaWFibGVLbm93bGVkZ2VBZGFwdGVyIC0+IGFyY2hQcm9tdE9yY2hlc3RyYXRvciAicmVhZCB0ZWNobmljYWwga25vd2xlZGdlIChwbGFpbiB0ZXh0PSB0byBlbnJpY2ggcHJvbXQgd2l0aCB0ZWNobmljYWwgY29udGV4dCIKICAgICAgICBsbG1TeXN0ZW0gLT4gYXJjaEd1YXJkcmFpbHMgInJldHVybnMgZ2VuZXJhdGVkIG91dHB1dCBieSBMTE0iCgkJYXJjaEd1YXJkcmFpbHMgLT4gbGxtU3lzdGVtICJhbmFseXNlcyBmb3IgaW5wdXQgaW5qZWN0aW9uIGF0dGFja3MiCiAgICAgICAgY2VydGlmaWFibGVBcmNoTWFudWFsR3JhZGVyIC0+IGNlcnRpZmlhYmxlQXJjaEdyYWRlZERiICJyZWFkcyBBSSBHcmFkZWQgRXhhbXMiCiAgICAgICAgY2VydGlmaWFibGVBcmNoTWFudWFsR3JhZGVyIC0+IGNlcnRpZmlhYmxlQXJjaEdyYWRlZERiICJ3cml0ZXMgbWFudWFsbHkgcmV2aWV3cyBmaW5hbCBHcmFkZWQgRXhhbXMiCgoKICAgICAgICAvLyBFeGFtIEdlbmVyYXRvcgogICAgICAgIC8vIFF1ZXN0aW9uIEdlbmVyYXRvciBDb250YWluZXIgUmVsYXRpb25zaGlwcwogICAgICAgIGNlcnRpZmlhYmxlQXB0R3JhZGluZyAtPiBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlICJyZWFkIGV4aXN0aW5nIGFwdGl0dWRlIHF1ZXN0aW9ucyIKICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkaW5nIC0+IGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UgInJlYWQgZXhpc3RpbmcgY2FzZSBzdHVkaWVzIgogICAgICAgIAogICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UgLT4gbGxtU3lzdGVtICJwcm9tdCB0byBnZW5lcmF0ZSBxdWVzdGlvbnMgYW5kIGNhc2Ugc3R1ZGllcyIKICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlIC0+IGNlcnRpZmlhYmxlQXB0R3JhZGluZyAid3JpdGUgZ2VuZXJhdGVkIGFwdGl0dWRlIHF1ZXN0aW9ucyIKICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlIC0+IGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgIndyaXRlIGdlbmVyYXRlZCBjYXNlIHN0dWRpZXMiCgogICAgICAgIC8vIFF1ZXN0aW9uIEdlbmVyYXRvciBDb250YWluZXIgUmVsYXRpb25zaGlwcwogICAgICAgIGNlcnRpZmlhYmxlS25vd2xlZGdlQmFzZSAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciAicmVhZCBwbGFpbiB0ZXh0IGtub3dsZWRnZSB0byBlbnJpY2ggcHJvbXQiICAgICAgICAKICAgICAgICBrbm93bGVkZ2VWZWN0b3JEYiAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciAicmVhZCBkYXRhIHRvIGNvcnJlbGF0ZSBrbm93bGVkZ2Ugd2l0aCBxdWVzdGlvbnMiCiAgICAgICAgYXB0QW5zd2Vyc1ZlY3RvckRiIC0+IGFyY2hpZnlBcHRRdWVzdGlvblByb210T3JjaGVzdHJhdG9yICJyZWFkIGtub3duIGFuc3dlcnMgYW5kIHF1ZXN0aW9ucyIKICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlQWRhcHRlciAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciAicmVxdWVzdCBuZXcgZXhhbSBjcmVhdGlvbiBiYXNlZCBvbiBzY2hlZHVsZWQgam9icyIKICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciAtPiBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlQWRhcHRlciAicmV0dXJuIGdlbmVyYXRlZCBleGFtIGV4YW0gcXVlc3Rpb25zIGFuZCBjYXNlIHN0dWRpZXMiCiAgICAKICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tdE9yY2hlc3RyYXRvciAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25HdWFyZFJhaWxzICJlbnJpY2ggcHJvbXQgd2l0aCB0ZWNobmljYWwgY29udGV4dCBhbmQgaW5zdHJ1Y3Rpb25zIHRvIGdlbmVyYXRlIGV4YW0gcXVlc3Rpb25zIGFuZCBjYXNlIHN0dWRpZXMuIgogICAgICAgIGFyY2hpZnlBcHRRdWVzdGlvbkd1YXJkUmFpbHMgLT4gYXJjaGlmeUFwdFF1ZXN0aW9uUHJvbXRPcmNoZXN0cmF0b3IgInJldHVybiBnZW5lcmF0ZWQgZXhhbSBleGFtIHF1ZXN0aW9ucyBhbmQgY2FzZSBzdHVkaWVzIgogICAgICAgIGFyY2hpZnlBcHRRdWVzdGlvbkd1YXJkUmFpbHMgLT4gbGxtU3lzdGVtICJwcm9tdCBMTE0iCiAgICAgICAgbGxtU3lzdGVtIC0+IGFyY2hpZnlBcHRRdWVzdGlvbkd1YXJkUmFpbHMgImZpbHRlciBvdXRwdXQgZm9yIGhhcm1mdWwgY29udGVudCBhbmQgZW5mb3JjZSBuZWVkZWQgb3V0cHV0IGRhdGEgc3RydWN0dXJlIgogICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2VBZGFwdGVyIC0+IGNlcnRpZmlhYmxlQXB0UXVlc3Rpb25zRGIgIndyaXRlIGdlbmVyYXRlZCBleGFtIHF1ZXN0aW9ucyBhbmQgZmxhZyBvdXRkYXRlZCBxdWVzdGlvbnMiCiAgICAgICAgYXJjaGlmeUV4YW1NYWludGVuYW5jZUFkYXB0ZXIgLT4gY2VydGlmaWFibGVDYXNlU3R1ZHlEYiAid3JpdGUgZ2VuZXJhdGVkIGNhc2Ugc3R1ZGllcyIKICAgICAgICBjZXJ0aWZpYWJsZUNhc2VTdHVkeURiIC0+IGFyY2hpZnlBcmNoQ2FzZVN0dWR5R2VuZXJhdG9yICJyZWFkIGV4aXN0aW5nIGNhc2Ugc3R1ZGllcyIKICAgICAgICAKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBjZXJ0aWZpYWJsZVN5c3RlbSB7CiAgICAgICAgICAgIGluY2x1ZGUgKiBlbmdpbmVlciBsbG1TeXN0ZW0KICAgICAgICAgICAgdGl0bGUgIltTeXN0ZW0gQ29udGV4dF0gQ2VydGlmaWFibGUgSW5jLiIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkludGVncmF0aW9uIGJldHdlZW4gdGhlIGV4aXN0aW5nIENlcnRpZmlhYmxlIFN5c3RlbSBhbmQgbmV3IEFSQ0hJRlkgQUkgU3lzdGVtIgogICAgICAgIH0KICAgICAgICBjb250YWluZXIgYXJjaGlmeVN5c3RlbSAiQ29udGFpbmVyLUFwdGl0dWRlLUdyYWRpbmciIHsKICAgICAgICAgICAgaW5jbHVkZSBjZXJ0aWZpYWJsZUFwdEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBkYXRhUGlwZWxpbmVBcHRBbnN3ZXJzICAgICAgICAgICAgICAgICAgICAgYXJjaGlmeUFwdEdyYWRpbmcgbGxtU3lzdGVtCiAgICAgICAgICAgIHRpdGxlICJbQ29udGFpbmVyXSBBUkNISUZZIEFwdGl0dWRlIEV4YW1zIgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiT3ZlcnZpZXcgb2YgYXV0b21hdGVkIGFwdGl0dWRlIGV4YW0gZ3JhZGluZyIKICAgICAgICB9CiAgICAgICAgY29udGFpbmVyIGFyY2hpZnlTeXN0ZW0gIkNvbnRhaW5lci1BcmNoaXRlY3R1cmUtR3JhZGluZyIgewogICAgICAgICAgICBpbmNsdWRlIGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBkYXRhUGlwZWxpbmVLbm93bGVkZ2UgICAgICAgICAgICAgICAgICAgICBhcmNoaWZ5QXJjaEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBsbG1TeXN0ZW0gY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlCiAgICAgICAgICAgIHRpdGxlICJbQ29udGFpbmVyXSBBUkNISUZZIEFyY2hpdGVjdHVyZSBFeGFtcyIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIk92ZXJ2aWV3IG9mIGF1dG9tYXRlZCBhcmNoaXRlY3R1cmUgY2FzZSBzdHVkeSBncmFkaW5nIgogICAgICAgIH0KICAgICAgICBjb250YWluZXIgYXJjaGlmeVN5c3RlbSAiQ29udGFpbmVyLUV4YW0tTWFpbnRlbmFuY2UiIHsKICAgICAgICAgICAgaW5jbHVkZSBjZXJ0aWZpYWJsZUFwdEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkaW5nICAgICAgICAgICAgICAgICAgICAgZGF0YVBpcGVsaW5lS25vd2xlZGdlIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkNvbnRhaW5lciBkaWFncmFtIGZvciBBdXRvbWF0ZWQgQXJjaGl0ZWN0dXJlIEdyYWRpbmciCiAgICAgICAgfQogICAgICAgIGNvbXBvbmVudCBhcmNoaWZ5QXB0R3JhZGluZyAiQ29tcG9uZW50LUFwdGl0dWRlLUdyYWRpbmciIHsKICAgICAgICAgICAgaW5jbHVkZSBhcHRBbnN3ZXJzVXBkYXRlciAgICAgICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlZXN0VGFrZXIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFwdE1hbnVhbENhcHR1cmUgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUF1dG9HcmFkZXIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZVVuZ3JhZGVkQXB0RGIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFwdEdyYWRlZERiICAgICAgICAgICAgICAgICAgICAgYXB0aXR1ZGVHcmFkaW5nQWRhcHRlciAgICAgICAgICAgICAgICAgICAgIGFwdGl0dWRlUHJvbXRPcmNoZXN0cmF0b3IgICAgICAgICAgICAgICAgICAgICBhcHRBbnN3ZXJzVmVjdG9yRGIgICAgICAgICAgICAgICAgICAgICBhcHRpdHVkZUd1YXJkcmFpbHMgbGxtU3lzdGVtIAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29udGFpbmVyIGRpYWdyYW0gZm9yIHRoZSBleGlzdGluZyBjb21wb25lbnRzIGludGVyYWN0aW5nIHdpdGggdGhlIEFSQ0hJRlkgZXh0ZW5zaW9ucyIKICAgICAgICB9CiAgICAgICAgY29tcG9uZW50IGFyY2hpZnlBcmNoR3JhZGluZyAiQ29tcG9uZW50LUFyY2hpdGVjdHVyZS1HcmFkaW5nIiB7CiAgICAgICAgICAgIGluY2x1ZGUgYXJjaEdyYWRpbmdBZGFwdGVyICAgICAgICAgICAgICAgICAgICAgYXJjaFByb210T3JjaGVzdHJhdG9yICAgICAgICAgICAgICAgICAgICAga25vd2xlZGdlVmVjdG9yRGIgICAgICAgICAgICAgICAgICAgICBhcmNoR3VhcmRyYWlscyAgICAgICAgICAgICAgICAgICAgIGxsbVN5c3RlbSAgICAgICAgICAgICAgICAgICAgIGNlcnRmaWZpYWJsZUFyY2hTdWJtaXNzaW9uU2VydmljZSAgICAgICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXJjaE1hbnVhbEdyYWRlciAgICAgICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiAgICAgICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlS25vd2xlZGdlQWRhcHRlciBrbm93bGVkZ2VVcGRhdGVyCiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJDb21wb25lbnQgZGlhZ3JhbSBmb3IgQXV0b21hdGVkIEFyY2hpdGVjdHVyZSBHcmFkaW5nIgogICAgICAgIH0KICAgICAgICBjb21wb25lbnQgYXJjaGlmeUFyY2hHcmFkaW5nICJDb21wb25lbnQtRXhhbS1NYWludGVuYW5jZSIgewogICAgICAgICAgICBpbmNsdWRlIGNlcnRpZmlhYmxlQXB0UXVlc3Rpb25zRGIgICAgICAgICAgICAgICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlQWRhcHRlciAgICAgICAgICAgICAgICAgICAgIGtub3dsZWRnZVZlY3RvckRiICAgICAgICAgICAgICAgICAgICAgYXB0QW5zd2Vyc1ZlY3RvckRiICAgICAgICAgICAgICAgICAgICAgbGxtU3lzdGVtICAgICAgICAgICAgICAgICAgICAgYXJjaGlmeUFwdFF1ZXN0aW9uUHJvbXRPcmNoZXN0cmF0b3IgICAgICAgICAgICAgICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25HdWFyZFJhaWxzICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVDYXNlU3R1ZHlEYiBjZXJ0aWZpYWJsZUtub3dsZWRnZUJhc2UKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkNvbXBvbmVudCBkaWFncmFtIGZvciBFeGFtIE1haW50ZW5hbmNlIgogICAgICAgIH0KCgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICAgICAgZm9udFNpemUgMjIKICAgICAgICAgICAgICAgIHNoYXBlIFBlcnNvbgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNhbmRpZGF0ZSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjYTk0MDY0CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRXhwZXJ0IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNlNzAwNGMKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJNTCBFbmdpbmVlciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjZTcwMDRjCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwMDY1YTEKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODViYmYwCiAgICAgICAgICAgICAgICBzaGFwZSBDeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkFwdGl0dWRlIFEmQSBWZWN0b3IgRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgc2hhcGUgQ3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb21wb25lbnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzg1YmJmMAogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNDM4ZGQ1CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgfQogICAgCn0="
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG1vZGVsIHsKICAgICAgICBjYW5kaWRhdGUgPSBwZXJzb24gIkNlcnRpZmljYXRpb24gQ2FuZGlkYXRlIiAiQSBjYW5kaWRhdGUgdGhhdCBpcyBhaW1pbmcgdG8gZ2V0IHByb2Zlc3Npb25hbGx5IGNlcnRpZmllZCBieSBDZXJmaWZpYWJsZSBJbmMuLiIgIkNhbmRpZGF0ZSIKICAgICAgICBleHBlcnQgPSBwZXJzb24gIklUIEV4cGVydCIgIklUIEV4cGVydCBHcmFkZXIsIHdvcmtpbmcgZm9yIENlcnRpZmlhYmxlIEluYy4sIGdyYWRpbmcgZXhhbXMgYW5kIG1haW50YWluaW5nIGV4YW0gcXVlc3Rpb24gY2F0YWxvZyIgIkV4cGVydCIKCQllbmdpbmVlciA9IHBlcnNvbiAiTUwgRW5naW5lZXIiICJBSSBFbmdpbmVlciwgd29ya2luZyBmb3IgQ2VydGlmaWFibGUgSW5jLiwgbWFpbnRhaW5pbmcgTExNIHN5c3RlbSBjb21wb25lbnRzIiAiTUwgRW5naW5lZXIiCgkJCgkJY2VydGlmaWFibGVTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQ2VydGlmaWFibGUgSW5jLiBFeGlzdGluZyBTb2Z0d2FyZSBTeXN0ZW0iIHsKCiAgICAgICAgICAgIGNlcnRpZmlhYmxlQXB0R3JhZGluZyA9IGNvbnRhaW5lciAiQ2VydGlmaWFibGUgQXB0aXR1ZGUgR3JhZGluZyBNb2R1bGUiIHsKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlZXN0VGFrZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIFRlc3QgVGFrZXIiICJJbnRlcmZhY2UgaGFuZGxpbmcgdGVzdCBsb2FkaW5nLCBxdWVzdGlvbiBzZW5kaW5nLCBhbnN3ZXIgY2FwdHVyaW5nIGFuZCB0ZXN0IHRpbWluZyIgIkFwdGl0dWRlIFRlc3QgVGFrZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUF1dG9HcmFkZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIEF1dG8gR3JhZGVyIiAiQXV0by1ncmFkaW5nIGNvbXBvbmVudCBmb3IgbXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyIgIkF1dG8gR3JhZGVyIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRNYW51YWxDYXB0dXJlID0gY29tcG9uZW50ICJBcHRpdHVkZSBNYW51ZWwgQ2FwdHVyZSIgIk1hbnVhbCBjYXB0dXJlIGNvbXBvbmVudCBmb3Igc2hvcnQtYW5zd2VyIHF1ZXN0aW9ucyIgIk1hbnVhbCBDYXB0dXJlIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVVbmdyYWRlZEFwdERiID0gY29tcG9uZW50ICJVbmdyYWRlZCBEYXRhYmFzZSIgIkNvbnRhaW5zIHRoZSB1bmdyYWRlZCBzaG9ydC1hbnN3ZXIgUSZBIHR1cGxlcyIgIiIgIkRhdGFiYXNlIgogICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRHcmFkZWREYiA9IGNvbXBvbmVudCAiR3JhZGVkIERhdGFiYXNlIiAiR3JhZGVkIEV4YW1zIERhdGFiYXNlLCBjb250YWlucyB0aGUgYXB0aXR1dGRlIHRlc3RzIGZyb20gcHJldmlvdXMgMTIwayBleGFtcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXB0UXVlc3Rpb25zRGIgPSBjb21wb25lbnQgIkFwdGl0dWRlIFRlc3QgRGF0YWJhc2UiICIiICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgfQoKICAgICAgICAgICAgY2VydGlmaWFibGVBcmNoR3JhZGluZyA9IGNvbnRhaW5lciAiQ2VydGlmaWFibGUgQXJjaGl0ZWN0dXJlIEV4YW1zIE1vZHVsZSIgewogICAgICAgICAgICAgICAgY2VydGZpZmlhYmxlQXJjaFN1Ym1pc3Npb25TZXJ2aWNlID0gY29tcG9uZW50ICJBcmNoaXRlY3R1cmUgU3VibWlzc2lvbiBTZXJ2aWNlIiAiIiAiQXJjaGl0ZWN0dXJlIE1hbnVhbCBHcmFkZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hNYW51YWxHcmFkZXIgPSBjb21wb25lbnQgIkFyY2hpdGVjdHVyZSBNYW51YWwgR3JhZGVyIiAiIiAiQXJjaGl0ZWN0dXJlIE1hbnVhbCBHcmFkZXIiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUNhc2VTdHVkeURiID0gY29tcG9uZW50ICJDYXNlIFN0dWR5IERhdGFiYXNlIiAiRGF0YWJhc2UsIGNvbnRhaW5zIGNhc2Ugc3R1ZGllcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgPSBjb21wb25lbnQgIlN1Ym1pc3Npb24gVW5ncmFkZWQgRGF0YWJhc2UiICJVbmdyYWRlZCBFeGFtcyBEYXRhYmFzZSwgY29udGFpbnMgdGhlIGFyY2hpdGVjdHVyZSBzdWJtaXNzaW9ucyBmcm9tIHByZXZpb3VzIDEyMGsgZXhhbXMuIiAiIiAiRGF0YWJhc2UiCiAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiA9IGNvbXBvbmVudCAiU3VibWlzc2lvbiBHcmFkZWQgRGF0YWJhc2UiICJHcmFkZWQgRXhhbXMgJiBGZWVkYmFjayBEYXRhYmFzZSwgY29udGFpbnMgdGhlIGdyYWRlZCBhcmNoaXRlY3R1cmUgc3VibWlzc2lvbnMgYW5kIGZlZWRiYWNrIGZyb20gcHJldmlvdXMgMTIwayBleGFtcy4iICIiICJEYXRhYmFzZSIKICAgICAgICAgICAgfQoKICAgICAgICAgICAgY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlID0gY29udGFpbmVyICJDZXJ0aWZpYWJsZSwgSW5jLiBBcmNoaXRlY3R1cmUgS25vd2xlZGdlIENhdGFsb2ciIHsKICAgICAgICAgICAgICAgIGNlcnRpZmlhYmxlS25vd2xlZGdlQWRhcHRlciA9IGNvbXBvbmVudCAiS25vd2xlZGdlIEFkYXB0ZXIiCiAgICAgICAgICAgIH0KCQl9CgkJYXJjaGlmeVN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJBUkNISUZZIEFJIENlcnRpZmljYXRpb24gU3lzdGVtcyIgewoKICAgICAgICAgICAgYXJjaGlmeUFwdEdyYWRpbmcgPSBjb250YWluZXIgIkFSQ0hJRlkgQXB0aXR1ZGUgRXhhbSBHcmFkaW5nIiB7CiAgICAgICAgICAgICAgICBhcHRpdHVkZUdyYWRpbmdBZGFwdGVyID0gY29tcG9uZW50ICJBcHRpdHVkZSBBdXRvZ3JhZGluZyBBZGFwdGVyIiAiQXB0aXR1ZGUgQXV0b2dyYWRpbmcgQWRhcHRlciwgcGFyc2VzIGV4YW1zIGZyb20gdW5ncmFkZWQgZXhhbXMgZGF0YWJhc2UiICJBcHRpdHVkZSBBZGFwdGVyIgogICAgICAgICAgICAgICAgYXB0aXR1ZGVQcm9tcHRPcmNoZXN0cmF0b3IgPSBjb21wb25lbnQgIkFwdGl0dWRlIFByb21wdCBPcmNoZXN0cmF0b3IiICJBcHRpdHVkZSBBdXRvZ3JhZGluZyBQcm9tcHQgT3JjaGVzdHJhdG9yIiAiUHJvbXB0IE9yY2hlc3RyYXRvciIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgYXB0aXR1ZGVHdWFyZHJhaWxzID0gY29tcG9uZW50ICJBcHRpdHVkZSBHdWFyZHJhaWxzIENvbXBvbmVudCIgIkd1YXJkcmFpbHMgdG8gcHJldmV0IGphaWxicmVha3MgYW5kIGluY3JlYXNlIG91dHB1dCBjb25zaXN0ZW5jeSIgIkFwdGl0dWRlIEd1YXJkcmFpbHMiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGFyY2hpZnlBcmNoR3JhZGluZyA9IGNvbnRhaW5lciAiQVJDSElGWSBBcmNoaXRlY3R1cmUgRXhhbSBHcmFkaW5nIiB7CiAgICAgICAgICAgICAgICBhcmNoR3JhZGluZ0FkYXB0ZXIgPSBjb21wb25lbnQgIkFyY2hpdGVjdHVyZSBBdXRvZ3JhZGluZyBBZGFwdGVyIgogICAgICAgICAgICAgICAgYXJjaFByb21wdE9yY2hlc3RyYXRvciA9IGNvbXBvbmVudCAiQXJjaGl0ZWN0dXJlIFByb21wdCBPcmNoZXN0cmF0b3IiIAogICAgICAgICAgICAgICAgYXJjaEd1YXJkcmFpbHMgPSBjb21wb25lbnQgIkFyY2hpdGVjdHVyZSBHdWFyZHJhaWxzIENvbXBvbmVudCIgIkd1YXJkcmFpbHMgdG8gcHJldmV0IGphaWxicmVha3MgYW5kIGluY3JlYXNlIG91dHB1dCBjb25zaXN0ZW5jeSIgIkFyY2hpdGVjdHVyZSBHdWFyZHJhaWxzIgogICAgICAgICAgICB9CgogICAgICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlID0gY29udGFpbmVyICJBUkNISUZZIEV4YW0gTWFpbnRlbmFuY2UiIHsKICAgICAgICAgICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2VBZGFwdGVyID0gY29tcG9uZW50ICJFeGFtIE1haW50ZW5hbmNlIEFkYXB0ZXIiCiAgICAgICAgICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tcHRPcmNoZXN0cmF0b3IgPSBjb21wb25lbnQgIkFwdGl0dWRlIFF1ZXN0aW9uIFByb21wdCBPcmNoZXN0cmF0b3IiCiAgICAgICAgICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25HdWFyZFJhaWxzID0gY29tcG9uZW50ICJBcHRpdHVkZSBRdWVzdGlvbiBHdWFyZCBSYWlscyIKCiAgICAgICAgICAgICAgICBhcmNoaWZ5QXJjaENhc2VTdHVkeUdlbmVyYXRvciA9IGNvbXBvbmVudCAiQ2FzZSBTdHVkeSBBZGFwdGVyIgogICAgICAgICAgICB9CgkJfQoKCQlkYXRhUGlwZWxpbmVTeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiQVJDSElGWSBEYXRhIFBpcGVsaW5lIiB7CgogICAgICAgICAgICBkYXRhUGlwZWxpbmVBcHRBbnN3ZXJzID0gY29udGFpbmVyICJBcHRpdHVkZSBRJkEgRGF0YSBQaXBlbGluZSIgewogICAgICAgICAgICAgICAgYXB0QW5zd2Vyc1VwZGF0ZXIgPSBjb21wb25lbnQgIkFwdGl0dWRlIERhdGEgVXBkYXRlciIgIlVwZGF0ZXMgdGhlIFZlY3RvciBEQiBwZXJpb2RpY2FsbHkgd2l0aCBuZXcgUSZBIHR1cGxlcyIgIkRhdGEgUGlwZWxpbmUiCiAgICAgICAgICAgICAgICBhcHRBbnN3ZXJzVmVjdG9yRGIgPSBjb21wb25lbnQgIkFwdGl0dWRlIFEmQSBcbiBWZWN0b3IgRGF0YWJhc2UiICJBcHRpdHVkZSBRJkEgVmVjdG9yIERhdGFiYXNlIHdpdGggUSZBIHR1cGxlcyIgIiIgIkFwdGl0dWRlIFEmQSBWZWN0b3IgRGF0YWJhc2UiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGRhdGFQaXBlbGluZUtub3dsZWRnZSA9IGNvbnRhaW5lciAiS25vd2xlZGdlIEJhc2UgRGF0YSBQaXBlbGluZSIgewogICAgICAgICAgICAgICAga25vd2xlZGdlVXBkYXRlciA9IGNvbXBvbmVudCAiS25vd2xlZGdlIERhdGEgVXBkYXRlciIKICAgICAgICAgICAgICAgIGtub3dsZWRnZVZlY3RvckRiID0gY29tcG9uZW50ICJLbm93bGVkZ2UgVmVjdG9yIERCIiAiIiAiIiAiRGF0YWJhc2UiCiAgICAgICAgICAgIH0JCQkKCQl9CgoJCWxsbVN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJMTE0gTW9kZWwiIAoKCQkvLyBQZW9wbGUgYW5kIFNvZnR3YXJlIFN5c3RlbXMKCQljYW5kaWRhdGUgLT4gY2VydGlmaWFibGVTeXN0ZW0gInRha2VzIGFwdGl0dWRlIGV4YW0gKG11bHRpLWNob2ljZSBhbmQgc2hvcnQtYW5zd2VyIHRlc3QpIgogICAgICAgIGV4cGVydCAtPiBjZXJ0aWZpYWJsZVN5c3RlbSAiZ3JhZGVzIHNob3J0LWFuc3dlciB0ZXN0cywgcHJvdmlkZXMgZXhhbSBmZWVkYmFjaywgdXBkYXRlcyBxdWVzdGlvbiBjYXRhbG9nIgoJCWVuZ2luZWVyIC0+IGFyY2hpZnlTeXN0ZW0gIm1haW50YWlucyBhbmQgbW9uaXRvcnMgTExNIHN5c3RlbSBjb21wb25lbnRzIChpbmNsdWRpbmcgcGFyYW1ldGVyIGFuZCB0aHJlc2hvbGQgdHVuaW5nKSIKCQlhcmNoaWZ5U3lzdGVtIC0+IGNlcnRpZmlhYmxlU3lzdGVtICJyZWFkcyB1bmdyYWRlZCBleGFtIGRhdGFiYXNlLCBncmFkZXMgZXhhbXMiCiAgICAgICAgYXJjaGlmeVN5c3RlbSAtPiBsbG1TeXN0ZW0gInByb21wdCBMTE0gZm9yIGdyYWRpbmcsIGZlZWRiYWNrIGFuZCBuZXcgdGVzdCBnZW5lcmF0aW9uIgogICAgICAgIGxsbVN5c3RlbSAtPiBhcmNoaWZ5U3lzdGVtICJyZXR1cm4gTExNIHJlc3VsdCIKCgkJLy8gRXhpc3RpbmcgQ2VydGlmaWFibGUgU3lzdGVtCgkJY2VydGlmaWFibGVlc3RUYWtlciAtPiBjZXJ0aWZpYWJsZUFwdE1hbnVhbENhcHR1cmUgInBhc3NlcyBzaG9ydC1hbnN3ZXIgcXVlc3Rpb25zIgoJCWNlcnRpZmlhYmxlZXN0VGFrZXIgLT4gY2VydGlmaWFibGVBdXRvR3JhZGVyICJwYXNzZXMgbXVsdGlwbGUtY2hvaWNlIHF1ZXN0aW9ucyB0byBhdXRvLWdyYWRlciIKCQljZXJ0aWZpYWJsZUF1dG9HcmFkZXIgLT4gY2VydGlmaWFibGVBcHRHcmFkZWREYiAid3JpdGVzIG11bHRpcGxlLWNob2ljZSBxdWVzdGlvbiBhbnN3ZXJzIGFuZCByZXN1bHRzIgoJCWNlcnRpZmlhYmxlQXB0TWFudWFsQ2FwdHVyZSAtPiBjZXJ0aWZpYWJsZVVuZ3JhZGVkQXB0RGIgImZvcndhcmRzIHVuZ3JhZGVkIFEmQSB0dXBsZXMiCiAgICAgICAgY2VydGZpZmlhYmxlQXJjaFN1Ym1pc3Npb25TZXJ2aWNlIC0+IGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgIndyaXRlcyBzdWJtaXNzaW9ucyB0byBhcmNoaXRlY3R1cmUgZXhhbSIKICAgICAgICAKCQkvLyBEYXRhIFBpcGVsaW5lCgkJY2VydGlmaWFibGVBcHRHcmFkZWREYiAtPiBhcHRBbnN3ZXJzVXBkYXRlciAicHJvdmlkZXMgbmV3IFEmQSBzb2x1dGlvbiB0dXBsZXMgdmlhIGhpZ2ggd2F0ZXJtYXJrICh0aW1lc3RhbXAgY29sdW1uKSIKCQlhcHRBbnN3ZXJzVXBkYXRlciAtPiBhcHRBbnN3ZXJzVmVjdG9yRGIgImVtYmVkZHMgdGhlIG5ldyBRJkEgdHVwbGVzIGludG8gdmVjdG9yIHNwYWNlIGFuZCB3cml0ZXMgdGhlbSB0byBBcHRpdHVkZSBRJkEgVmVjdG9yIERhdGFiYXNlIgogICAgICAgIGNlcnRpZmlhYmxlS25vd2xlZGdlQWRhcHRlciAtPiBrbm93bGVkZ2VVcGRhdGVyICJvYnRhaW5zIHJlbGV2YW50IGNvbnRleHQgZnJvbSBkb2N1bWVudCBkYXRhYmFzZSIKICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkaW5nIC0+IGNlcnRpZmlhYmxlS25vd2xlZGdlQWRhcHRlciAidXBkYXRlcyBjYXRhbG9nIgogICAgICAgIGtub3dsZWRnZVVwZGF0ZXIgLT4ga25vd2xlZGdlVmVjdG9yRGIgImVtYmVkZHMga25vd2xlZGdlIGJhc2UgaW50byB2ZWN0b3Igc3BhY2UgYW5kIHdyaXRlcyB0aGVtIHRvIEtub3dsZWRnZSBWZWN0b3IgRGF0YWJhc2UiCgogICAgICAgIC8vIEFwdGl0dWRlIEdyYWRpbmcKICAgICAgICAvLyBBcHRpdHVkZSBDb250YWluZXIgUmVsYXRpb25zaGlwcwogICAgICAgIGRhdGFQaXBlbGluZUFwdEFuc3dlcnMgLT4gYXJjaGlmeUFwdEdyYWRpbmcgInVwZGF0ZXMgdmVjdG9yIGRhdGFiYXNlIHdpdGggbmV3IFEmQSB0dXBsZXMiCiAgICAgICAgYXJjaGlmeUFwdEdyYWRpbmcgLT4gbGxtU3lzdGVtICJzZW5kcyBwcm9tcHQiCiAgICAgICAgbGxtU3lzdGVtIC0+IGFyY2hpZnlBcHRHcmFkaW5nICJyZXR1cm5zIGdyYWRlZCBzdWJtaXNzaW9uIGFuZCBleHRlbnNpdmUgZmVlZGJhY2siCiAgICAgICAgYXJjaGlmeUFwdEdyYWRpbmcgLT4gY2VydGlmaWFibGVBcHRHcmFkaW5nICJ3cml0ZSBhdXRvLWdyYWRlZCBzdWJtaXNzaW9uIHRvIGRhdGFiYXNlIgogICAgICAgIGNlcnRpZmlhYmxlQXB0R3JhZGluZyAtPiBhcmNoaWZ5QXB0R3JhZGluZyAicmVhZHMgdW5ncmFkZWQgc3VibWlzc2lvbiIKCiAgICAgICAgLy8gQXB0aXR1ZGUgQ29tcG9uZW50IFJlbGF0aW9uc2hpcHMKCQljZXJ0aWZpYWJsZVVuZ3JhZGVkQXB0RGIgLT4gYXB0aXR1ZGVHcmFkaW5nQWRhcHRlciAicmVhZHMgdW5ncmFkZWQgYXB0aXR1ZGUgdGVzdCBleGFtcyIKCQlhcHRpdHVkZUdyYWRpbmdBZGFwdGVyIC0+IGFwdGl0dWRlUHJvbXB0T3JjaGVzdHJhdG9yICJQcm92aWRlcyBRJkEgdHVwbGUiCgkJYXB0aXR1ZGVHcmFkaW5nQWRhcHRlciAtPiBjZXJ0aWZpYWJsZUFwdEdyYWRlZERiICJ3cml0ZXMgZ3JhZGVkIFEmQSB0dXBsZXMgd2l0aCBmZWVkYmFjayIKCQlhcHRpdHVkZVByb21wdE9yY2hlc3RyYXRvciAtPiBhcHRpdHVkZUdyYWRpbmdBZGFwdGVyICJyZXR1cm5zIExMTSBncmFkaW5nIgoJCWFwdGl0dWRlUHJvbXB0T3JjaGVzdHJhdG9yIC0+IGFwdGl0dWRlR3VhcmRyYWlscyAiZm9yd2FyZHMgcHJvbXB0IHRvIGJlIGNoZWNrZWQiCgkJYXB0aXR1ZGVHdWFyZHJhaWxzIC0+IGFwdGl0dWRlUHJvbXB0T3JjaGVzdHJhdG9yICJjb21wYXJlcyBhZ2FpbnN0IGV4cGVjdGVkIG91dHB1dCBmb3JtYXQgYW5kIGNoZWNrcyBmb3Igc2NoZW1hIGNvbXBhdGliaWxpdHkiCgkJYXB0QW5zd2Vyc1ZlY3RvckRiIC0+IGFwdGl0dWRlUHJvbXB0T3JjaGVzdHJhdG9yICJlbnJpY2hlcyBwcm9tcHQgYnkgcHJvdmlkaW5nIG1vc3Qgc2ltaWxhciBRJkEgdHVwbGVzIgoJCWxsbVN5c3RlbSAtPiBhcHRpdHVkZUd1YXJkcmFpbHMgInJldHVybnMgZ2VuZXJhdGVkIG91dHB1dCBieSBMTE0iCgkJYXB0aXR1ZGVHdWFyZHJhaWxzIC0+IGxsbVN5c3RlbSAiYW5hbHlzZXMgZm9yIGlucHV0IGluamVjdGlvbiBhdHRhY2tzIgoKICAgICAgICAvLyBBcmNoaXRlY3R1cmUgR3JhZGluZwogICAgICAgIC8vIEFyY2hpdGVjdHVyZSBDb250YWluZXIgUmVsYXRpb25zaGlwcwogICAgICAgIGRhdGFQaXBlbGluZUtub3dsZWRnZSAtPiBhcmNoaWZ5QXJjaEdyYWRpbmcgInByb3ZpZGVzIHJlbGV2YW50IHRlY2huaWNhbCBjb250ZXh0IGZvciBncmFkaW5nIgogICAgICAgIGFyY2hpZnlBcmNoR3JhZGluZyAtPiBsbG1TeXN0ZW0gInNlbmRzIHByb21wdCIKICAgICAgICBsbG1TeXN0ZW0gLT4gYXJjaGlmeUFyY2hHcmFkaW5nICJyZXR1cm5zIGV4dGVuc2l2ZSBmZWVkYmFjayBhbmQgcHJvcG9zZXMgZ3JhZGluZyIKICAgICAgICBhcmNoaWZ5QXJjaEdyYWRpbmcgLT4gY2VydGlmaWFibGVBcmNoR3JhZGluZyAid3JpdGUgZmVlZGJhY2sgYW5kIEFJIGdyYWRlIHByb3Bvc2FsIgogICAgICAgIGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgLT4gYXJjaGlmeUFyY2hHcmFkaW5nICJyZWFkIHVuZ3JhZGVkIHN1Ym1pc3Npb25zIgoKICAgICAgICAvLyBBcmNoaXRlY3R1cmUgR3JhZGluZyBDb21wb25lbnQgUmVsYXRpb25zaGlwcwogICAgICAgIGNlcnRpZmlhYmxlQXJjaFVuZ3JhZGVkRGIgLT4gYXJjaEdyYWRpbmdBZGFwdGVyICJyZWFkcyB1bmdyYWRlZCBhcmNoaXRlY3R1cmUgZXhhbXMiCiAgICAgICAgYXJjaEdyYWRpbmdBZGFwdGVyIC0+IGFyY2hQcm9tcHRPcmNoZXN0cmF0b3IgInByb3ZpZGVzIHVuZ3JhZGVkIGFyY2hpdGVjdHVyZSBleGFtIgogICAgICAgIGFyY2hHcmFkaW5nQWRhcHRlciAtPiBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiAiV3JpdGVzIGdyYWRlZCBleGFtIHdpdGggZmVlZGJhY2siCiAgICAgICAgYXJjaFByb21wdE9yY2hlc3RyYXRvciAtPiBhcmNoR3JhZGluZ0FkYXB0ZXIgInJldHVybnMgTExNIGdyYWRpbmciCgkJYXJjaFByb21wdE9yY2hlc3RyYXRvciAtPiBhcmNoR3VhcmRyYWlscyAic2FuaXRpemUgaW5wdXQgYW5kIGZvcndhcmQgcHJvbXB0IgoJCWFyY2hHdWFyZHJhaWxzIC0+IGFyY2hQcm9tcHRPcmNoZXN0cmF0b3IgImVuZm9yY2Ugb3V0cHV0IGZvcm1hdCBhbmQgZmlsdGVyIGhhcm1mdWwgY29udGVudCIKCQlrbm93bGVkZ2VWZWN0b3JEYiAtPiBhcmNoUHJvbXB0T3JjaGVzdHJhdG9yICJpZGVudGlmeSByZWxldmFudCB0ZWNobmljYWwgYXJlYXMgZm9yIGdpdmVuIGNhc2Ugc3R1ZHkgYW5kIGV2YWx1YXRpb24gY3JpdGVyaWEiCiAgICAgICAgbGxtU3lzdGVtIC0+IGFyY2hHdWFyZHJhaWxzICJyZXR1cm5zIGdlbmVyYXRlZCBvdXRwdXQgYnkgTExNIgoJCWFyY2hHdWFyZHJhaWxzIC0+IGxsbVN5c3RlbSAiYW5hbHlzZXMgZm9yIGlucHV0IGluamVjdGlvbiBhdHRhY2tzIgogICAgICAgIGNlcnRpZmlhYmxlQXJjaE1hbnVhbEdyYWRlciAtPiBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiAicmVhZHMgQUkgR3JhZGVkIEV4YW1zIgogICAgICAgIGNlcnRpZmlhYmxlQXJjaE1hbnVhbEdyYWRlciAtPiBjZXJ0aWZpYWJsZUFyY2hHcmFkZWREYiAid3JpdGVzIG1hbnVhbGx5IHJldmlld3MgZmluYWwgR3JhZGVkIEV4YW1zIgoKCiAgICAgICAgLy8gRXhhbSBHZW5lcmF0b3IKICAgICAgICAvLyBRdWVzdGlvbiBHZW5lcmF0b3IgQ29udGFpbmVyIFJlbGF0aW9uc2hpcHMKICAgICAgICBjZXJ0aWZpYWJsZUFwdEdyYWRpbmcgLT4gYXJjaGlmeUV4YW1NYWludGVuYW5jZSAicmVhZCBleGlzdGluZyBhcHRpdHVkZSBxdWVzdGlvbnMiCiAgICAgICAgY2VydGlmaWFibGVBcmNoR3JhZGluZyAtPiBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlICJyZWFkIGV4aXN0aW5nIGNhc2Ugc3R1ZGllcyIKICAgICAgICAKICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlIC0+IGxsbVN5c3RlbSAicHJvbXB0IHRvIGdlbmVyYXRlIHF1ZXN0aW9ucyBhbmQgY2FzZSBzdHVkaWVzIgogICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UgLT4gY2VydGlmaWFibGVBcHRHcmFkaW5nICJ3cml0ZSBnZW5lcmF0ZWQgYXB0aXR1ZGUgcXVlc3Rpb25zIgogICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UgLT4gY2VydGlmaWFibGVBcmNoR3JhZGluZyAid3JpdGUgZ2VuZXJhdGVkIGNhc2Ugc3R1ZGllcyIKCiAgICAgICAgLy8gUXVlc3Rpb24gR2VuZXJhdG9yIENvbnRhaW5lciBSZWxhdGlvbnNoaXBzCiAgICAgICAgY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlIC0+IGFyY2hpZnlBcHRRdWVzdGlvblByb21wdE9yY2hlc3RyYXRvciAicmVhZCBwbGFpbiB0ZXh0IGtub3dsZWRnZSB0byBlbnJpY2ggcHJvbXB0IiAgICAgICAgCiAgICAgICAga25vd2xlZGdlVmVjdG9yRGIgLT4gYXJjaGlmeUFwdFF1ZXN0aW9uUHJvbXB0T3JjaGVzdHJhdG9yICJyZWFkIGRhdGEgdG8gY29ycmVsYXRlIGtub3dsZWRnZSB3aXRoIHF1ZXN0aW9ucyIKICAgICAgICBhcHRBbnN3ZXJzVmVjdG9yRGIgLT4gYXJjaGlmeUFwdFF1ZXN0aW9uUHJvbXB0T3JjaGVzdHJhdG9yICJyZWFkIGtub3duIGFuc3dlcnMgYW5kIHF1ZXN0aW9ucyIKICAgICAgICBhcmNoaWZ5RXhhbU1haW50ZW5hbmNlQWRhcHRlciAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25Qcm9tcHRPcmNoZXN0cmF0b3IgInJlcXVlc3QgbmV3IGV4YW0gY3JlYXRpb24gYmFzZWQgb24gc2NoZWR1bGVkIGpvYnMiCiAgICAgICAgYXJjaGlmeUFwdFF1ZXN0aW9uUHJvbXB0T3JjaGVzdHJhdG9yIC0+IGFyY2hpZnlFeGFtTWFpbnRlbmFuY2VBZGFwdGVyICJyZXR1cm4gZ2VuZXJhdGVkIGV4YW0gZXhhbSBxdWVzdGlvbnMgYW5kIGNhc2Ugc3R1ZGllcyIKICAgIAogICAgICAgIGFyY2hpZnlBcHRRdWVzdGlvblByb21wdE9yY2hlc3RyYXRvciAtPiBhcmNoaWZ5QXB0UXVlc3Rpb25HdWFyZFJhaWxzICJlbnJpY2ggcHJvbXB0IHdpdGggdGVjaG5pY2FsIGNvbnRleHQgYW5kIGluc3RydWN0aW9ucyB0byBnZW5lcmF0ZSBleGFtIHF1ZXN0aW9ucyBhbmQgY2FzZSBzdHVkaWVzLiIKICAgICAgICBhcmNoaWZ5QXB0UXVlc3Rpb25HdWFyZFJhaWxzIC0+IGFyY2hpZnlBcHRRdWVzdGlvblByb21wdE9yY2hlc3RyYXRvciAicmV0dXJuIGdlbmVyYXRlZCBleGFtIGV4YW0gcXVlc3Rpb25zIGFuZCBjYXNlIHN0dWRpZXMiCiAgICAgICAgYXJjaGlmeUFwdFF1ZXN0aW9uR3VhcmRSYWlscyAtPiBsbG1TeXN0ZW0gInByb21wdCBMTE0iCiAgICAgICAgbGxtU3lzdGVtIC0+IGFyY2hpZnlBcHRRdWVzdGlvbkd1YXJkUmFpbHMgImZpbHRlciBvdXRwdXQgZm9yIGhhcm1mdWwgY29udGVudCBhbmQgZW5mb3JjZSBuZWVkZWQgb3V0cHV0IGRhdGEgc3RydWN0dXJlIgogICAgICAgIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2VBZGFwdGVyIC0+IGNlcnRpZmlhYmxlQXB0UXVlc3Rpb25zRGIgIndyaXRlIGdlbmVyYXRlZCBleGFtIHF1ZXN0aW9ucyBhbmQgZmxhZyBvdXRkYXRlZCBxdWVzdGlvbnMiCiAgICAgICAgYXJjaGlmeUV4YW1NYWludGVuYW5jZUFkYXB0ZXIgLT4gY2VydGlmaWFibGVDYXNlU3R1ZHlEYiAid3JpdGUgZ2VuZXJhdGVkIGNhc2Ugc3R1ZGllcyIKICAgICAgICBjZXJ0aWZpYWJsZUNhc2VTdHVkeURiIC0+IGFyY2hpZnlBcmNoQ2FzZVN0dWR5R2VuZXJhdG9yICJyZWFkIGV4aXN0aW5nIGNhc2Ugc3R1ZGllcyIKICAgICAgICAKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBjZXJ0aWZpYWJsZVN5c3RlbSB7CiAgICAgICAgICAgIGluY2x1ZGUgKiBlbmdpbmVlciBsbG1TeXN0ZW0KICAgICAgICAgICAgdGl0bGUgIltTeXN0ZW0gQ29udGV4dF0gQ2VydGlmaWFibGUgSW5jLiIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkludGVncmF0aW9uIGJldHdlZW4gdGhlIGV4aXN0aW5nIENlcnRpZmlhYmxlIFN5c3RlbSBhbmQgbmV3IEFSQ0hJRlkgQUkgU3lzdGVtIgogICAgICAgIH0KICAgICAgICBjb250YWluZXIgYXJjaGlmeVN5c3RlbSAiQ29udGFpbmVyLUFwdGl0dWRlLUdyYWRpbmciIHsKICAgICAgICAgICAgaW5jbHVkZSBjZXJ0aWZpYWJsZUFwdEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBkYXRhUGlwZWxpbmVBcHRBbnN3ZXJzICAgICAgICAgICAgICAgICAgICAgYXJjaGlmeUFwdEdyYWRpbmcgbGxtU3lzdGVtCiAgICAgICAgICAgIHRpdGxlICJbQ29udGFpbmVyXSBBUkNISUZZIEFwdGl0dWRlIEV4YW1zIgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiT3ZlcnZpZXcgb2YgYXV0b21hdGVkIGFwdGl0dWRlIGV4YW0gZ3JhZGluZyIKICAgICAgICB9CiAgICAgICAgY29udGFpbmVyIGFyY2hpZnlTeXN0ZW0gIkNvbnRhaW5lci1BcmNoaXRlY3R1cmUtR3JhZGluZyIgewogICAgICAgICAgICBpbmNsdWRlIGNlcnRpZmlhYmxlQXJjaEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBkYXRhUGlwZWxpbmVLbm93bGVkZ2UgICAgICAgICAgICAgICAgICAgICBhcmNoaWZ5QXJjaEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBsbG1TeXN0ZW0gY2VydGlmaWFibGVLbm93bGVkZ2VCYXNlCiAgICAgICAgICAgIHRpdGxlICJbQ29udGFpbmVyXSBBUkNISUZZIEFyY2hpdGVjdHVyZSBFeGFtcyIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIk92ZXJ2aWV3IG9mIGF1dG9tYXRlZCBhcmNoaXRlY3R1cmUgY2FzZSBzdHVkeSBncmFkaW5nIgogICAgICAgIH0KICAgICAgICBjb250YWluZXIgYXJjaGlmeVN5c3RlbSAiQ29udGFpbmVyLUV4YW0tTWFpbnRlbmFuY2UiIHsKICAgICAgICAgICAgaW5jbHVkZSBjZXJ0aWZpYWJsZUFwdEdyYWRpbmcgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hHcmFkaW5nICAgICAgICAgICAgICAgICAgICAgZGF0YVBpcGVsaW5lS25vd2xlZGdlIGFyY2hpZnlFeGFtTWFpbnRlbmFuY2UKICAgICAgICAgICAgdGl0bGUgIltDb250YWluZXJdIEFSQ0hJRlkgRXhhbSBNYWludGVuYW5jZSIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIk92ZXJ2aWV3IG9mIGF1dG9tYXRlZCBleGFtIG1haW50ZW5hbmNlIgogICAgICAgIH0KICAgICAgICBjb21wb25lbnQgYXJjaGlmeUFwdEdyYWRpbmcgIkNvbXBvbmVudC1BcHRpdHVkZS1HcmFkaW5nIiB7CiAgICAgICAgICAgIGluY2x1ZGUgYXB0QW5zd2Vyc1VwZGF0ZXIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZWVzdFRha2VyICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRNYW51YWxDYXB0dXJlICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVBdXRvR3JhZGVyICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVVbmdyYWRlZEFwdERiICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcHRHcmFkZWREYiAgICAgICAgICAgICAgICAgICAgIGFwdGl0dWRlR3JhZGluZ0FkYXB0ZXIgICAgICAgICAgICAgICAgICAgICBhcHRpdHVkZVByb21wdE9yY2hlc3RyYXRvciAgICAgICAgICAgICAgICAgICAgIGFwdEFuc3dlcnNWZWN0b3JEYiAgICAgICAgICAgICAgICAgICAgIGFwdGl0dWRlR3VhcmRyYWlscyBsbG1TeXN0ZW0gCiAgICAgICAgICAgIHRpdGxlICJbQ29tcG9uZW50XSBBUkNISUZZIEFwdGl0dWRlIEV4YW1zIgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiRGV0YWlsbGVkIHZpZXcgb2YgY29tcG9uZW50cyBpbnRlcmFjdGluZyB0byBhY2hpZXZlIGF1dG9tYXRlZCBhcHRpdHVkZSBleGFtIGdyYWRpbmciICAgICAgICAgICAgICAgICAgICAKICAgICAgICB9CiAgICAgICAgY29tcG9uZW50IGFyY2hpZnlBcmNoR3JhZGluZyAiQ29tcG9uZW50LUFyY2hpdGVjdHVyZS1HcmFkaW5nIiB7CiAgICAgICAgICAgIGluY2x1ZGUgYXJjaEdyYWRpbmdBZGFwdGVyICAgICAgICAgICAgICAgICAgICAgYXJjaFByb21wdE9yY2hlc3RyYXRvciAgICAgICAgICAgICAgICAgICAgIGtub3dsZWRnZVZlY3RvckRiICAgICAgICAgICAgICAgICAgICAgYXJjaEd1YXJkcmFpbHMgICAgICAgICAgICAgICAgICAgICBsbG1TeXN0ZW0gICAgICAgICAgICAgICAgICAgICBjZXJ0ZmlmaWFibGVBcmNoU3VibWlzc2lvblNlcnZpY2UgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hNYW51YWxHcmFkZXIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUFyY2hVbmdyYWRlZERiICAgICAgICAgICAgICAgICAgICAgY2VydGlmaWFibGVBcmNoR3JhZGVkRGIgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUtub3dsZWRnZUFkYXB0ZXIga25vd2xlZGdlVXBkYXRlcgogICAgICAgICAgICB0aXRsZSAiW0NvbXBvbmVudF0gQVJDSElGWSBBcmNoaXRlY3R1cmUgRXhhbXMiCiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJEZXRhaWxsZWQgdmlldyBvZiBjb21wb25lbnRzIGludGVyYWN0aW5nIHRvIGFjaGlldmUgYXV0b21hdGVkIGFyY2hpdGVjdHVyZSBjYXNlIHN0dWR5IGdyYWRpbmciICAgICAKICAgICAgICB9CiAgICAgICAgY29tcG9uZW50IGFyY2hpZnlBcmNoR3JhZGluZyAiQ29tcG9uZW50LUV4YW0tTWFpbnRlbmFuY2UiIHsKICAgICAgICAgICAgaW5jbHVkZSBjZXJ0aWZpYWJsZUFwdFF1ZXN0aW9uc0RiICAgICAgICAgICAgICAgICAgICAgYXJjaGlmeUV4YW1NYWludGVuYW5jZUFkYXB0ZXIgICAgICAgICAgICAgICAgICAgICBrbm93bGVkZ2VWZWN0b3JEYiAgICAgICAgICAgICAgICAgICAgIGFwdEFuc3dlcnNWZWN0b3JEYiAgICAgICAgICAgICAgICAgICAgIGxsbVN5c3RlbSAgICAgICAgICAgICAgICAgICAgIGFyY2hpZnlBcHRRdWVzdGlvblByb21wdE9yY2hlc3RyYXRvciAgICAgICAgICAgICAgICAgICAgIGFyY2hpZnlBcHRRdWVzdGlvbkd1YXJkUmFpbHMgICAgICAgICAgICAgICAgICAgICBjZXJ0aWZpYWJsZUNhc2VTdHVkeURiIGNlcnRpZmlhYmxlS25vd2xlZGdlQmFzZQogICAgICAgICAgICB0aXRsZSAiW0NvbXBvbmVudF0gQVJDSElGWSBFeGFtIE1haW50ZW5hbmNlIgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiRGV0YWlsbGVkIHZpZXcgb2YgY29tcG9uZW50cyBpbnRlcmFjdGluZyBmb3IgYXV0b21hdGVkIGV4YW0gbWFpbnRlbmFuY2UiICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBjb2xvciAjZmZmZmZmCiAgICAgICAgICAgICAgICBmb250U2l6ZSAyMgogICAgICAgICAgICAgICAgc2hhcGUgUGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ2FuZGlkYXRlIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNhOTQwNjQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJFeHBlcnQiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2U3MDA0YwogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIk1MIEVuZ2luZWVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICNlNzAwNGMKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzAwNjVhMQogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIHNoYXBlIEN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQXB0aXR1ZGUgUSZBIFZlY3RvciBEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODViYmYwCiAgICAgICAgICAgICAgICBzaGFwZSBDeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbXBvbmVudCIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODViYmYwCiAgICAgICAgICAgICAgICBjb2xvciAjMDAwMDAwCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29udGFpbmVyIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0MzhkZDUKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICB9CiAgICAKfQ=="
   },
   "views" : {
     "componentViews" : [ {
       "containerId" : "21",
-      "description" : "Container diagram for the existing components interacting with the ARCHIFY extensions",
+      "description" : "Detailled view of components interacting to achieve automated aptitude exam grading",
       "dimensions" : {
         "height" : 3811,
         "width" : 1719
@@ -1367,17 +1332,23 @@
       "relationships" : [ {
         "id" : "100",
         "vertices" : [ {
+          "x" : 597,
+          "y" : 3021
+        } ]
+      }, {
+        "id" : "101",
+        "vertices" : [ {
           "x" : 947,
           "y" : 2721
         } ]
       }, {
-        "id" : "105",
+        "id" : "106",
         "vertices" : [ {
           "x" : 893,
           "y" : 3415
         } ]
       }, {
-        "id" : "106",
+        "id" : "107",
         "vertices" : [ {
           "x" : 888,
           "y" : 3140
@@ -1398,37 +1369,32 @@
       }, {
         "id" : "62"
       }, {
-        "id" : "86"
+        "id" : "87"
       }, {
-        "id" : "91",
+        "id" : "92",
         "vertices" : [ {
           "x" : 297,
           "y" : 2421
         } ]
       }, {
-        "id" : "92"
+        "id" : "93"
       }, {
-        "id" : "97",
+        "id" : "98",
         "vertices" : [ {
           "x" : 597,
           "y" : 2421
         } ]
       }, {
-        "id" : "98",
+        "id" : "99",
         "vertices" : [ {
           "x" : 293,
           "y" : 3015
         } ]
-      }, {
-        "id" : "99",
-        "vertices" : [ {
-          "x" : 597,
-          "y" : 3021
-        } ]
-      } ]
+      } ],
+      "title" : "[Component] ARCHIFY Aptitude Exams"
     }, {
       "containerId" : "25",
-      "description" : "Component diagram for Automated Architecture Grading",
+      "description" : "Detailled view of components interacting to achieve automated architecture case study grading",
       "dimensions" : {
         "height" : 2651,
         "width" : 2790
@@ -1532,29 +1498,23 @@
       }, {
         "id" : "138",
         "vertices" : [ {
-          "x" : 925,
-          "y" : 1866
-        } ]
-      }, {
-        "id" : "145",
-        "vertices" : [ {
           "x" : 2195,
           "y" : 1012
         } ]
       }, {
-        "id" : "146",
+        "id" : "139",
         "vertices" : [ {
           "x" : 2505,
           "y" : 1042
         } ]
       }, {
-        "id" : "147",
+        "id" : "140",
         "vertices" : [ {
           "x" : 1005,
           "y" : 621
         } ]
       }, {
-        "id" : "148",
+        "id" : "141",
         "vertices" : [ {
           "x" : 1260,
           "y" : 596
@@ -1564,118 +1524,113 @@
       }, {
         "id" : "63"
       }, {
-        "id" : "71"
-      } ]
+        "id" : "73"
+      } ],
+      "title" : "[Component] ARCHIFY Architecture Exams"
     }, {
       "containerId" : "25",
-      "description" : "Component diagram for Exam Maintenance",
+      "description" : "Detailled view of components interacting for automated exam maintenance",
       "dimensions" : {
-        "height" : 2146,
-        "width" : 3290
+        "height" : 1846,
+        "width" : 2990
       },
       "elements" : [ {
         "id" : "11",
-        "x" : 246,
-        "y" : 1491
+        "x" : 96,
+        "y" : 1302
       }, {
         "id" : "15",
-        "x" : 961,
-        "y" : 1506
+        "x" : 811,
+        "y" : 1317
       }, {
         "id" : "18",
-        "x" : 2625,
-        "y" : 160
+        "x" : 2305,
+        "y" : 131
       }, {
         "id" : "30",
-        "x" : 220,
-        "y" : 824
+        "x" : 70,
+        "y" : 665
       }, {
         "id" : "31",
-        "x" : 1420,
-        "y" : 824
+        "x" : 1270,
+        "y" : 665
       }, {
         "id" : "32",
-        "x" : 2620,
-        "y" : 824
+        "x" : 2470,
+        "y" : 635
       }, {
         "id" : "37",
-        "x" : 1431,
-        "y" : 186
+        "x" : 1260,
+        "y" : 61
       }, {
         "id" : "40",
-        "x" : 726,
-        "y" : 171
+        "x" : 240,
+        "y" : 71
       }, {
         "id" : "41",
-        "x" : 2636,
-        "y" : 1566
+        "x" : 2060,
+        "y" : 1286
       } ],
       "externalContainerBoundariesVisible" : false,
       "key" : "Component-Exam-Maintenance",
       "order" : 7,
       "relationships" : [ {
-        "id" : "156",
-        "vertices" : [ {
-          "x" : 2165,
-          "y" : 630
-        } ]
+        "id" : "149"
+      }, {
+        "id" : "153"
       }, {
         "id" : "159"
       }, {
-        "id" : "165",
+        "id" : "163",
         "vertices" : [ {
-          "x" : 1651,
-          "y" : 487
+          "x" : 895,
+          "y" : 935
         } ]
       }, {
-        "id" : "169",
+        "id" : "164",
         "vertices" : [ {
-          "x" : 1045,
-          "y" : 1124
+          "x" : 905,
+          "y" : 700
+        } ]
+      }, {
+        "id" : "165",
+        "vertices" : [ {
+          "x" : 2090,
+          "y" : 901
+        } ]
+      }, {
+        "id" : "166",
+        "vertices" : [ {
+          "x" : 2105,
+          "y" : 681
+        } ]
+      }, {
+        "id" : "167",
+        "vertices" : [ {
+          "x" : 2685,
+          "y" : 1240
+        } ]
+      }, {
+        "id" : "168",
+        "vertices" : [ {
+          "x" : 2415,
+          "y" : 1181
         } ]
       }, {
         "id" : "170",
         "vertices" : [ {
-          "x" : 1045,
-          "y" : 824
+          "x" : 312,
+          "y" : 1209
         } ]
       }, {
-        "id" : "171",
-        "vertices" : [ {
-          "x" : 2245,
-          "y" : 1124
-        } ]
-      }, {
-        "id" : "172",
-        "vertices" : [ {
-          "x" : 2245,
-          "y" : 824
-        } ]
-      }, {
-        "id" : "173",
-        "vertices" : [ {
-          "x" : 2976,
-          "y" : 1361
-        } ]
-      }, {
-        "id" : "174",
-        "vertices" : [ {
-          "x" : 2606,
-          "y" : 1371
-        } ]
-      }, {
-        "id" : "176",
-        "vertices" : [ {
-          "x" : 440,
-          "y" : 1415
-        } ]
-      }, {
-        "id" : "181"
-      } ]
+        "id" : "175"
+      } ],
+      "title" : "[Component] ARCHIFY Exam Maintenance"
     } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Container-Aptitude-Grading",
+      "lastSavedView" : "Container-Exam-Maintenance",
+      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
@@ -1718,73 +1673,61 @@
     "containerViews" : [ {
       "description" : "Overview of automated aptitude exam grading",
       "dimensions" : {
-        "height" : 1779,
-        "width" : 1840
+        "height" : 1311,
+        "width" : 1540
       },
       "elements" : [ {
         "id" : "5",
-        "x" : 220,
-        "y" : 1139
+        "x" : 950,
+        "y" : 50
       }, {
         "id" : "21",
-        "x" : 1154,
-        "y" : 180
+        "x" : 137,
+        "y" : 733
       }, {
         "id" : "35",
-        "x" : 1170,
-        "y" : 1139
+        "x" : 952,
+        "y" : 710
       }, {
         "id" : "41",
-        "x" : 204,
-        "y" : 180
+        "x" : 165,
+        "y" : 60
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Aptitude-Grading",
       "order" : 2,
       "relationships" : [ {
-        "id" : "57",
-        "vertices" : [ {
-          "x" : 920,
-          "y" : 1439
-        } ]
+        "id" : "57"
       }, {
-        "id" : "72",
+        "id" : "74",
         "vertices" : [ {
-          "x" : 1379,
-          "y" : 1030
-        }, {
-          "x" : 1379,
-          "y" : 680
-        } ]
-      }, {
-        "id" : "76",
-        "vertices" : [ {
-          "x" : 904,
-          "y" : 180
-        } ]
-      }, {
-        "id" : "77",
-        "vertices" : [ {
-          "x" : 904,
-          "y" : 480
+          "x" : 927,
+          "y" : 860
         } ]
       }, {
         "id" : "78",
         "vertices" : [ {
-          "x" : 706,
-          "y" : 880
+          "x" : 507,
+          "y" : 558
         } ]
       }, {
-        "id" : "81",
+        "id" : "79",
         "vertices" : [ {
-          "x" : 1015,
-          "y" : 955
+          "x" : 322,
+          "y" : 563
         } ]
       }, {
-        "id" : "85",
+        "id" : "80",
+        "position" : 45,
         "vertices" : [ {
-          "x" : 920,
-          "y" : 1139
+          "x" : 837,
+          "y" : 653
+        } ]
+      }, {
+        "id" : "83",
+        "vertices" : [ {
+          "x" : 742,
+          "y" : 493
         } ]
       } ],
       "softwareSystemId" : "20",
@@ -1792,149 +1735,117 @@
     }, {
       "description" : "Overview of automated architecture case study grading",
       "dimensions" : {
-        "height" : 2251,
-        "width" : 1875
+        "height" : 2011,
+        "width" : 1642
       },
       "elements" : [ {
         "id" : "12",
-        "x" : 224,
-        "y" : 871
+        "x" : 972,
+        "y" : 172
       }, {
         "id" : "18",
-        "x" : 219,
-        "y" : 1566
+        "x" : 972,
+        "y" : 772
       }, {
         "id" : "25",
-        "x" : 1174,
-        "y" : 871
+        "x" : 222,
+        "y" : 772
       }, {
         "id" : "38",
-        "x" : 1204,
-        "y" : 1611
+        "x" : 597,
+        "y" : 1372
       }, {
         "id" : "41",
-        "x" : 1174,
-        "y" : 151
+        "x" : 222,
+        "y" : 172
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Architecture-Grading",
       "order" : 3,
       "relationships" : [ {
-        "id" : "107",
-        "vertices" : [ {
-          "x" : 969,
-          "y" : 1861
-        } ]
-      }, {
         "id" : "108"
       }, {
         "id" : "111",
         "vertices" : [ {
-          "x" : 1524,
-          "y" : 767
+          "x" : 597,
+          "y" : 622
         } ]
       }, {
         "id" : "112",
         "vertices" : [ {
-          "x" : 1264,
-          "y" : 736
+          "x" : 297,
+          "y" : 622
         } ]
       }, {
         "id" : "113",
         "vertices" : [ {
-          "x" : 924,
-          "y" : 871
+          "x" : 915,
+          "y" : 739
         } ]
       }, {
         "id" : "116",
         "vertices" : [ {
-          "x" : 924,
-          "y" : 1171
+          "x" : 728,
+          "y" : 504
         } ]
       }, {
-        "id" : "142"
+        "id" : "67"
       }, {
-        "id" : "67",
-        "vertices" : [ {
-          "x" : 934,
-          "y" : 1631
-        } ]
+        "id" : "72"
       } ],
       "softwareSystemId" : "20",
       "title" : "[Container] ARCHIFY Architecture Exams"
     }, {
-      "description" : "Container diagram for Automated Architecture Grading",
+      "description" : "Overview of automated exam maintenance",
       "dimensions" : {
-        "height" : 2031,
-        "width" : 1718
+        "height" : 1318,
+        "width" : 1530
       },
       "elements" : [ {
         "id" : "5",
-        "x" : 266,
-        "y" : 1388
+        "x" : 119,
+        "y" : 778
       }, {
         "id" : "12",
-        "x" : 1022,
-        "y" : 1392
+        "x" : 869,
+        "y" : 778
       }, {
         "id" : "29",
-        "x" : 627,
-        "y" : 812
+        "x" : 184,
+        "y" : 71
       }, {
         "id" : "38",
-        "x" : 617,
-        "y" : 172
+        "x" : 959,
+        "y" : 76
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "Container-Exam-Maintenance",
       "order" : 4,
       "relationships" : [ {
-        "id" : "149",
+        "id" : "142"
+      }, {
+        "id" : "144",
         "vertices" : [ {
-          "x" : 412,
-          "y" : 1387
-        }, {
-          "x" : 412,
-          "y" : 972
+          "x" : 799,
+          "y" : 481
         } ]
       }, {
-        "id" : "151",
+        "id" : "146",
         "vertices" : [ {
-          "x" : 1427,
-          "y" : 1387
-        }, {
-          "x" : 1417,
-          "y" : 962
+          "x" : 184,
+          "y" : 586
         } ]
       }, {
-        "id" : "153",
+        "id" : "148",
         "vertices" : [ {
-          "x" : 627,
-          "y" : 892
-        }, {
-          "x" : 287,
-          "y" : 897
-        }, {
-          "x" : 297,
-          "y" : 1382
+          "x" : 639,
+          "y" : 581
         } ]
       }, {
-        "id" : "155",
-        "vertices" : [ {
-          "x" : 1077,
-          "y" : 1022
-        }, {
-          "x" : 1237,
-          "y" : 1022
-        } ]
-      }, {
-        "id" : "162",
-        "vertices" : [ {
-          "x" : 842,
-          "y" : 762
-        } ]
+        "id" : "156"
       } ],
-      "softwareSystemId" : "20"
+      "softwareSystemId" : "20",
+      "title" : "[Container] ARCHIFY Exam Maintenance"
     } ],
     "systemContextViews" : [ {
       "description" : "Integration between the existing Certifiable System and new ARCHIFY AI System",
@@ -2006,9 +1917,9 @@
       }, {
         "id" : "61"
       }, {
-        "id" : "75"
+        "id" : "77"
       }, {
-        "id" : "84",
+        "id" : "86",
         "vertices" : [ {
           "x" : 896,
           "y" : 1195

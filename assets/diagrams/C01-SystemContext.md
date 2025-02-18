@@ -9,7 +9,7 @@
 
 **LLM Model**: ARCHIFY AI Certification handles prompt engineering, prompt context provisioning and guardrails, hence the LLM model can be any LLM API or a self-hosted model, that fulfils the criteria discussed in [ADR-003](../adr/ADR-003-model-choice.md)
 
-![Context diagram](structurizr-1-SystemContext-001.png)
+![Context diagram](SystemContext.png)
 
 
 ## Actors

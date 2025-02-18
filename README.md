@@ -90,54 +90,43 @@ This was the new review processes can be integrated into the existing solutions 
 
 ## Architecture
 
-### System Context
+### System Context (C1)
 
 The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through [C4](https://c4model.com/) diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
 
 <div style="text-align: center">
   <a href="./assets/diagrams/C01-SystemContext.md">
-      <img src="./assets/diagrams/structurizr-1-SystemContext-001.png">
+      <img src="./assets/diagrams/SystemContext.png">
       <p>System Context Diagram, describing how ARCHIFY integrates into the existing software system.</p>
   </a>
 </div>
 
 The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/C01-SystemContext.md).
 
-### Container diagrams
+### Container diagrams (C2)
 <table>
   <tr>
     <td align="center">
       <a href="./assets/diagrams/C02-AptitudeContainer.md">
         <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
-        <p>Container diagram for the Aptitude Exam Grading module.</p>
+        <p>Aptitude Exam Automated Grading (C2)</p>
       </a>
     </td>
     <td align="center">
       <a href="./assets/diagrams/C02-ArchitectureContainer.md">
-        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
-        <p>Container diagram for the Architecture Exam Grading module.</p>
+        <img src="./assets/diagrams/Container-Architecture-Grading.png">
+        <p>Architecture Case Study Grading (C2)</p>
       </a>
     </td>
     <td align="center">
       <a href="./assets/diagrams/C02-MaintenanceContainer.md">
-        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
-        <p>Container diagram for the Exam Maintenance Grading module.</p>
+        <img src="./assets/diagrams/Container-Exam-Maintenance.png">
+        <p>Exam & Question Generation (C2)</p>
       </a>
     </td>
   </tr>
 </table>
 
-### Aptitude Exam Automated Grading (C2)
-
-A more detailed description of this diagram can be found [here](/assets/diagrams/C02-AptitudeContainer.md).
-
-### Architecture Case Study Grading (C2)
-
-A more detailed description of this diagram can be found [here](/assets/diagrams/C02-ArchitectureContainer.md).
-
-### Exam & Question Generation (C2)
-
-A more detailed description of this diagram can be found [here](/assets/diagrams/C02-MaintenanceContainer.md).
 
 ### Component Diagrams
 

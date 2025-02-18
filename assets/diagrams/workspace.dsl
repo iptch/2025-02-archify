@@ -23,7 +23,7 @@ workspace {
                 certifiableArchGradedDb = component "Submission Graded Database" "Graded Exams & Feedback Database, contains the graded architecture submissions and feedback from previous 120k exams." "" "Database"
             }
 
-            certifiableKnowledgeBase = container "Certifiable Knowledge Base" {
+            certifiableKnowledgeBase = container "Certifiable, Inc. Architecture Knowledge Catalog" {
                 certifiableKnowledgeAdapter = component "Knowledge Adapter"
             }
 		}
@@ -51,7 +51,7 @@ workspace {
             }
 		}
 
-		dataPipelineSystem = softwareSystem "ARCHIFY \n Data Pipeline" {
+		dataPipelineSystem = softwareSystem "ARCHIFY Data Pipeline" {
 
             dataPipelineAptAnswers = container "Aptitude Q&A Data Pipeline" {
                 aptAnswersUpdater = component "Aptitude Data Updater" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
@@ -84,7 +84,8 @@ workspace {
 		// Data Pipeline
 		certifiableAptGradedDb -> aptAnswersUpdater "provides new Q&A solution tuples via high watermark (timestamp column)"
 		aptAnswersUpdater -> aptAnswersVectorDb "embedds the new Q&A tuples into vector space and writes them to Aptitude Q&A Vector Database"
-        certifiableKnowledgeAdapter -> knowledgeUpdater "reads information from knowledge base"
+        certifiableKnowledgeAdapter -> knowledgeUpdater "obtains relevant context from document database"
+        certifiableArchGrading -> certifiableKnowledgeAdapter "updates catalog"
         knowledgeUpdater -> knowledgeVectorDb "embedds knowledge base into vector space and writes them to Knowledge Vector Database"
 
         // Aptitude Grading
@@ -108,12 +109,11 @@ workspace {
 
         // Architecture Grading
         // Architecture Container Relationships
-        certifiableKnowledgeBase -> dataPipelineKnowledge "Pre-Process technical knowhow database for querying"
-        dataPipelineKnowledge -> archifyArchGrading "Identify relevant technical context"
-        archifyArchGrading -> llmSystem "prompt to grade exams"
-        llmSystem -> archifyArchGrading "return output with graded submission and feedback"
-        archifyArchGrading -> certifiableArchGrading "write automatically graded submission and feedback"
-        certifiableArchGrading -> archifyArchGrading "read ungraded submission for automatic grading"
+        dataPipelineKnowledge -> archifyArchGrading "provides relevant technical context for grading"
+        archifyArchGrading -> llmSystem "sends prompt"
+        llmSystem -> archifyArchGrading "returns extensive feedback and proposes grading"
+        archifyArchGrading -> certifiableArchGrading "write feedback and AI grade proposal"
+        certifiableArchGrading -> archifyArchGrading "read ungraded submissions"
 
         // Architecture Grading Component Relationships
         certifiableArchUngradedDb -> archGradingAdapter "reads ungraded architecture exams"
@@ -123,7 +123,6 @@ workspace {
 		archPromptOrchestrator -> archGuardrails "sanitize input and forward prompt"
 		archGuardrails -> archPromptOrchestrator "enforce output format and filter harmful content"
 		knowledgeVectorDb -> archPromptOrchestrator "identify relevant technical areas for given case study and evaluation criteria"
-		certifiableKnowledgeAdapter -> archPromptOrchestrator "read technical knowledge (plain text= to enrich prompt with technical context"
         llmSystem -> archGuardrails "returns generated output by LLM"
 		archGuardrails -> llmSystem "analyses for input injection attacks"
         certifiableArchManualGrader -> certifiableArchGradedDb "reads AI Graded Exams"
