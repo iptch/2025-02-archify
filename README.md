@@ -27,12 +27,15 @@ During the katas we created a concept that will help certifiable to scale in a c
 
 We identified the following key objectives:
 
-* Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
+1. Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
     * Our main contributions for this objective are:
-* Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
+2. Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
     * Our main contributions for this objective are:
-* Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
+3. Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
     * Our main contributions for this objective are:
+        * Human-in-the-loop approach: [ADR-013](assets/adr/ADR-013-prompt-template.md)[ADR-002](assets/adr/ADR-002-human-in-the-loop.md)
+        * Providing problem-specific context and instructions to the LLM: [ADR-004](assets/adr/ADR-004-provide-context-for-llm.md)[ADR-011](assets/adr/ADR-011-data-aggregation-for-rag.md)[ADR-012](assets/adr/ADR-012-knowhow-base.md)
+        * Use input and output guardrails to add an additional layer of security: [ADR-007](assets/adr/ADR-007-structured-output.md)[ADR-005](assets/adr/ADR-005-aptitude-test-input-guradrails.md)
 
 ## Solution Summary
 

@@ -7,9 +7,9 @@
 Proposed
 
 ## Context:
-In [ADR004](/assets/adr/ADR-004-provide-context-for-llm.md) and [ADR006](/assets/adr/ADR-006-architecture-test-rag.md) we decided to use RAG to augment the promts for evaluating aptitude and architectural exams. 
+In [ADR004](/assets/adr/ADR-004-provide-context-for-llm.md) and [ADR006](/assets/adr/ADR-006-architecture-test-rag.md) we decided to use RAG to augment the prompts for evaluating aptitude and architectural exams. 
 As content we will use exam submissions for the same questions / case studies from the past. 
-This data needs to be made available to the components promting the LLM.
+This data needs to be made available to the components prompting the LLM.
 We also need a way for the component to identify, which submissions to include in the context. 
 
 There are the following ways to achieve this: 
@@ -31,5 +31,5 @@ The pre-processing includes transforming the data and sotring it in a vector dat
 ## Consequences:
 
 * Added complexity in initial implementation - The data pipeline needs to implemented, which will take significant effort. 
-* Added complexity in maintenance - The data in the vector databses needs to stay up to date. This will take additional implementation effort. 
-* Better accuracy - We can better idenfity relevant context quantify confidence in the AI output. 
+* Added complexity in maintenance - The data in the vector databases needs to stay up to date. This will take additional implementation effort. 
+* Better accuracy - We can better identity relevant context quantify confidence in the AI output. 
