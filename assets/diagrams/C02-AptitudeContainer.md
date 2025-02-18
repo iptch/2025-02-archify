@@ -24,3 +24,6 @@ This vector database can be used to identify similar answers to enhancve the LLM
 ### LLM Model
 
 This container represents the actual large language model which is promted by the Archify System. (See [ADR-003](/assets/adr/ADR-003-model.md))
+
+![Container diagram](./Container-Aptitude-Grading.png)
+

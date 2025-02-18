@@ -108,7 +108,7 @@ The full Context diagram with the description of the Actors and Systems can be f
   <tr>
     <td align="center">
       <a href="./assets/diagrams/C02-AptitudeContainer.md">
-        <img src="./assets/diagrams/structurizr-1-Container-Aptitude-Grading.png">
+        <img src="./assets/diagrams/Container-Aptitude-Grading.png">
         <p>Aptitude Exam Automated Grading (C2)</p>
       </a>
     </td>

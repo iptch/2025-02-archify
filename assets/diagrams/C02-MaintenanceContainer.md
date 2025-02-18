@@ -38,3 +38,6 @@ This vector database can be used to identify areas where new questions are neede
 ### LLM Model
 
 This container represents the actual large language model which is promted by the Archify System. (See [ADR-003](/assets/adr/ADR-003-model.md))
+
+![Container diagram](./Container-Exam-Maintenance.png)
+
