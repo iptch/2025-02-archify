@@ -30,9 +30,13 @@ Our design prioritizes responsible AI integration by maintaining human oversight
 We identified the following key objectives:
 
 1. Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
-    * Our main contributions for this objective are: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md), [ADR-003](/assets/adr/ADR-003-model.md)
+    * Our main contributions for this objective are: 
+        * A deep analysis of which AI use cases can be implemented: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
+        * An interview with an expert for productive RAG systems: [Interview](workshops/01_use_cases/02_ai_interview.md)
+        * A thorough analysis for the model decision: [ADR-003](/assets/adr/ADR-003-model.md)
 2. Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
-    * Our main contributions for this objective are: [ADR-010](/assets/adr/ADR-010-system-integration.md)
+    * Our main contributions for this objective are: 
+        * An ADR on how we want to integrate the AI within the existing architecture: [ADR-010](/assets/adr/ADR-010-system-integration.md)
 3. Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
     * Our main contributions for this objective are:
         * Human-in-the-loop approach: [ADR-002](assets/adr/ADR-002-human-in-the-loop.md)
