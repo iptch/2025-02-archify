@@ -19,9 +19,11 @@ Our solution for the O'Reilly Architectural Kata (Winter 2025)
 
 ## The Kata
 
-Certifiable, Inc. leads in U.S. software certification but must evolve to expand globally. Its reliance on manual processes may hinder scalability, requiring AI integration for efficiency. A targeted redesign of SoftArchCert can help manage demand while maintaining accuracy.
+Certifiable, Inc. is an accredited leader in the provisioning of software architect certifications. The current certification process requires candidates to pass two different tests: an aptitude test and an architecture case study. The evaluation of these exams and maintenance of the exam database heavily relies on manual work by IT experts. This manual approach has become a bottleneck as the demand for certified architects continues to grow. To address this challenge, Certifiable, Inc. needs to modernize its software architecture by incorporating AI approaches, allowing them to scale their certification process while maintaining high quality standards.
 
-During the katas we created a concept that will help certifiable to scale in a controled way. we were able to identify three use cases that act as a bottleneck when it comes to scaling and focused on these three cases. While we recognize the potential of AI and most precisely, LLMs, we are very aware of the potential risks of using these technologies for automated tasks in the IT sector. Our architecture leverages the potential of AI and aims to mitigate the risks and threads that this technology brings with it.
+We present ARCHIFY, an innovative software component that seamlessly integrates with the existing software system of Certifiable, Inc. without requiring modifications of other components. ARCHIFY speeds up the certification evaluation process by leveraging a comprehensive existing database of 120,000 previously graded certifications. By enriching a Large Language Model (LLM) with this "historical" data, ARCHIFY generates both automated grading suggestions and detailed candidate feedback.
+
+Our design prioritizes responsible AI integration by maintaining human oversight throughout the evaluation process. Rather than surrendering decision-making of the grading entirely to AI, ARCHIFY integrates IT experts as "human in the loop", ensuring accuracy and accountability in the certification assessment. This balanced approach addresses system bottlenecks, currently hindering scaling, while preserving the critical role of human expertise in the evaluation.
 
 ### Key Objectives
 
