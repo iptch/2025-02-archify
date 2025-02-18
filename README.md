@@ -86,7 +86,9 @@ This was the new review processes can be integrated into the existing solutions 
 
 ## Architecture
 
-The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through C4 diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
+### System Context
+
+The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through [C4](https://c4model.com/) diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
 
 <div style="text-align: center">
   <a href="./assets/diagrams/README.md">
@@ -94,19 +96,28 @@ The software extension "ARCHIFY" integrates into the existing Certifiable Inc. s
   </a>
 </div>
 
-### Aptitude Exam Automated Grading
 
-<div style="text-align: center">
-  <a href="./assets/diagrams/README.md">
-      <img src="" width=75% height=75%>
-  </a>
-</div>
+The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/README.md).
 
+### Aptitude Exam Automated Grading (C2)
 
-### Architecture Case Study Grading
+* TODO link Aptitude Container md
 
-### Exam & Question Generation
+### Architecture Case Study Grading (C2)
 
+* TODO link Architecture Container md
+
+### Exam & Question Generation (C2)
+
+* TODO link Maintenance Container md
+
+### Component Diagrams
+
+The component diagrams contain more detailled description of the design of the individual atuomation use cases: 
+
+* TODO link Aptitude Component md
+* TODO link Architecture Component md
+* TODO link Maintenance Component md
 
 ## Requirements
 
