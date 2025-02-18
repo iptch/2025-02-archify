@@ -13,7 +13,9 @@ The relevant factual information needs to be made available to the components pr
 
 ## Decision:
 
-* Vector database for technical knowledge – A dedicated vector database will store and structure relevant technical information, enabling efficient retrieval.
+* Vector database for technical knowledge – A dedicated vector database will store and structure relevant technical information.
+This will allow correlating knowledge entries with exam questions. 
+Based on this we can identify questions that do no longer correlate to entries in the know how base and areas where new questions are needed.
 * Dedicated non-AI knowledge management system – A new system component within Certifiable will manage the creation, validation, and maintenance of technical knowledge.
 * Data pipeline for aggregation and transformation – A processing pipeline will collect, preprocess, and structure knowledge before storing it in the vector database. 
 

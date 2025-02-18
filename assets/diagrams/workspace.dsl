@@ -52,15 +52,15 @@ workspace {
             }
 		}
 
-		dataPipelineSystem = softwareSystem "Context Data Pre-Processing" {
+		dataPipelineSystem = softwareSystem "Data Pipeline" {
 
-            dataPipelineAptAnswers = container "Aptitude Integration" {
-                aptAnswersUpdater = component "Aptitude Data Pipeline" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
+            dataPipelineAptAnswers = container "Aptitude Q&A Data Pipeline" {
+                aptAnswersUpdater = component "Aptitude Data Updater" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
                 aptAnswersVectorDb = component "Aptitude Q&A \n Vector Database" "Aptitude Q&A Vector Database with Q&A tuples" "" "Aptitude Q&A Vector Database"
             }
 
-            dataPipelineKnowledge = container "Knowledge Base" {
-                knowledgeUpdater = component "Knowledge Data Pipeline"
+            dataPipelineKnowledge = container "Knowledge Base Data Pipeline" {
+                knowledgeUpdater = component "Knowledge Data Updater"
                 knowledgeVectorDb = component "Knowledge Vector DB" "" "" "Database"
             }			
 		}
@@ -140,16 +140,17 @@ workspace {
         archifyExamMaintenance -> certifiableArchGrading "Write generated case studies"
 
         // Question Generator Container Relationships
-        knowledgeVectorDb -> archifyAptQuestionPromtOrchestrator "Read knowhow to give technical context for generated questions"
+        certifiableKnowledgeBase -> archifyAptQuestionPromtOrchestrator "Read plain text knowledge to enrich promt"        
+        knowledgeVectorDb -> archifyAptQuestionPromtOrchestrator "Read data to correlate knowledge with questions"
         aptAnswersVectorDb -> archifyAptQuestionPromtOrchestrator "Read known answers and questions"
-        certifiableKnowledgeBase -> archifyExamMaintenanceAdapter "Read latest entries to identify new areas"
-        archifyExamMaintenanceAdapter -> archifyAptQuestionPromtOrchestrator "Provide identified areas where new questions are needed"
+        archifyExamMaintenanceAdapter -> archifyAptQuestionPromtOrchestrator "Request new exam creation based on scheduled jobs"
         archifyAptQuestionPromtOrchestrator -> archifyExamMaintenanceAdapter "Return generated exam exam questions and case studies"
-        archifyAptQuestionPromtOrchestrator -> archifyAptQuestionGuardRails "Enrich promt with technical context. Identify additional ares for questions by finding which specifics have little similarity in existing answers."
+    
+        archifyAptQuestionPromtOrchestrator -> archifyAptQuestionGuardRails "Enrich promt with technical context and instructions to generate exam questions and case studies."
         archifyAptQuestionGuardRails -> archifyAptQuestionPromtOrchestrator "Return generated exam exam questions and case studies"
         archifyAptQuestionGuardRails -> llmSystem "Promt LLM"
-        llmSystem -> archifyAptQuestionGuardRails "Filter output for harmful content and enforce needed structures"
-        archifyExamMaintenanceAdapter -> certifiableAptQuestionsDb "Write generated exam questions"
+        llmSystem -> archifyAptQuestionGuardRails "Filter output for harmful content and enforce needed output data structure"
+        archifyExamMaintenanceAdapter -> certifiableAptQuestionsDb "Write generated exam questions and flag outdated questions"
         archifyExamMaintenanceAdapter -> certifiableCaseStudyDb "Write generated case studies"
         certifiableCaseStudyDb -> archifyArchCaseStudyGenerator "Read existing case studies"
         
@@ -224,7 +225,6 @@ workspace {
                     certifiableCaseStudyDb \
                     certifiableKnowledgeBase
             description "Component diagram for Exam Maintenance"
-            autoLayout lr 750 500
         }
 
 
