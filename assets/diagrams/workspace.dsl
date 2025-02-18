@@ -51,7 +51,7 @@ workspace {
             }
 		}
 
-		dataPipelineSystem = softwareSystem "Data Pipeline" {
+		dataPipelineSystem = softwareSystem "ARCHIFY \n Data Pipeline" {
 
             dataPipelineAptAnswers = container "Aptitude Q&A Data Pipeline" {
                 aptAnswersUpdater = component "Aptitude Data Updater" "Updates the Vector DB periodically with new Q&A tuples" "Data Pipeline"
@@ -160,6 +160,8 @@ workspace {
     views {
         systemContext certifiableSystem {
             include * engineer llmSystem
+            title "[System Context] Certifiable Inc."
+            description "Integration between the existing Certifiable System and new ARCHIFY AI System"
         }
         container archifySystem "Container-Aptitude-Grading" {
             include certifiableAptGrading \

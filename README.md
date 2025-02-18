@@ -94,9 +94,14 @@ The software extension "ARCHIFY" integrates into the existing Certifiable Inc. s
   </a>
 </div>
 
-### System Context
-
 ### Aptitude Exam Automated Grading
+
+<div style="text-align: center">
+  <a href="./assets/diagrams/README.md">
+      <img src="" width=75% height=75%>
+  </a>
+</div>
+
 
 ### Architecture Case Study Grading
 
