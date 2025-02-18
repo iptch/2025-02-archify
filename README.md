@@ -59,6 +59,14 @@ We propose two areas in which to levarage AI.
 
 ## Architecture
 
+The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through C4 diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
+
+<div style="text-align: center">
+  <a href="./assets/diagrams/README.md">
+      <img src="./assets/diagrams/structurizr-1-SystemContext-001.png" width=75% height=75%>
+  </a>
+</div>
+
 ### System Context
 
 ### Aptitude Exam Automated Grading
