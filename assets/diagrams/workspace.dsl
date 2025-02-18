@@ -185,7 +185,7 @@ workspace {
                     dataPipelineKnowledge \
                     archifyExamMaintenance
             description "Container diagram for Automated Architecture Grading"
-            autoLayout lr 500 750
+            
         }
         component archifyAptGrading "Component-Aptitude-Grading" {
             include aptAnswersUpdater \
@@ -200,7 +200,6 @@ workspace {
                     aptitudeGuardrails \
                     llmSystem 
             description "Container diagram for the existing components interacting with the ARCHIFY extensions"
-            autoLayout lr 500 750
         }
         component archifyArchGrading "Component-Architecture-Grading" {
             include archGradingAdapter \
