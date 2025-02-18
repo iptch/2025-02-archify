@@ -116,19 +116,22 @@ workspace {
         archifyArchGrading -> certifiableArchGrading "Write automatically graded submission and feedback"
         certifiableArchGrading -> archifyArchGrading "Read ungraded submission for automatic grading"
         certifiableArchGrading -> dataPipelineKnowledge "Knowledge"
+        
 
         // Architecture Grading Component Relationships
         certifiableArchUngradedDb -> archGradingAdapter "reads ungraded architecture exams"
         archGradingAdapter -> archPromtOrchestrator "provides ungraded architecture exam"
         archGradingAdapter -> certifiableArchGradedDb "Writes graded exam with feedback"
         archPromtOrchestrator -> archGradingAdapter "Returns LLM grading"
-		archPromtOrchestrator -> archGuardrails "Forwards prompt to be checked"
-		archGuardrails -> archPromtOrchestrator "Compares against expected output format and checks for schema compatibility"
-		knowledgeVectorDb -> archPromtOrchestrator "Enriches promt by providing most relevant technical context"
-		llmSystem -> archGuardrails "Returns generated output by LLM"
+		archPromtOrchestrator -> archGuardrails "Sanitize input and forward promt"
+		archGuardrails -> archPromtOrchestrator "Enforce output format and filter harmful content"
+		knowledgeVectorDb -> archPromtOrchestrator "Identify relevant technical areas for given case study and evaluation criteria"
+		certifiableKnowledgeAdapter -> archPromtOrchestrator "Read technical knowledge (plain text= to enrich promt with technical context"
+        llmSystem -> archGuardrails "Returns generated output by LLM"
 		archGuardrails -> llmSystem "Analyses for input injection attacks"
         certifiableArchManualGrader -> certifiableArchGradedDb "Reads AI Graded Exams"
         certifiableArchManualGrader -> certifiableArchGradedDb "Writes manually reviews final Graded Exams"
+
 
         // Exam Generator
         // Question Generator Container Relationships
@@ -212,7 +215,6 @@ workspace {
                     certifiableKnowledgeAdapter \
                     knowledgeUpdater
             description "Component diagram for Automated Architecture Grading"
-            autoLayout lr 500 750
         }
         component archifyArchGrading "Component-Exam-Maintenance" {
             include certifiableAptQuestionsDb \
