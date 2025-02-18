@@ -52,11 +52,7 @@ We propose to integrate AI within two areas of the Certifiable Inc. System:
 The manual effort in the current process is the main barrier to scalability. 
 We address this by automating large parts of the grading process for both aptitude short questions and the architectural case study. 
 
-**Aptitude exam questions** will be automatically graded by an LLM. 
-The prompt to the LLM will be enriched with known accepted answers from previous exam. 
-The graded exam questions are passed back to the existing Certifiable System where they can be manually reviewed. 
-Our System flags which questions most likely need to be reviewed by a human. 
-This is done by determining how similar a given answer is to known accepted answers. 
+**Aptitude exam questions**: The majority of the exam questions will be graded by an AI system, which we chose to be a RAG component [ADR-02](assets/adr/ADR-002-human-in-the-loop.md). We decided to use a state of the art LLM API [ADR-03](assets/adr/ADR-003-model.md), being performance, context length and cost the main decision drivers. We propose an innovative solution to decide which exams will be corrected by a human grader and which exams will be graded by ARCHIFY [ADR-08](assets/adr/ADR-008-aptitude-test-split-for-grading.md). Additionally, we provide methods to secure our system both against malicious prompt injections [ADR-05](assets/adr/ADR-005-aptitude-test-input-guradrails.md)[ADR-13](assets/adr/ADR-013-prompt-template.md) and erroneous LLM outputs [ADR-07](assets/adr/ADR-007-structured-output.md)[ADR-09](assets/adr/ADR-009-aptitude-ai-output-verification.md). Another very important factor tha we considered is how we will enrich the LLM prompt: for the aptitude exam question, we will use our database with the 120k exams that were already corrected and graded. How these will be used has been decided in [ADR-12](assets/adr/ADR-012-knowhow-base.md) and [ADR-13](assets/adr/ADR-013-prompt-template.md)
 
 **Architecture exam submission** will be automatically evaluated by an LLM. 
 The prompt to the LLM will include the set of evaluation criteria as well as technical knowledge (e.g. books) for the given case study. 

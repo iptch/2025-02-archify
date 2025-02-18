@@ -23,7 +23,7 @@ We chose to implement guardrails to ensure that our system is safe against malic
 ### Why did we take this decision?
 * Maintaining Assessment Integrity: A compromised grading engine reduces confidence in our certification process. Guardrails help ensure consistent performance.
 * Practical Feasibility: Guardrail solutions can range from regex-based filtering to more advanced LLM-based anomaly detection. We will start with a simple implementation and leave room for future improvements.
-* Risk Management: If it is known that our platform is not secure against malicious prompt injections, the impact on our companys reputation could be fatal and it would lead to a loss in market share.
+* Risk Management: If it is known that our platform is not secure against malicious prompt injections, the impact on our companies reputation could be fatal and it would lead to a loss in market share.
 
 ## Consequences:
 * Added Complexity & Costs: Implementing guardrails will require ongoing updates to detection logic and user feedback flows. This can increase development and human grading overhead.
