@@ -28,14 +28,14 @@ During the katas we created a concept that will help certifiable to scale in a c
 We identified the following key objectives:
 
 1. Effective and Innovative AI Integration - Deliver a solution that incorporates generative AI in an **innovative** and **practical** way following industry best-practices
-    * Our main contributions for this objective are:
+    * Our main contributions for this objective are: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
 2. Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
-    * Our main contributions for this objective are:
+    * Our main contributions for this objective are: [ADR-010](/assets/adr/ADR-010-system-integration.md)
 3. Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
     * Our main contributions for this objective are:
-        * Human-in-the-loop approach: [ADR-013](assets/adr/ADR-013-prompt-template.md)[ADR-002](assets/adr/ADR-002-human-in-the-loop.md)
-        * Providing problem-specific context and instructions to the LLM: [ADR-004](assets/adr/ADR-004-provide-context-for-llm.md)[ADR-011](assets/adr/ADR-011-data-aggregation-for-rag.md)[ADR-012](assets/adr/ADR-012-knowhow-base.md)
-        * Use input and output guardrails to add an additional layer of security: [ADR-007](assets/adr/ADR-007-structured-output.md)[ADR-005](assets/adr/ADR-005-aptitude-test-input-guradrails.md)
+        * Human-in-the-loop approach: [ADR-002](assets/adr/ADR-002-human-in-the-loop.md)
+        * Providing problem-specific context and instructions to the LLM: [ADR-004](assets/adr/ADR-004-provide-context-for-llm.md), [ADR-011](assets/adr/ADR-011-data-aggregation-for-rag.md), [ADR-012](assets/adr/ADR-012-knowhow-base.md)
+        * Use input and output guardrails to add an additional layer of security: [ADR-005](assets/adr/ADR-005-aptitude-test-input-guradrails.md), [ADR-007](assets/adr/ADR-007-structured-output.md)
 
 ## Solution Summary
 
