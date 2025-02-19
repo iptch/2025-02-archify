@@ -11,7 +11,7 @@ Our solution for the O'Reilly Architectural Kata (Winter 2025)
 
 ## Team
 
-(TODO) add pictures
+We are a team of three senior IT consultants, working on different mandates at [IPT](https://www.ipt.ch) in Zurich, Switzerland.
 
 - Manuel Kuchelmeister, [Linkedin](https://www.linkedin.com/in/m-kuchelmeister)
 - Joshua Villing, [Linkedin](https://www.linkedin.com/in/joshua-villing-931078130)
@@ -34,7 +34,7 @@ We identified the following key objectives:
         * A deep analysis of which AI use cases can be implemented: [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
         * An interview with an expert for productive RAG systems: [Interview](workshops/01_use_cases/02_ai_interview.md)
         * A thorough analysis for the model decision: [ADR-003](/assets/adr/ADR-003-model.md)
-2. Architectural Cohesion and Suitability - Deliver a solution integrates well with the current architecture
+2. Architectural Cohesion and Suitability - Deliver a solution that integrates well with the current architecture
     * Our main contributions for this objective are: 
         * An ADR on how we want to integrate the AI within the existing architecture: [ADR-010](/assets/adr/ADR-010-system-integration.md)
 3. Accuracy and Reliability of AI Outcomes -  We want that our solution contains mechanisms to maintain the **integrity**, **correctness** and **trustworthiness** of AI-generated results
@@ -50,19 +50,18 @@ We propose to integrate AI within two areas of the Certifiable Inc. System:
 ### Automating the grading process
 
 The manual effort in the current process is the main barrier to scalability. 
-We address this by automating large parts of the grading process for both aptitude short questions and the architectural case study. 
+We address this by automating large parts of the grading process for both aptitude short questions and the architectural case study.
 
-**Aptitude exam questions**: The majority of the exam questions will be graded by an AI system, which we chose to be a RAG component [ADR-02](assets/adr/ADR-002-human-in-the-loop.md). We decided to use a state of the art LLM API [ADR-03](assets/adr/ADR-003-model.md), being performance, context length and cost the main decision drivers. We propose an innovative solution to decide which exams will be corrected by a human grader and which exams will be graded by ARCHIFY [ADR-08](assets/adr/ADR-008-aptitude-test-split-for-grading.md). Additionally, we provide methods to secure our system both against malicious prompt injections [ADR-05](assets/adr/ADR-005-aptitude-test-input-guradrails.md)[ADR-13](assets/adr/ADR-013-prompt-template.md) and erroneous LLM outputs [ADR-07](assets/adr/ADR-007-structured-output.md)[ADR-09](assets/adr/ADR-009-aptitude-ai-output-verification.md). Another very important factor tha we considered is how we will enrich the LLM prompt: for the aptitude exam question, we will use our database with the 120k exams that were already corrected and graded. How these will be used has been decided in [ADR-12](assets/adr/ADR-012-knowhow-base.md) and [ADR-13](assets/adr/ADR-013-prompt-template.md)
+**Aptitude exam** questions will be graded by an AI system. We decided to use a state of the art LLM API, with performance, context length and cost as main decision drivers. We propose a solution that decides which exams will be additionally reviewed by a human grader. Additionally, we propose methods to secure our system both against malicious prompt injections and erroneous LLM outputs. Another important factor that we considered is how we will enrich the LLM prompt: for that, we use RAG to enrich LLM prompts with known question-answer tuples from past exams.
 
-**Architecture exam submission** will be automatically evaluated by an LLM. 
-The prompt to the LLM will include the set of evaluation criteria as well as technical knowledge (e.g. books) for the given case study. 
-The result of the automatic grading of architecture exam submissions will always be reviewed by a human. 
+**Architecture exam** will be automatically evaluated by an LLM. The prompt to the LLM will include the set of evaluation criteria as well as technical knowledge relevant to the given case study. Which knowledge is relevant is determined with the help a vector database. The result of the automatic grading will always be reviewed by a human.
+
 
 ### Automating exam creation & maintenance
 
 The second largest challenge Certifiable Inc. faces is maintenance of their exam base. 
 With our solution we propose to automate parts of the maintenance process. 
-AI will provide support for the creation and maintenance of architecture test cases, such that a human expert spends significantly less time. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
+AI will provide support for the creation and maintenance of architecture test cases, so human experts spend significantly less time on maintenance. Creating new exams is done using existing knowledge bases and previously taken exams (including case study scenarios).
 As with the automated grading process we want to keep the human in the loop. Generated questions and case studies will always be reviewed by a human before they are allowed to be used in exams.
 
 ### System Integration
@@ -70,10 +69,29 @@ As with the automated grading process we want to keep the human in the loop. Gen
 Data needed to automate these use cases will be read directly from the databases of the existing Certifiable Inc. System. 
 As there is no requirement for (near) realtime processing of data, this will be done by a polling mechanism within the new system components. 
 Any output generated by the new system components will be written directly into the existing Certifiable Inc. Systems databases. 
-This was the new review processes can be integrated into the existing solutions for grading exams. 
+This way, the new review processes can be integrated into the existing solutions for grading exams. 
 
 
-## Driving Characteristics
+## Requirements
+
+In a kick-off workshop, we identified context, made assumptions and formulated requirements that are relevant for our architecture contributions. The results of that workshop is available under [List of requirements and assumptions](./assets/requirements-and-assumptions.md). 
+
+We identified the following context, assumptions and requirements as most relevant for our contributions:
+#### Context
+- The manual grading process is quite time-intensive - 3 hours for aptitude tests and 8 hours for case studies, showing the significant human effort currently required.
+- Experts don't just grade - they're also responsible for analyzing reports and updating test questions, indicating a complex role beyond pure evaluation.
+#### Assumptions
+- "Reasoning Models" from late 2024 can perform multi-step evaluations and align with human reasoning for grading architecture solutions. This suggests a significant advancement in AI capabilities specifically relevant to architecture evaluation.
+- Exam data read from the existing Certifiable, Inc. system is available as clear-text.
+- Architectural diagrams are created in DSL, making them machine-readable and processable by LLMs.
+#### Requirements
+- Grading quality must stay consistent and accurate.
+- The one week turnaround for exam evaluations must be kept when demand increases.
+- Maintaining the exam base must stay feasible when demand increases.
+
+## Architecture
+
+### Driving Characteristic
 
 * Scalability
     * [ADR-001](/assets/adr/ADR-001-ai-use-cases.md)
@@ -84,30 +102,9 @@ This was the new review processes can be integrated into the existing solutions 
     * [ADR-002](/assets/adr/ADR-002-human-in-the-loop.md)
     * [ADR-007](/assets/adr/ADR-007-structured-output.md)
 
-## Requirements
-
-We derive context that is relevant for our architecture contributions. Using the context, we formulate assumptions and requirements, that can be found in the [List of requirements and assumptions](./assets/requirements-and-assumptions.md).
-
-In summary, we identified the following context (C), assumptions (A) and requirements (R) as most relevant and innovative:
-#### Context
-- C4: The manual grading process is quite time-intensive - 3 hours for aptitude tests and 8 hours for case studies, showing the significant human effort currently required.
-- C9: Experts don't just grade - they're also responsible for analyzing reports and updating test questions, indicating a complex role beyond pure evaluation.
-#### Assumptions
-- A2: "Reasoning Models" from late 2024 can perform multi-step evaluations and align with human reasoning for grading architecture solutions. This suggests a significant advancement in AI capabilities specifically relevant to architecture evaluation.
-- A6: Leveraging the database of old exams in two specific ways: either through extended context windows or RAG (Retrieval Augmented Generation), demonstrating a sophisticated approach to AI implementation.
-- A10: The assumption that architectural diagrams are created in Structurizr DSL, making them machine-readable and processable by LLMs, is an important technical detail that could significantly impact the feasibility of automation.
-#### Requirements
-- R2: The requirement for "high accuracy and consistency" using the database of 120k solved exams to "enrich" the grading process, i.e. planning to use historical data to maintain grading standards.
-- R5: The "human-in-the-loop" requirement focuses on having experts verify AI decisions and enrich the test database, indicating a hybrid approach rather than full automation.
-
-These points together paint a picture of a sophisticated transition plan from manual to AI-assisted certification, with careful consideration for maintaining quality while scaling up operations.
-
-## Architecture
-
 ### System Context (C1)
 
-The software extension "ARCHIFY" integrates into the existing Certifiable Inc. software system and is visualized through [C4](https://c4model.com/) diagrams. showing how the new components interact with Certifiable Inc.'s existing software system. In the following, the system context diagram is visualized, click on the diagram to see a more detailed component description.
-
+ARCHIFY integrates into the existing Certifiable Inc. software system and is visualized through [C4 diagrams](https://c4model.com/):
 <div style="text-align: center">
   <a href="./assets/diagrams/C01-SystemContext.md">
       <img src="./assets/diagrams/SystemContext.png">
@@ -115,9 +112,16 @@ The software extension "ARCHIFY" integrates into the existing Certifiable Inc. s
   </a>
 </div>
 
-The full Context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/C01-SystemContext.md).
+The full context diagram with the description of the Actors and Systems can be found [here](/assets/diagrams/C01-SystemContext.md).
 
 ### Container diagrams (C2)
+
+The container diagram describes the high-level interactions of ARCHIFY and Certifiable, Inc. containers.
+
+* [C2 Aptitude Grading](./assets/diagrams/C02-AptitudeContainer.md)
+* [C2 Architecture Case Study Grading](./assets/diagrams/C02-ArchitectureContainer.md)
+* [C2 Exam Maintenance](./assets/diagrams/C02-MaintenanceContainer.md)
+
 <table>
   <tr>
     <td align="center">
@@ -144,10 +148,40 @@ The full Context diagram with the description of the Actors and Systems can be f
 
 ### Component Diagrams
 
-The component diagrams contain more detailed description of the design of the individual automation use cases: 
+The component diagrams contain a more detailed description of the design of the individual automation use cases: 
 
-* [Aptitude Grading](/assets/diagrams/C03-AptitudeComponents.md)
-* [Architecture Case Study Grading](/assets/diagrams/C03-ArchitectureComponents.md)
-* [Exam Maintenance](/assets/diagrams/C03-MaintenanceComponents.md)
+* [C3 Aptitude Grading](/assets/diagrams/C03-AptitudeComponents.md)
+* [C3 Architecture Case Study Grading](/assets/diagrams/C03-ArchitectureComponents.md)
+* [C3 Exam Maintenance](/assets/diagrams/C03-MaintenanceComponents.md)
 
+<table>
+  <tr>
+    <td align="center">
+      <a href="./assets/diagrams/C03-AptitudeComponents.md">
+        <img src="./assets/diagrams/Component-Aptitude-Grading.png">
+        <p>Aptitude Exam Automated Grading (C3)</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="./assets/diagrams/C03-ArchitectureComponents.md">
+        <img src="./assets/diagrams/Component-Architecture-Grading.png">
+        <p>Architecture Case Study Grading (C3)</p>
+      </a>
+    </td>
+    <td align="center">
+      <a href="./assets/diagrams/C03-MaintenanceComponents.md">
+        <img src="./assets/diagrams/Component-Exam-Maintenance.png">
+        <p>Exam & Question Generation (C3)</p>
+      </a>
+    </td>
+  </tr>
+</table>
+
+## Limitations & Constraints
+Our current architecture has the following constraints:
+
+- Even when providing context through previous exams and a knowledge base, LLMs might not be mature enough to grade an architecture case study end-to-end reliably with human expert level.
+- Due to the non-deterministic nature of LLMs, exam gradings are inconsistent, even in rather trivial cases.
+- Generative Models tend to over-estimate their own grading capabilities.
+- The graded exam database and the knowledge base can contain outdated or biased information, which potentially "corrupts" the LLM grading.
 
