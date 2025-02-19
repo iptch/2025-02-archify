@@ -32,10 +32,7 @@ The actual propmting of the LLM is delegated to the Architecture Autograding Pro
 
 ### Architecture Promt Orchestrator
 
-The promt orchestrator uses the Knowledge Vector Database to identify technical knowledge that is relevant for grading a given case study. 
-It then constructs a promt to grade a complete case study using a template [ADR-013](/assets/adr/ADR-013-prompt-template.md). 
-The promt includes the complete case study submission, the associated evaluation criteria and relevant technical context.
-The constructed prompt is is sent to the LLM via the guard rails component.
+
 
 ### Architecture Guard Rails Component
 
