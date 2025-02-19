@@ -27,7 +27,7 @@ The following approaches exist to enhance an existing LLM models generations:
 
 Integrate RAG into our LLM based grading system. This enables us to 
 1) Retrieve previous successfully answered exam questions reliable for grading the short-answer questionnaire. This is done by embedding question and answer tuples from previous exams into a vector, such that semantically similar questions can be retrieved and 
-2) Retrieve relevant content in the 
+2) Retrieve relevant content in the architecture case study examination, which provides context to both the human grader and the LLM model when grading the case study.
 
 ### Why did we take this decision?
 

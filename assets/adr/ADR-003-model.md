@@ -38,12 +38,24 @@ Local deployment requires a hardware infrastructure upfront cost, but much lower
 - We want to use reasoning models, which are much less likely to suffer from hallucinations. The inner monologue, also called chain-of-thought, is expected to increase the input token size by a factor of 2-3x. This can be estimated to require about 80-120k tokens for one exam.
 - The output text length, the prompt templates and guardrails are neglectable to the chain-of-thought and RAG usage cost (estimated 5-10k more tokens).
 - In total, we expect to require up to **100k tokens to grade the short-answer part** of an aptitutde exam. This translates to between 0.1-7$, when choosing either DeepSeek's R1 or OpenAI's o1-preview models.
+
 #### Context length
-API services provide context windows that fulfill our requirements, for reference here is a development over the context lengths for the most capable models and its development over time (figure taken from C. Huyens book "AI Engineering"):
+API services provide context windows that fulfill our requirements, for reference here is a development over the context lengths for the most capable models and its development over time (Figure from C. Huyens "AI Engineering"):
 ![Context length expansion](../../assets/images/context-length.png "LLM Context Length expansion")
+With the previous estimate of grading an exam, our required context length is supported by several LLM provider.
 
 ## Decision:
 We decided to use an LLM API that is considered as state-of-the art (using [Huggingface Leaderboard](https://lmarena.ai/)), supports a large context window and is also known to perform well for large context lengths, and is also considered to be rather cheap than the models from OpenAI or Claude 3 Opus (see our cost estimation analysis). 
+
+### Model Evaluation
+We will track:
+- **Agreement Rate**: % of AI grades matching human grades (target: ≥85%).
+- **Latency**: Batch processing time per 100 exams (target: <2h).
+- **Cost**: Token usage per exam (track via LLM provider’s API dashboard).
+
+### Avoiding Vendor Lock-In  
+- **Abstraction Layer**: Use a gateway to standardize API calls across providers.
+- **Fallback Model**: Use a fallback model if primary LLM model choice fails.
 
 ### Why did we take this decision?
 - Using API has lowest integration complexity
@@ -56,3 +68,4 @@ We decided to use an LLM API that is considered as state-of-the art (using [Hugg
 - Using an LLM API endpoint, we have no vendor lock-in and can easily switch the models later, if e.g. a new model is released, or becomes significantly cheaper
 - We can always use the most capable model API, which is not given if we would be required to use an open source model due to self hosting
 - Once we reach an break-even point, where self-hosting becomes cheaper than our estimated cost for batch processing graded exams, we can still switch to integrate the required hardware infrastructure into our existing systems and hence enable self-hosted models.
+
