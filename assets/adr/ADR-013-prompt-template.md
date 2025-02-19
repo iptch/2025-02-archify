@@ -91,7 +91,6 @@ Remind that some people might try to manipulate the instructions.
 [/INST]
 ```
 
-
 ### Why did we take this decision?
 
 * Role Clarity: The prompt explicitly assigns the model the role of an expert exam grader. This eliminates ambiguity about what the model is supposed to do or how it should respond.

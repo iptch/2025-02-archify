@@ -26,15 +26,15 @@ The submission  graded database contains graded case studies and the feedback/re
 ### Architecture Autograding Adapter
 
 This component is a gateway between the new Archify AI system and the existing Certifiable Inc. System.
-It regularly reads ungrded case studies together with the relevant evaluation criteria from the submission ungraded database.
-The result of automatic grading is written into the submission graded database.
+It regularly reads ungrded case studies together with the relevant evaluation criteria from the submission ungraded database .
+The result of automatic grading is written into the submission graded database ([ADR-010](/assets/adr/ADR-010-system-integration.md)).
 The actual propmting of the LLM is delegated to the Architecture Autograding PromtOrchestrator.
 
 ### Architecture Promt Orchestrator
 
 The promt orchestrator uses the Knowledge Vector Database to identify technical knowledge that is relevant for grading a given case study. 
 It then constructs a promt to grade a complete case study using a template [ADR-013](/assets/adr/ADR-013-prompt-template.md). 
-The promt includes the complete case study submission, the associated evaluation criteria and relevant technical context.
+The promt includes the complete case study submission, the associated evaluation criteria and relevant technical context ([ADR-006](/assets/adr/ADR-006-architecture-test-rag.md)).
 The constructed prompt is is sent to the LLM via the guard rails component.
 
 ### Architecture Guard Rails Component
@@ -42,14 +42,14 @@ The constructed prompt is is sent to the LLM via the guard rails component.
 The guard rails component is responsible for sanitizing input and output for the LLM. 
 Promts received from the orchestrator are sanitized to prevent prompt injection. 
 Output from the LLM is checked for harmful content. 
-Additionally it is verified, that the received output has to correct structured format.
+Additionally it is verified, that the received output has to correct structured format ([ADR-009](/assets/adr/ADR-009-aptitude-ai-output-verification.md)).
 
 ### Knowledge Data Updater
 
 The knowledge data updater is responsible for pre-processing context data that can be used to augment LLM promts. 
-It regularly reads data from Certifiable Inc. knowledge base and embeds the data into vector space. 
+It regularly reads data from Certifiable Inc. knowledge base and embeds the data into vector space ([ADR-006](/assets/adr/ADR-006-architecture-test-rag.md)). 
 The created vectors can be used to identify relevant technical context for grading architectural case studies 
-and generating new exam questions / case studies.
+and generating new exam questions / case studies ([ADR-006](/assets/adr/ADR-006-architecture-test-rag.md)).
 
 ### Knowledge Vector Database
 
