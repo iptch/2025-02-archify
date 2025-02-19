@@ -84,6 +84,24 @@ This was the new review processes can be integrated into the existing solutions 
     * [ADR-002](/assets/adr/ADR-002-human-in-the-loop.md)
     * [ADR-007](/assets/adr/ADR-007-structured-output.md)
 
+## Requirements
+
+We derive context that is relevant for our architecture contributions. Using the context, we formulate assumptions and requirements, that can be found in the [List of requirements and assumptions](./assets/requirements-and-assumptions.md).
+
+In summary, we identified the following context (C), assumptions (A) and requirements (R) as most relevant and innovative:
+#### Context
+- C4: The manual grading process is quite time-intensive - 3 hours for aptitude tests and 8 hours for case studies, showing the significant human effort currently required.
+- C9: Experts don't just grade - they're also responsible for analyzing reports and updating test questions, indicating a complex role beyond pure evaluation.
+#### Assumptions
+- A2: "Reasoning Models" from late 2024 can perform multi-step evaluations and align with human reasoning for grading architecture solutions. This suggests a significant advancement in AI capabilities specifically relevant to architecture evaluation.
+- A6: Leveraging the database of old exams in two specific ways: either through extended context windows or RAG (Retrieval Augmented Generation), demonstrating a sophisticated approach to AI implementation.
+- A10: The assumption that architectural diagrams are created in Structurizr DSL, making them machine-readable and processable by LLMs, is an important technical detail that could significantly impact the feasibility of automation.
+#### Requirements
+- R2: The requirement for "high accuracy and consistency" using the database of 120k solved exams to "enrich" the grading process, i.e. planning to use historical data to maintain grading standards.
+- R5: The "human-in-the-loop" requirement focuses on having experts verify AI decisions and enrich the test database, indicating a hybrid approach rather than full automation.
+
+These points together paint a picture of a sophisticated transition plan from manual to AI-assisted certification, with careful consideration for maintaining quality while scaling up operations.
+
 ## Architecture
 
 ### System Context (C1)
@@ -132,13 +150,4 @@ The component diagrams contain more detailed description of the design of the in
 * [Architecture Case Study Grading](/assets/diagrams/C03-ArchitectureComponents.md)
 * [Exam Maintenance](/assets/diagrams/C03-MaintenanceComponents.md)
 
-## Requirements
 
-TODO: define choice of requirements
-
-- Ci (f.ex. [C1](/01-requirements/requirements-and-assumptions.md)) , for constraints
-- Ri (f. ex. [R1](/01-requirements/requirements-and-assumptions.md)), for functional requirements
-- Qi (f.ex. [Q1](/01-requirements/requirements-and-assumptions.md)), for non-functional requirements
-- Ai (f. ex. [A1](/01-requirements/requirements-and-assumptions.md)) , for assumptions
-
-We typically link to the file, but due to markdown limitations, the specific entry can not be referenced in the link.
