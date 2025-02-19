@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Context:
 In [ADR004](/assets/adr/ADR-004-provide-context-for-llm.md) and [ADR006](/assets/adr/ADR-006-architecture-test-rag.md) we decided to use RAG to augment the prompts for evaluating aptitude and architectural exams. 

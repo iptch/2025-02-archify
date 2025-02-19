@@ -4,7 +4,7 @@
 2025-02-17
 
 ## Status:
-Proposed
+Accepted
 
 ## Context:
 There are two crucial elements that influence the output of an LLM model: the model itself and the prompt that the model processes. Training a model is cumbersome and requires extensive knowledge and resources. Using Retrieval-Augmented Generation (RAG) enables the use of a generic model for domain-specific questions by enriching the prompt given to the LLM. Consequently, prompt engineering becomes a powerful technique when working with LLMs.

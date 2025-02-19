@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will implement a layered approach combining LLM function calling, similarity-based human review, and content moderation to ensure structured and safe AI-generated grading outputs.

@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will determine when human review is required by using vector similarity thresholds and random sampling in our automated grading system.

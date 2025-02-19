@@ -4,7 +4,7 @@
 2025-02-14
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will use RAG to provide AI-assisted preliminary grading of architecture case studies, while maintaining human expert review of the AI's suggested grades and feedback.

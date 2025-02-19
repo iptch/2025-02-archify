@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will implement a standardized JSON output format with validation guardrails for AI-generated grading results.

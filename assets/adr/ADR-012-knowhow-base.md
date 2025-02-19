@@ -4,7 +4,7 @@
 2025-02-16
 
 ## Status:
-Proposed
+Accepted
 
 ## Context:
 The grading of architectural exams and the generation of new exam questions require access to accurate technical knowledge. 

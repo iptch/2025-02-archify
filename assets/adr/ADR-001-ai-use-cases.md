@@ -4,7 +4,7 @@
 2025-02-13
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will implement AI primarily for exam grading automation and test case management, while deprioritizing other potential AI applications like cheat detection and analytics.

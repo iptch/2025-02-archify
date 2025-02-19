@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will integrate AI capabilities through dedicated gateway components that interface with existing databases, rather than directly embedding AI into current system components.

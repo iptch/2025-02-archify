@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will implement a periodically running data pipeline job to update the vector database with new (as successful evaluated) exam submissions. 

@@ -4,7 +4,7 @@
 2025-02-15
 
 ## Status:
-Proposed
+Accepted
 
 ## Decision Details
 We will implement input guardrails to protect our AI grading system from potential prompt injection attacks in exam submissions.

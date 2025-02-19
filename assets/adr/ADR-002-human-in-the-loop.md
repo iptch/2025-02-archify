@@ -4,7 +4,7 @@
 2025-02-15  
 
 ## Status:  
-Proposed  
+Accepted  
 
 ## Decision Details
 Human oversight will be maintained in the AI-assisted grading process, with full review for architecture exams and partial review for aptitude tests.
