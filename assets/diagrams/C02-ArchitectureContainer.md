@@ -22,6 +22,7 @@ This knowledge is the base for evaluating and creating case studies
 
 This container represents the new components that will automate the grading process ([ADR-001](/assets/adr/ADR-001-ai-use-cases.md)). 
 Exams that need to be graded are read from the existing certifiable system. 
+The case study submissions are sent to an LLM for grading. 
 The graded exams are then sent back to the existing certifiable system ([ADR-010](/assets/adr/ADR-010-system-integration.md)). 
 
 ### Knowledge Base Data Pipeline

@@ -40,14 +40,14 @@ The constructed prompt is is sent to the LLM via the guard rails component.
 ### Architecture Guard Rails Component
 
 The guard rails component is responsible for sanitizing input and output for the LLM. 
-Promts received from the orchestrator are sanitized to prevent prompt injection. 
+Promts received from the orchestrator are sanitized to prevent prompt injection ([ADR-005](/assets/adr/ADR-005-input-guradrails.md)). 
 Output from the LLM is checked for harmful content. 
 Additionally it is verified, that the received output has to correct structured format ([ADR-009](/assets/adr/ADR-009-aptitude-ai-output-verification.md)).
 
 ### Knowledge Data Updater
 
 The knowledge data updater is responsible for pre-processing context data that can be used to augment LLM promts. 
-It regularly reads data from Certifiable Inc. knowledge base and embeds the data into vector space ([ADR-006](/assets/adr/ADR-006-architecture-test-rag.md)). 
+It regularly reads data from Certifiable Inc. knowledge base and embeds the data into vector space ([ADR-011](/assets/adr/ADR-011-data-aggregation-for-rag.md)). 
 The created vectors can be used to identify relevant technical context for grading architectural case studies 
 and generating new exam questions / case studies ([ADR-006](/assets/adr/ADR-006-architecture-test-rag.md)).
 

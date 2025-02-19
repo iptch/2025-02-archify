@@ -47,15 +47,15 @@ The constructed prompt is then forwarded to the guard rails component.
 ### Aptitude Guard Rails Component
 
 The guard rails component is responsible for sanitizing input and output for the LLM. 
-Promts received from the orchestrator are sanitized to prevent prompt injection ([ADR-009](/assets/adr/ADR-009-aptitude-ai-output-verification.md)). 
-Output from the LLM is checked for harmful content. 
+Promts received from the orchestrator are sanitized to prevent prompt injection ([ADR-005](/assets/adr/ADR-005-input-guradrails.md)). 
+Output from the LLM is checked for harmful content  ([ADR-009](/assets/adr/ADR-009-aptitude-ai-output-verification.md)). 
 Additionally it is verified, that the received output has to correct structured format ([ADR-007](/assets/adr/ADR-007-structured-output.md)).
 
 ### Aptitude Data Updater
 
 The aptitude data updater is responsible for pre-processing context data that can be used to augment LLM promts. 
 It regularly reads Q&A data from the graded database
-and embeds the data into vector space ([ADR-011](/assets/adr/ADR-011-data-aggregation-for-rag.md). 
+and embeds the data into vector space ([ADR-011](/assets/adr/ADR-011-data-aggregation-for-rag.md)). 
 The created vectors can be used to identify similarity between given answers from new question and known answers. 
 
 ### Aptitude Q&A Vector Database
