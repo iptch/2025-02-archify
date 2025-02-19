@@ -33,13 +33,13 @@ workspace {
                 aptitudeGradingAdapter = component "Aptitude Autograding Adapter" "Aptitude Autograding Adapter, parses exams from ungraded exams database" "Aptitude Adapter"
                 aptitudePromptOrchestrator = component "Aptitude Prompt Orchestrator" "Aptitude Autograding Prompt Orchestrator" "Prompt Orchestrator"
                 
-                aptitudeGuardrails = component "Aptitude Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Aptitude Guardrails"
+                aptitudeGuardrails = component "Aptitude Guardrails Component" "Guardrails to prevent jailbreaks and increase output consistency" "Aptitude Guardrails"
             }
 
             archifyArchGrading = container "ARCHIFY Architecture Exam Grading" {
                 archGradingAdapter = component "Architecture Autograding Adapter"
                 archPromptOrchestrator = component "Architecture Prompt Orchestrator" 
-                archGuardrails = component "Architecture Guardrails Component" "Guardrails to prevet jailbreaks and increase output consistency" "Architecture Guardrails"
+                archGuardrails = component "Architecture Guardrails Component" "Guardrails to prevent jailbreaks and increase output consistency" "Architecture Guardrails"
             }
 
             archifyExamMaintenance = container "ARCHIFY Exam Maintenance" {
@@ -70,7 +70,7 @@ workspace {
 		candidate -> certifiableSystem "takes aptitude exam (multi-choice and short-answer test)"
         expert -> certifiableSystem "grades short-answer tests, provides exam feedback, updates question catalog"
 		engineer -> archifySystem "maintains and monitors LLM system components (including parameter and threshold tuning)"
-		archifySystem -> certifiableSystem "reads ungraded exam database, grades exams"
+		archifySystem -> certifiableSystem "writes to auto-graded exam database"
         archifySystem -> llmSystem "prompt LLM for grading, feedback and new test generation"
         llmSystem -> archifySystem "return LLM result"
 
