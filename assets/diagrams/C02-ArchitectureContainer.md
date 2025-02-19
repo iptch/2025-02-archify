@@ -33,5 +33,4 @@ This vector database can be used to identify the relevant technical context for 
 
 ### LLM Model
 
-This container represents the actual large language model which is promted by the Archify System. (See [ADR-003](/assets/adr/ADR-003-model.md))
-
+See [C01-SystemContext](./C01-SystemContext.md)
