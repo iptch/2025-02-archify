@@ -44,8 +44,8 @@ workspace {
 
             archifyExamMaintenance = container "ARCHIFY Exam Maintenance" {
                 archifyExamMaintenanceAdapter = component "Exam Maintenance Adapter"
-                archifyAptQuestionPromptOrchestrator = component "Aptitude Question Prompt Orchestrator"
-                archifyAptQuestionGuardRails = component "Aptitude Question Guard Rails"
+                archifyAptQuestionPromptOrchestrator = component "Exam Maintenance Prompt Orchestrator"
+                archifyAptQuestionGuardRails = component "Exam Maintenance Guard Rails"
 
                 archifyArchCaseStudyGenerator = component "Case Study Adapter"
             }
