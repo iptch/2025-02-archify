@@ -1,6 +1,6 @@
 # Automated Aptitude Grading (C2)
 
-![Automated Aptitude Container Diagram](structurizr-1-Container-Aptitude-Grading.png)
+![Automated Aptitude Container Diagram](./Container-Aptitude-Grading.png)
 
 ## Containers
 
